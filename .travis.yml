@@ -14,10 +14,10 @@ branches:
   only:
   - master
 
-script: ./gradlew assembleDebug
+script: sudo bash gradlew assembleDebug
 
 after_success:
-  - ./push-apk.sh
+  - sudo bash push-apk.sh
 
 notifications:
   email:
