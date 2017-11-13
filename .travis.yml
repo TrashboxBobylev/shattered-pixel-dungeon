@@ -14,10 +14,6 @@ branches:
   only:
   - master
 
-install:
-  - chmod +x ./gradlew
-  - chmod +x ./push-apk.sh
-
 script: ./gradlew assembleDebug
 
 after_success:
