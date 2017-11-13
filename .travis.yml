@@ -1,0 +1,29 @@
+language: android
+
+jdk: oraclejdk8
+
+android:
+  components:
+  - platform-tools
+  - tools
+  - build-tools-26.0.2
+  - android-26
+  - extra-android-m2repository
+
+branches:
+  only:
+  - master
+
+install:
+  - chmod +x ./gradlew
+  - chmod +x ./push-apk.sh
+
+script: ./gradlew assembleDebug
+
+after_success:
+  - ./push-apk.sh
+
+notifications:
+  email:
+    on_success: change
+    on_failure: always

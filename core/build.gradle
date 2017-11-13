@@ -6,8 +6,8 @@ android {
 
     buildTypes {
         debug {
-            applicationIdSuffix ".indev"
-            versionNameSuffix '-INDEV'
+            applicationIdSuffix ".debug"
+            versionNameSuffix ' Debug'
         }
         release {
             shrinkResources true
