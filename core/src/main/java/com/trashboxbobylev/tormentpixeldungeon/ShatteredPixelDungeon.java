@@ -34,7 +34,7 @@ import android.view.WindowManager;
 import com.trashboxbobylev.tormentpixeldungeon.messages.Languages;
 import com.trashboxbobylev.tormentpixeldungeon.scenes.GameScene;
 import com.trashboxbobylev.tormentpixeldungeon.scenes.PixelScene;
-import com.trashboxbobylev.tormentpixeldungeon.scenes.WelcomeScene;
+import com.trashboxbobylev.tormentpixeldungeon.scenes.TitleScene;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.RenderedText;
 import com.watabou.noosa.audio.Music;
