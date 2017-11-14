@@ -47,7 +47,7 @@ import javax.microedition.khronos.opengles.GL10;
 public class ShatteredPixelDungeon extends Game {
 	
 	public ShatteredPixelDungeon() {
-		super( WelcomeScene.class );
+		super( TitleScene.class );
 	}
 	
 	@SuppressWarnings("deprecation")
