@@ -14,17 +14,17 @@ branches:
   only:
   - master
 
-sudo: enabled
+sudo: true
 
 script: sudo bash gradlew assembleDebug
 
 after_success:
-- pwd; sudo ls -l ./core/build/outputs/apk
+- pwd; sudo ls -l ./core/build/outputs/apk/debug/
 - sudo cd ..
 - sudo git clone https://github.com/TrashboxBobylev/torment-pixel-dungeon.git --branch autobuild --single-branch tormentPD_autobuild
 - sudo cd tormentPD_autobuild
 - sudo mv ../torment-pixel-dungeon/core/build/outputs/apk/debug .
-- pwd; sudo ls -l ./autobuild
+- pwd; sudo ls -l .
 - sudo git config --global user.email "travis@travis-ci.org"
 - sudo git config --global user.name "Travis CI"
 - sudo git remote add origin-master https://${AUTH_KEY}@github.com/TrashboxBobylev/torment-pixel-dungeon > /dev/null 2>&1
