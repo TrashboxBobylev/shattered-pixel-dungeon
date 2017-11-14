@@ -16,7 +16,7 @@ branches:
 
 script: sudo bash gradlew assembleDebug
 
-after_success: ls -a; sudo ./push-apk.sh
+after_success: ls -a; sudo env sh push-apk.sh
 
 notifications:
   email:
