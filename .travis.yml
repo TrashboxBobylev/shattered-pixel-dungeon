@@ -21,12 +21,12 @@ after_success:
 - cd ..
 - git clone https://github.com/TrashboxBobylev/torment-pixel-dungeon.git --branch autobuild --single-branch tormentPD_autobuild
 - cd tormentPD_autobuild
-- mv ../torment-pixel-dungeon/core/build/outputs/apk/torment-pixel-dungeon-v0.1.0.apk ./autobuild
+- mv ../torment-pixel-dungeon/core/build/outputs/apk/debug .
 - pwd; ls -l ./autobuild
 - git config --global user.email "travis@travis-ci.org"
 - git config --global user.name "Travis CI"
 - git remote add origin-master https://${AUTH_KEY}@github.com/TrashboxBobylev/torment-pixel-dungeon > /dev/null 2>&1
-- git add ./autobuild/torment-pixel-dungeon-0.1.0.apk
+- git add .
 - git commit --message "Snapshot autobuild N.$TRAVIS_BUILD_NUMBER [ci skip]"
 - git push origin-master
 
