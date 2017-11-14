@@ -94,7 +94,6 @@ public class WelcomeScene extends PixelScene {
 			@Override
 			protected void onClick() {
 				super.onClick();
-				updateVersion(previousVersion);
 				ShatteredPixelDungeon.switchScene(TitleScene.class);
 			}
 		};
