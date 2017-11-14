@@ -41,15 +41,13 @@ import javax.microedition.khronos.opengles.GL10;
 
 public class WelcomeScene extends PixelScene {
 
-	private static int LATEST_UPDATE = ShatteredPixelDungeon.v0_6_2;
-
 	@Override
 	public void create() {
 		super.create();
 
 		final int previousVersion = ShatteredPixelDungeon.version();
 
-		if (ShatteredPixelDungeon.versionCode == previousVersion) {
+		if (true) {
 			ShatteredPixelDungeon.switchNoFade(TitleScene.class);
 			return;
 		}
@@ -127,8 +125,8 @@ public class WelcomeScene extends PixelScene {
 		String message;
 		if (previousVersion == 0) {
 			message = Messages.get(this, "welcome_msg");
-		} else if (previousVersion <= ShatteredPixelDungeon.versionCode) {
-			if (previousVersion < LATEST_UPDATE){
+		} else if (true) {
+			if (previousVersion < 2){
 				message = Messages.get(this, "update_intro");
 				message += "\n\n" + Messages.get(this, "update_msg");
 			} else {
@@ -147,32 +145,6 @@ public class WelcomeScene extends PixelScene {
 		text.setPos((w - text.width()) / 2f, title.y+(title.height() - 10) + ((textSpace - text.height()) / 2));
 		add(text);
 
-	}
-
-	private void updateVersion(int previousVersion){
-		
-		//update rankings, to update any data which may be outdated
-		if (previousVersion < LATEST_UPDATE){
-			try {
-				Rankings.INSTANCE.load();
-				Rankings.INSTANCE.save();
-			} catch (Exception e) {
-				//if we encounter a fatal error, then just clear the rankings
-				Game.instance.deleteFile( Rankings.RANKINGS_FILE );
-			}
-		}
-		
-		//remove changed badges
-		if (previousVersion <= ShatteredPixelDungeon.v0_6_0b){
-			Badges.disown(Badges.Badge.ALL_WANDS_IDENTIFIED);
-			Badges.disown(Badges.Badge.ALL_RINGS_IDENTIFIED);
-			Badges.disown(Badges.Badge.ALL_SCROLLS_IDENTIFIED);
-			Badges.disown(Badges.Badge.ALL_POTIONS_IDENTIFIED);
-			Badges.disown(Badges.Badge.ALL_ITEMS_IDENTIFIED);
-			Badges.saveGlobal();
-		}
-
-		ShatteredPixelDungeon.version(ShatteredPixelDungeon.versionCode);
 	}
 
 	private void placeTorch( float x, float y ) {

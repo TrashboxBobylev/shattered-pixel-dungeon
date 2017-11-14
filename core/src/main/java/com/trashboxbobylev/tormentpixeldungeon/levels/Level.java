@@ -305,11 +305,6 @@ public abstract class Level implements Bundlable {
 		exit		= bundle.getInt( EXIT );
 
 		locked      = bundle.getBoolean( LOCKED );
-
-		// pre-0.6.1 saves
-		if (version <= ShatteredPixelDungeon.v0_6_0b){
-			map = Terrain.convertTilesFrom0_6_0b( map );
-		}
 		
 		Collection<Bundlable> collection = bundle.getCollection( HEAPS );
 		for (Bundlable h : collection) {

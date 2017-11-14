@@ -45,11 +45,6 @@ public class GamesInProgress {
 				Bundle bundle = Dungeon.gameBundle( Dungeon.gameFile( cl ) );
 				info = new Info();
 				Dungeon.preview( info, bundle );
-				
-				//saves from before 0.4.3c are not supported
-				if (info.version < ShatteredPixelDungeon.v0_4_3c){
-					info = null;
-				}
 
 			} catch (IOException e) {
 				info = null;
