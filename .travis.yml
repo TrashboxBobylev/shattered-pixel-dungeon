@@ -19,18 +19,18 @@ sudo: enabled
 script: sudo bash gradlew assembleDebug
 
 after_success:
-- pwd; ls -l ./core/build/outputs/apk
-- cd ..
-- git clone https://github.com/TrashboxBobylev/torment-pixel-dungeon.git --branch autobuild --single-branch tormentPD_autobuild
-- cd tormentPD_autobuild
-- mv ../torment-pixel-dungeon/core/build/outputs/apk/debug .
-- pwd; ls -l ./autobuild
-- git config --global user.email "travis@travis-ci.org"
-- git config --global user.name "Travis CI"
-- git remote add origin-master https://${AUTH_KEY}@github.com/TrashboxBobylev/torment-pixel-dungeon > /dev/null 2>&1
-- git add .
-- git commit --message "Snapshot autobuild N.$TRAVIS_BUILD_NUMBER [ci skip]"
-- git push origin-master
+- pwd; sudo ls -l ./core/build/outputs/apk
+- sudo cd ..
+- sudo git clone https://github.com/TrashboxBobylev/torment-pixel-dungeon.git --branch autobuild --single-branch tormentPD_autobuild
+- sudo cd tormentPD_autobuild
+- sudo mv ../torment-pixel-dungeon/core/build/outputs/apk/debug .
+- pwd; sudo ls -l ./autobuild
+- sudo git config --global user.email "travis@travis-ci.org"
+- sudo git config --global user.name "Travis CI"
+- sudo git remote add origin-master https://${AUTH_KEY}@github.com/TrashboxBobylev/torment-pixel-dungeon > /dev/null 2>&1
+- sudo git add .
+- sudo git commit --message "Snapshot autobuild N.$TRAVIS_BUILD_NUMBER [ci skip]"
+- sudo git push origin-master
 
 
 notifications:
