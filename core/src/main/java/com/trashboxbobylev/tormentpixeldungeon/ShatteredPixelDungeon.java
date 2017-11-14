@@ -46,85 +46,8 @@ import javax.microedition.khronos.opengles.GL10;
 
 public class ShatteredPixelDungeon extends Game {
 	
-	//variable constants for specific older versions of shattered, used for data conversion
-	//versions older than v0.4.3c are no longer supported, and data from them is ignored
-	public static final int v0_4_3c = 148;
-	
-	public static final int v0_5_0b = 157;
-	
-	public static final int v0_6_0b = 185;
-	
-	public static final int v0_6_1  = 205;
-	
-	public static final int v0_6_2  = 222;
-	
 	public ShatteredPixelDungeon() {
 		super( WelcomeScene.class );
-		
-		//v0.6.0
-		com.watabou.utils.Bundle.addAlias(
-				com.trashboxbobylev.tormentpixeldungeon.levels.rooms.special.MassGraveRoom.Bones.class,
-				"com.trashboxbobylev.tormentpixeldungeon.levels.painters.MassGravePainter$Bones" );
-		com.watabou.utils.Bundle.addAlias(
-				com.trashboxbobylev.tormentpixeldungeon.levels.rooms.standard.RitualSiteRoom.RitualMarker.class,
-				"com.trashboxbobylev.tormentpixeldungeon.levels.painters.RitualSitePainter$RitualMarker" );
-		com.watabou.utils.Bundle.addAlias(
-				com.trashboxbobylev.tormentpixeldungeon.levels.rooms.special.WeakFloorRoom.HiddenWell.class,
-				"com.trashboxbobylev.tormentpixeldungeon.levels.painters.WeakFloorPainter$HiddenWell" );
-		com.watabou.utils.Bundle.addAlias(
-				com.trashboxbobylev.tormentpixeldungeon.levels.rooms.Room.class,
-				"com.trashboxbobylev.tormentpixeldungeon.levels.Room" );
-		com.watabou.utils.Bundle.addAlias(
-				com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Shortsword.class,
-				"com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.NewShortsword" );
-		
-		//v0.6.0a
-		com.watabou.utils.Bundle.addAlias(
-				com.trashboxbobylev.tormentpixeldungeon.items.food.SmallRation.class,
-				"com.trashboxbobylev.tormentpixeldungeon.items.food.OverpricedRation" );
-		
-		//v0.6.2
-		com.watabou.utils.Bundle.addAlias(
-				com.trashboxbobylev.tormentpixeldungeon.levels.rooms.secret.RatKingRoom.class,
-				"com.trashboxbobylev.tormentpixeldungeon.levels.rooms.special.RatKingRoom" );
-		com.watabou.utils.Bundle.addAlias(
-				com.trashboxbobylev.tormentpixeldungeon.levels.rooms.standard.PlantsRoom.class,
-				"com.trashboxbobylev.tormentpixeldungeon.levels.rooms.standard.GardenRoom" );
-		com.watabou.utils.Bundle.addAlias(
-				com.trashboxbobylev.tormentpixeldungeon.levels.rooms.special.GardenRoom.class,
-				"com.trashboxbobylev.tormentpixeldungeon.levels.rooms.special.FoliageRoom" );
-		
-		com.watabou.utils.Bundle.addAlias(
-				com.trashboxbobylev.tormentpixeldungeon.levels.traps.WornDartTrap.class,
-				"com.trashboxbobylev.tormentpixeldungeon.levels.traps.WornTrap" );
-		com.watabou.utils.Bundle.addAlias(
-				com.trashboxbobylev.tormentpixeldungeon.levels.traps.PoisonDartTrap.class,
-				"com.trashboxbobylev.tormentpixeldungeon.levels.traps.PoisonTrap" );
-		com.watabou.utils.Bundle.addAlias(
-				com.trashboxbobylev.tormentpixeldungeon.levels.traps.ShockingTrap.class,
-				"com.trashboxbobylev.tormentpixeldungeon.levels.traps.ParalyticTrap" );
-		com.watabou.utils.Bundle.addAlias(
-				com.trashboxbobylev.tormentpixeldungeon.levels.traps.ShockingTrap.class,
-				"com.trashboxbobylev.tormentpixeldungeon.levels.traps.LightningTrap" );
-		com.watabou.utils.Bundle.addAlias(
-				com.trashboxbobylev.tormentpixeldungeon.levels.traps.GrippingTrap.class,
-				"com.trashboxbobylev.tormentpixeldungeon.levels.traps.SpearTrap" );
-		com.watabou.utils.Bundle.addAlias(
-				com.trashboxbobylev.tormentpixeldungeon.levels.traps.BurningTrap.class,
-				"com.trashboxbobylev.tormentpixeldungeon.levels.traps.FireTrap" );
-		
-		com.watabou.utils.Bundle.addAlias(
-				com.trashboxbobylev.tormentpixeldungeon.actors.buffs.BlobImmunity.class,
-				"com.trashboxbobylev.tormentpixeldungeon.actors.buffs.GasesImmunity" );
-		
-		com.watabou.utils.Bundle.exceptionReporter =
-				new com.watabou.utils.Bundle.BundleExceptionCallback() {
-					@Override
-					public void call(Throwable t) {
-						ShatteredPixelDungeon.reportException(t);
-					}
-				};
-		
 	}
 	
 	@SuppressWarnings("deprecation")
