@@ -184,6 +184,8 @@ public class InterlevelScene extends PixelScene {
 						Game.switchScene( StartScene.class );
 					}
 				} );
+
+                ShatteredPixelDungeon.reportException(error);
 				error = null;
 			} else if ((int)waitingTime == 10){
 				waitingTime = 11f;
