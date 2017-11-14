@@ -16,7 +16,20 @@ branches:
 
 script: sudo bash gradlew assembleDebug
 
-after_success: ls -a; sudo env sh push-apk.sh
+after_success:
+- pwd; ls -l ./app/build/outputs/apk
+- cd ..
+- git clone https://github.com/TrashboxBobylev/torment-pixel-dungeon.git --branch autobuild --single-branch tormentPD_autobuild
+- cd tormentPD_autobuild
+- mv ../torment-pixel-dungeon/app/build/outputs/apk/torment-pixel-dungeon-0.1.0.apk ./autobuild
+- pwd; ls -l ./autobuild
+- git config --global user.email "travis@travis-ci.org"
+- git config --global user.name "Travis CI"
+- git remote add origin-master https://${AUTH_KEY}@github.com/TrashboxBobylev/torment-pixel-dungeon > /dev/null 2>&1
+- git add ./autobuild/torment-pixel-dungeon-0.1.0.apk
+- git commit --message "Snapshot autobuild N.$TRAVIS_BUILD_NUMBER [ci skip]"
+- git push origin-master
+
 
 notifications:
   email:
