@@ -33,7 +33,7 @@ import com.trashboxbobylev.tormentpixeldungeon.items.food.Food;
 import com.trashboxbobylev.tormentpixeldungeon.items.potions.PotionOfHealing;
 import com.trashboxbobylev.tormentpixeldungeon.items.potions.PotionOfMindVision;
 import com.trashboxbobylev.tormentpixeldungeon.items.scrolls.ScrollOfMagicMapping;
-import com.trashboxbobylev.tormentpixeldungeon.items.scrolls.ScrollOfUpgrade;
+import com.trashboxbobylev.tormentpixeldungeon.items.scrolls.ScrollOfMagicalInfusion;
 import com.trashboxbobylev.tormentpixeldungeon.items.wands.WandOfMagicMissile;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Dagger;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Knuckles;
@@ -43,7 +43,7 @@ import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.NinjaSword;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.DoubleDagger;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Halberd;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.FightingKnifes;
-com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.JjanGo;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.JjanGo;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles.Boomerang;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles.Dart;
 import com.trashboxbobylev.tormentpixeldungeon.messages.Messages;
@@ -124,7 +124,7 @@ public enum HeroClass {
 		knifes.identify().collect();
         JjanGo go = new JjanGo();
 		go.identify().collect();
-        ScrollOfUpgrade scroll = new ScrollOfUpgrade(100);
+        ScrollOfMagicalInfusion scroll = new ScrollOfMagicanInfusion(100);
         scroll.collect();
 
 		if ( Badges.isUnlocked(Badges.Badge.TUTORIAL_WARRIOR) ){

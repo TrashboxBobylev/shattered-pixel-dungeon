@@ -26,7 +26,7 @@ import java.util.Locale;
 public enum Languages {
 	ENGLISH("english",      "", Status.REVIEWED, null, null),
 
-	RUSSIAN("русский",      "ru", Status.UNREVIEWED, new String[]{"ConsideredHamster", "Inevielle", "yarikonline"}, new String[]{"AttHawk46", "HerrGotlieb", "MrXantar", "Shamahan", "roman.yagodin", "un_logic"}),
+	RUSSIAN("русский",      "ru", Status.UNREVIEWED, new String[]{"ConsideredHamster", "Inevielle", "yarikonline"}, new String[]{"AttHawk46", "HerrGotlieb", "MrXantar", "Shamahan", "roman.yagodin", "un_logic"});
 
 	public enum Status{
 		//below 80% complete languages are not added.

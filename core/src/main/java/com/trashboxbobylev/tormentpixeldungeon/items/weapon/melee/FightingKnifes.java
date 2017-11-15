@@ -27,7 +27,7 @@ import com.trashboxbobylev.tormentpixeldungeon.sprites.ItemSpriteSheet;
 public class FightingKnifes extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.FIGHTING_KNIFES
+		image = ItemSpriteSheet.FIGHTING_KNIFES;
 
 		tier = 6;
 		DLY = 0.33f; //3x speed
