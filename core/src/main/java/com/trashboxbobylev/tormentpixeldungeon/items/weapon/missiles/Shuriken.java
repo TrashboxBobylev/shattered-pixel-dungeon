@@ -59,12 +59,12 @@ public class Shuriken extends MissileWeapon {
 	
 	@Override
 	public Item random() {
-		quantity = Random.Int( 5, 15 );
+		quantity = Random.Int( 15, 40 );
 		return this;
 	}
 	
 	@Override
 	public int price() {
-		return 6 * quantity;
+		return 3 * quantity;
 	}
 }

@@ -66,12 +66,12 @@ public class Javelin extends MissileWeapon {
 	
 	@Override
 	public Item random() {
-		quantity = Random.Int( 5, 15 );
+		quantity = Random.Int( 10, 35 );
 		return this;
 	}
 	
 	@Override
 	public int price() {
-		return 12 * quantity;
+		return 6 * quantity;
 	}
 }

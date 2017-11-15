@@ -123,6 +123,11 @@ import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Sword;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.WarHammer;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Whip;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.WornShortsword;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.NinjaSword;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.DoubleDagger;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Halberd;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.FightingKnifes;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.JjanGo;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles.Boomerang;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles.CurareDart;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles.Dart;
@@ -130,6 +135,7 @@ import com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles.IncendiaryD
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles.Javelin;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles.Shuriken;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles.Tamahawk;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles.CobaltScytle;
 import com.trashboxbobylev.tormentpixeldungeon.plants.BlandfruitBush;
 import com.trashboxbobylev.tormentpixeldungeon.plants.Blindweed;
 import com.trashboxbobylev.tormentpixeldungeon.plants.Dreamfoil;
@@ -299,7 +305,17 @@ public class Generator {
 					Greatshield.class,
 					Tamahawk.class
 			};
-			WEP_T5.probs = new float[]{ 6, 5, 5, 4, 4, 6 };
+			WEP_T5.probs = new float[]{ 6, 5, 4, 4, 4, 6 };
+
+			WEP_T6.classes = new Class<?>[]{
+					NinjaSword.class,
+					DoubleDagger.class,
+					Halberd.class,
+					FightingKnifes.class,
+					JjanGo.class,
+					CobaltScytle.class
+			};
+			WEP_T6.probs = new float[]{ 6, 4, 4, 4, 5, 6 };
 			
 			//see Generator.randomArmor
 			ARMOR.classes = new Class<?>[]{
@@ -365,11 +381,11 @@ public class Generator {
 	}
 
 	private static final float[][] floorSetTierProbs = new float[][] {
-			{0, 70, 20,  8,  2},
-			{0, 25, 50, 20,  5},
-			{0, 10, 40, 40, 10},
-			{0,  5, 20, 50, 25},
-			{0,  2,  8, 20, 70}
+			{0, 70, 20,  8,  2, 0},
+			{0, 25, 50, 20,  5, 2},
+			{0, 10, 40, 40, 10, 5},
+			{0,  5, 20, 50, 25, 15},
+			{0,  2,  8, 20, 70, 30}
 	};
 	
 	private static HashMap<Category,Float> categoryProbs = new LinkedHashMap<>();
@@ -450,7 +466,8 @@ public class Generator {
 			Category.WEP_T2,
 			Category.WEP_T3,
 			Category.WEP_T4,
-			Category.WEP_T5
+			Category.WEP_T5,
+            Category.WEP_T6
 	};
 
 	public static Weapon randomWeapon(){

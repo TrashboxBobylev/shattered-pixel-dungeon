@@ -26,6 +26,7 @@ import com.trashboxbobylev.tormentpixeldungeon.Badges;
 import com.trashboxbobylev.tormentpixeldungeon.Challenges;
 import com.trashboxbobylev.tormentpixeldungeon.Dungeon;
 import com.trashboxbobylev.tormentpixeldungeon.items.BrokenSeal;
+import com.trashboxbobylev.tormentpixeldungeon.items.ArmorKit;
 import com.trashboxbobylev.tormentpixeldungeon.items.armor.ClothArmor;
 import com.trashboxbobylev.tormentpixeldungeon.items.artifacts.CloakOfShadows;
 import com.trashboxbobylev.tormentpixeldungeon.items.food.Food;
@@ -38,6 +39,11 @@ import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Dagger;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Knuckles;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.MagesStaff;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.WornShortsword;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.NinjaSword;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.DoubleDagger;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Halberd;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.FightingKnifes;
+com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.JjanGo;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles.Boomerang;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles.Dart;
 import com.trashboxbobylev.tormentpixeldungeon.messages.Messages;
@@ -85,7 +91,7 @@ public enum HeroClass {
 	private static void initCommon( Hero hero ) {
 		if (!Dungeon.isChallenged(Challenges.NO_ARMOR))
 			(hero.belongings.armor = new ClothArmor()).identify();
-
+        new ArmorKit().collect();
 		if (!Dungeon.isChallenged(Challenges.NO_FOOD))
 			new Food().identify().collect();
 	}
@@ -108,6 +114,18 @@ public enum HeroClass {
 		(hero.belongings.weapon = new WornShortsword()).identify();
 		Dart darts = new Dart( 8 );
 		darts.identify().collect();
+        NinjaSword sword = new NinjaSword();
+		sword.identify().collect();
+        DoubleDagger dagger = new DoubleDagger();
+		dagger.identify().collect();
+        Halberd halberd = new Halberd();
+		halberd.identify().collect();
+        FightingKnifes knifes = new FightingKnifes();
+		knifes.identify().collect();
+        JjanGo go = new JjanGo();
+		go.identify().collect();
+        ScrollOfUpgrade scroll = new ScrollOfUpgrade(100);
+        scroll.collect();
 
 		if ( Badges.isUnlocked(Badges.Badge.TUTORIAL_WARRIOR) ){
 			if (!Dungeon.isChallenged(Challenges.NO_ARMOR))

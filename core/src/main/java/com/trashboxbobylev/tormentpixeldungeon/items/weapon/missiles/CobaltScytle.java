@@ -21,50 +21,58 @@
 
 package com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles;
 
+import com.trashboxbobylev.tormentpixeldungeon.actors.Char;
+import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Bleeding;
+import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Buff;
 import com.trashboxbobylev.tormentpixeldungeon.items.Item;
 import com.trashboxbobylev.tormentpixeldungeon.sprites.ItemSpriteSheet;
 import com.watabou.utils.Random;
 
-public class Dart extends MissileWeapon {
+public class CobaltScytle extends MissileWeapon {
 
 	{
-		image = ItemSpriteSheet.DART;
+		image = ItemSpriteSheet.COBALT_SCYTLE;
 
-		bones = false; //Finding them in bones would be semi-frequent and disappointing.
 	}
 
 	@Override
 	public int min(int lvl) {
-		return 1;
+		return 7;
 	}
 
 	@Override
 	public int max(int lvl) {
-		return 4;
+		return 35;
 	}
 
 	@Override
 	public int STRReq(int lvl) {
-		return 10;
+		return 20;
 	}
 
-	public Dart() {
+	public CobaltScytle() {
 		this( 1 );
 	}
 	
-	public Dart( int number ) {
+	public CobaltScytle( int number ) {
 		super();
 		quantity = number;
 	}
 	
 	@Override
+	public int proc( Char attacker, Char defender, int damage ) {
+		Buff.affect( defender, Bleeding.class ).set( damage );
+		return super.proc( attacker, defender, damage );
+	}
+	
+	@Override
 	public Item random() {
-		quantity = Random.Int( 10, 35 );
+		quantity = Random.Int( 3, 12);
 		return this;
 	}
 	
 	@Override
 	public int price() {
-		return quantity * 1;
+		return 15 * quantity;
 	}
 }

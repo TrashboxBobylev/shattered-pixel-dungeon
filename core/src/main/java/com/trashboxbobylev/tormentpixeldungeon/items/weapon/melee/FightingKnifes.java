@@ -19,52 +19,28 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles;
+package com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee;
 
-import com.trashboxbobylev.tormentpixeldungeon.items.Item;
+import com.trashboxbobylev.tormentpixeldungeon.actors.Char;
 import com.trashboxbobylev.tormentpixeldungeon.sprites.ItemSpriteSheet;
-import com.watabou.utils.Random;
 
-public class Dart extends MissileWeapon {
+public class FightingKnifes extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.DART;
+		image = ItemSpriteSheet.FIGHTING_KNIFES
 
-		bones = false; //Finding them in bones would be semi-frequent and disappointing.
-	}
-
-	@Override
-	public int min(int lvl) {
-		return 1;
+		tier = 6;
+		DLY = 0.33f; //3x speed
 	}
 
 	@Override
 	public int max(int lvl) {
-		return 4;
+		return  Math.round(2.5f*(tier+1)) +     //18 base, down from 35
+				lvl*Math.round(0.75f*(tier+1));  //+5 per level, down from +7
 	}
 
 	@Override
-	public int STRReq(int lvl) {
-		return 10;
-	}
-
-	public Dart() {
-		this( 1 );
-	}
-	
-	public Dart( int number ) {
-		super();
-		quantity = number;
-	}
-	
-	@Override
-	public Item random() {
-		quantity = Random.Int( 10, 35 );
-		return this;
-	}
-	
-	@Override
-	public int price() {
-		return quantity * 1;
+	public int defenseFactor( Char owner ) {
+		return 5;	//5 extra defence
 	}
 }

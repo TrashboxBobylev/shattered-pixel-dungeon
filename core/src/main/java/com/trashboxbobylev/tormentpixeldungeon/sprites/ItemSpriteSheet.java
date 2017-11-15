@@ -204,6 +204,22 @@ public class ItemSpriteSheet {
 		assignItemRect(GREATSHIELD, 12, 16);
 	}
 
+    private static final int WEP_TIER6          = xy(9, 9);
+    public static final int NINJA_SWORD     = WEP_TIER6+0;
+    public static final int DOUBLE_DAGGER = WEP_TIER6+1;
+    public static final int HALBERD                = WEP_TIER6+2;
+    public static final int FIGHTING_KNIFES = WEP_TIER6+3;
+    public static final int JJAN_GO                 = WEP_TIER6+4;
+
+    static{
+		assignItemRect(NINJA_SWORD,  16, 16);
+		assignItemRect(DOUBLE_DAGGER,  11, 12);
+		assignItemRect(HALBERD,      16, 16);
+		assignItemRect(FIGHTING_KNIFES,    16, 15);
+		assignItemRect(JJAN_GO, 15, 16);
+	}
+
+
 	                                                                                    //8 free slots
 
 	private static final int MISSILE_WEP    =                               xy(1, 10);  //16 slots
@@ -214,6 +230,7 @@ public class ItemSpriteSheet {
 	public static final int CURARE_DART     = MISSILE_WEP+4;
 	public static final int JAVELIN         = MISSILE_WEP+5;
 	public static final int TOMAHAWK        = MISSILE_WEP+6;
+    public static final int COBALT_SCYTLE = MISSLE_WEP+7;
 	static{
 		assignItemRect(DART,            15, 15);
 		assignItemRect(BOOMERANG,       14, 14);
@@ -222,6 +239,7 @@ public class ItemSpriteSheet {
 		assignItemRect(CURARE_DART,     15, 15);
 		assignItemRect(JAVELIN,         16, 16);
 		assignItemRect(TOMAHAWK,        13, 13);
+        assignItemRect(COBALT_SCYTLE,  16, 16);
 	}
 
 	private static final int ARMOR          =                               xy(1, 11);  //16 slots
@@ -427,7 +445,7 @@ public class ItemSpriteSheet {
 		assignItemRect(OVERPRICED,  14, 11);
 		assignItemRect(CARPACCIO,   15, 11);
 		assignItemRect(BLANDFRUIT,  9,  12);
-		assignItemRect(RATION,      16, 12);
+		assignItemRect(RATION,      16, 13);
 		assignItemRect(PASTY,       16, 11);
 		assignItemRect(PUMPKIN_PIE, 16, 12);
 		assignItemRect(CANDY_CANE,  13, 16);

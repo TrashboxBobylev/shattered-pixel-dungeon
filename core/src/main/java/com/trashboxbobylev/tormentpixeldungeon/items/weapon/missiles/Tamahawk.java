@@ -67,12 +67,12 @@ public class Tamahawk extends MissileWeapon {
 	
 	@Override
 	public Item random() {
-		quantity = Random.Int( 5, 12 );
+		quantity = Random.Int( 10, 23 );
 		return this;
 	}
 	
 	@Override
 	public int price() {
-		return 15 * quantity;
+		return 7 * quantity;
 	}
 }

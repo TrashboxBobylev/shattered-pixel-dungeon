@@ -80,12 +80,12 @@ public class IncendiaryDart extends MissileWeapon {
 	
 	@Override
 	public Item random() {
-		quantity = Random.Int( 3, 6 );
+		quantity = Random.Int( 7, 16 );
 		return this;
 	}
 	
 	@Override
 	public int price() {
-		return 5 * quantity;
+		return 2 * quantity;
 	}
 }
