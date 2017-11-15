@@ -166,6 +166,7 @@ public class Generator {
 		WEP_T3	( 0,    Weapon.class),
 		WEP_T4	( 0,    Weapon.class),
 		WEP_T5	( 0,    Weapon.class),
+        WEP_T6  ( 0,    Weapon.class),
 		ARMOR	( 4,    Armor.class ),
 		POTION	( 20,   Potion.class ),
 		SCROLL	( 20,   Scroll.class ),

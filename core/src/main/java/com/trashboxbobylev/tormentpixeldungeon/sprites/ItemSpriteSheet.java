@@ -230,7 +230,7 @@ public class ItemSpriteSheet {
 	public static final int CURARE_DART     = MISSILE_WEP+4;
 	public static final int JAVELIN         = MISSILE_WEP+5;
 	public static final int TOMAHAWK        = MISSILE_WEP+6;
-    public static final int COBALT_SCYTLE = MISSLE_WEP+7;
+    public static final int COBALT_SCYTLE = MISSILE_WEP+7;
 	static{
 		assignItemRect(DART,            15, 15);
 		assignItemRect(BOOMERANG,       14, 14);

@@ -34,6 +34,7 @@ import com.trashboxbobylev.tormentpixeldungeon.items.potions.PotionOfHealing;
 import com.trashboxbobylev.tormentpixeldungeon.items.potions.PotionOfMindVision;
 import com.trashboxbobylev.tormentpixeldungeon.items.scrolls.ScrollOfMagicMapping;
 import com.trashboxbobylev.tormentpixeldungeon.items.scrolls.ScrollOfMagicalInfusion;
+import com.trashboxbobylev.tormentpixeldungeon.items.scrolls.ScrollOfUpgrade;
 import com.trashboxbobylev.tormentpixeldungeon.items.wands.WandOfMagicMissile;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Dagger;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Knuckles;
@@ -124,7 +125,7 @@ public enum HeroClass {
 		knifes.identify().collect();
         JjanGo go = new JjanGo();
 		go.identify().collect();
-        ScrollOfMagicalInfusion scroll = new ScrollOfMagicanInfusion(100);
+        ScrollOfMagicalInfusion scroll = new ScrollOfMagicalInfusion(100);
         scroll.collect();
 
 		if ( Badges.isUnlocked(Badges.Badge.TUTORIAL_WARRIOR) ){

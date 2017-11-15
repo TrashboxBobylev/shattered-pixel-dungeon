@@ -34,7 +34,7 @@ public class JjanGo extends MeleeWeapon {
 
 	@Override
 	public int max(int lvl) {
-		return  Math.round(4.5*(tier+1)) +    //31 base, down from 35
+		return  Math.round(4.5f*(tier+1)) +    //31 base, down from 35
 				lvl*(tier+1);   //scaling unchanged
 	}
 
