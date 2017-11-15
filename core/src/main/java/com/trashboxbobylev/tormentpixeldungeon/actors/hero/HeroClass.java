@@ -125,8 +125,11 @@ public enum HeroClass {
 		knifes.identify().collect();
         JjanGo go = new JjanGo();
 		go.identify().collect();
-        ScrollOfMagicalInfusion scroll = new ScrollOfMagicalInfusion();
-        scroll.collect().quantity = 100;
+
+        for (int count = 0; i < 200; i++) {
+            ScrollOfMagicalInfusion scroll = new ScrollOfMagicalInfusion();
+            scroll.collect();
+        }
 
 		if ( Badges.isUnlocked(Badges.Badge.TUTORIAL_WARRIOR) ){
 			if (!Dungeon.isChallenged(Challenges.NO_ARMOR))
