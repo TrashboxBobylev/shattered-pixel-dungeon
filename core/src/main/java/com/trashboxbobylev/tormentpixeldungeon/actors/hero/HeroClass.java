@@ -126,7 +126,7 @@ public enum HeroClass {
         JjanGo go = new JjanGo();
 		go.identify().collect();
 
-        for (int count = 0; i < 200; i++) {
+        for (int count = 0; count < 200; count++) {
             ScrollOfMagicalInfusion scroll = new ScrollOfMagicalInfusion();
             scroll.collect();
         }
