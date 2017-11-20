@@ -58,7 +58,7 @@ public class DM300 extends Mob {
 		spriteClass = DM300Sprite.class;
 		
 		HP = HT = 200;
-		EXP = 30;
+		EXP = 60;
 		defenseSkill = 18;
 		
 		loot = new CapeOfThorns();
@@ -69,7 +69,7 @@ public class DM300 extends Mob {
 	
 	@Override
 	public int damageRoll() {
-		return Random.NormalIntRange( 20, 25 );
+		return Random.NormalIntRange( 20, 35 );
 	}
 	
 	@Override

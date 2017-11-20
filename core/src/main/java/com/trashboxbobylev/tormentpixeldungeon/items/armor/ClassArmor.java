@@ -142,6 +142,7 @@ abstract public class ClassArmor extends Armor {
 				curUser = hero;
 				Invisibility.dispel();
 				doSpecial();
+                charges = 0;
 			}
 			
 		}

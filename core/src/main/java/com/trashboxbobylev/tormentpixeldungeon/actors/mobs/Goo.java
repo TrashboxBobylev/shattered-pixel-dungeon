@@ -55,7 +55,7 @@ public class Goo extends Mob {
 
 	{
 		HP = HT = 100;
-		EXP = 10;
+		EXP = 20;
 		defenseSkill = 8;
 		spriteClass = GooSprite.class;
 

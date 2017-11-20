@@ -177,7 +177,7 @@ abstract public class Weapon extends KindOfWeapon {
 
 	@Override
 	public int reachFactor(Char owner) {
-		return hasEnchant(Projecting.class) ? RCH+1 : RCH;
+		return hasEnchant(Projecting.class) ? Math.round(RCH*1f + 1f + level()/5f) : RCH;
 	}
 
 	@Override
@@ -229,22 +229,26 @@ abstract public class Weapon extends KindOfWeapon {
 	@Override
 	public Item random() {
 		float roll = Random.Float();
-		if (roll < 0.3f){
-			//30% chance to be level 0 and cursed
+		if (roll < 0.25f){
+			//25% chance to be level 0 and cursed
 			enchant(Enchantment.randomCurse());
 			cursed = true;
 			return this;
-		} else if (roll < 0.75f){
+		} else if (roll < 0.6f){
 			//45% chance to be level 0
-		} else if (roll < 0.95f){
+		} else if (roll < 0.8f){
 			//15% chance to be +1
 			upgrade(1);
-		} else {
+		} else if (roll < 0.75f){
 			//5% chance to be +2
 			upgrade(2);
-		}
+		} else if (roll < 0.8f){
+            upgrade(3);
+        } else if (roll < 0.95f){
+            upgrade(4);
+        }
 
-		//if not cursed, 10% chance to be enchanted (7% overall)
+		//if not cursed, 10% chance to be enchanted (7.5% overall)
 		if (Random.Int(10) == 0)
 			enchant();
 

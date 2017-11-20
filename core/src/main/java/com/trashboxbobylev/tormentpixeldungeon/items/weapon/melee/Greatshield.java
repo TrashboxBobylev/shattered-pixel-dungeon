@@ -22,12 +22,19 @@
 package com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee;
 
 import com.trashboxbobylev.tormentpixeldungeon.actors.Char;
+import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Guard;
 import com.trashboxbobylev.tormentpixeldungeon.sprites.ItemSpriteSheet;
+import com.trashboxbobylev.tormentpixeldungeon.sprites.CharSprite;
+import com.watabou.utils.Random;
 
 public class Greatshield extends MeleeWeapon {
 
+    private final static String AC_GUARD = "GUARD";
+
 	{
 		image = ItemSpriteSheet.GREATSHIELD;
+
+        defaultAction = AC_GUARD;
 
 		tier = 5;
 	}
@@ -36,6 +43,25 @@ public class Greatshield extends MeleeWeapon {
 	public int max(int lvl) {
 		return  Math.round(2.5f*(tier+1)) +     //15 base, down from 30
 				lvl*(tier-2);                   //+3 per level, down from +6
+	}
+
+    @Override
+	public ArrayList<String> actions(Hero hero) {
+		ArrayList<String> actions = super.actions( hero );
+		actions.add(AC_GUARD);
+		return actions;
+	}
+
+    @Override
+	public void execute( Hero hero, String action ) {
+
+		super.execute( hero, action );
+
+		if (action.equals(AC_GUARD)) {
+            hero.sprite.showStatus(CharSprite.DEFAULT, Messages.get(Hero.class, "guard"));
+            Buff.affect(hero, Guard.class).level(Random.IntRange(0, defenseFactor(hero)));
+            hero.spendAndNext(isEquipped(hero) ? 1f : 3f);
+		}
 	}
 
 	@Override

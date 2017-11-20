@@ -35,16 +35,16 @@ public class Impulse extends Weapon.Enchantment {
 	
 	@Override
 	public int proc( Weapon weapon, Char attacker, Char defender, int damage ) {
-		// lvl 0 - 20%
-		// lvl 1 - 33%
-		// lvl 2 - 43%
+		// lvl 0 - 16%
+		// lvl 1 - 24%
+		// lvl 2 - 33%
 		int level = Math.max( 0, weapon.level() );
 		
-		if (Random.Int( level + 5 ) >= 4) {
+		if (Random.Int( level + 6 ) >= 4) {
 			
-			int oppositeHero = attacker.pos + (attacker.pos - defender.pos);
-			Ballistica trajectory = new Ballistica(attacker.pos, oppositeHero, Ballistica.MAGIC_BOLT);
-			WandOfBlastWave.throwChar(attacker, trajectory, 2);
+			int oppositeHero = defender.pos + (defender.pos - attacker.pos);
+			Ballistica trajectory = new Ballistica(defender.pos, oppositeHero, Ballistica.MAGIC_BOLT);
+			WandOfBlastWave.throwChar(defender, trajectory, 2);
 
 		}
 

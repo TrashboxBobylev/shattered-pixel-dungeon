@@ -64,9 +64,6 @@ public class WarriorArmor extends ClassArmor {
 				if (Actor.findChar( cell ) != null && cell != curUser.pos)
 					cell = route.path.get(route.dist-1);
 
-
-				curUser.HP -= (curUser.HP / 3);
-
 				final int dest = cell;
 				curUser.busy();
 				curUser.sprite.jump(curUser.pos, cell, new Callback() {

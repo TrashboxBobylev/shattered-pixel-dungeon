@@ -30,6 +30,7 @@ import com.trashboxbobylev.tormentpixeldungeon.effects.Speck;
 import com.trashboxbobylev.tormentpixeldungeon.items.Generator;
 import com.trashboxbobylev.tormentpixeldungeon.items.Item;
 import com.trashboxbobylev.tormentpixeldungeon.items.food.Blandfruit;
+import com.trashboxbobylev.tormentpixeldungeon.items.potions.Potion;
 import com.trashboxbobylev.tormentpixeldungeon.items.potions.PotionOfHealing;
 import com.trashboxbobylev.tormentpixeldungeon.levels.Terrain;
 import com.trashboxbobylev.tormentpixeldungeon.messages.Messages;
@@ -213,7 +214,10 @@ public class WndAlchemy extends Window {
 			output.item(new WndBag.Placeholder(ItemSpriteSheet.SOMETHING));
 			output.visible = true;
 			btnCombine.enable(true);
-			
+		} else if (filterInput(Potion.class).size() == 2 && filterInput(Plant.Seed.class).size() == 0 && filterInput(Blandfruit.class).size() == 0){
+            output.item(new WndBag.Placeholder(ItemSpriteSheet.POTION_HOLDER));
+			output.visible = true;
+			btnCombine.enable(true);
 		} else {
 			btnCombine.enable(false);
 			output.visible = false;
@@ -223,6 +227,7 @@ public class WndAlchemy extends Window {
 	private void combine(){
 		ArrayList<Plant.Seed> seeds = filterInput(Plant.Seed.class);
 		ArrayList<Blandfruit> fruits = filterInput(Blandfruit.class);
+        ArrayList<Potion> fruits = filterInput(Potion.class);
 		
 		Item result = null;
 		
@@ -232,7 +237,6 @@ public class WndAlchemy extends Window {
 			if (Random.Int( 3 ) == 0) {
 				
 				result = Generator.random( Generator.Category.POTION );
-				
 			} else {
 				
 				Class<? extends Item> itemClass = Random.element(seeds).alchemyClass;
@@ -261,7 +265,15 @@ public class WndAlchemy extends Window {
 		} else if (fruits.size() == 1 && seeds.size() == 1) {
 			result = fruits.get(0);
 			((Blandfruit)result).cook(seeds.get(0));
-		}
+        //potion upgrade
+		} else if (potions.size() == 2 && seeds.size() == 0 && fruits.size() == 0) {
+            Potion pot1 = potions.get(0);
+            Potion pot2 = potions.get(1);
+            if (pot1.getClass() == pot2.getClass() && pot1.level == pot2.level) {
+                result = pot1.getClass().newInstance();
+                result.upgrade(pot1.level + 1);
+            }
+        }
 		
 		if (result != null){
 			bubbleEmitter.start(Speck.factory( Speck.BUBBLE ), 0.2f, 10 );

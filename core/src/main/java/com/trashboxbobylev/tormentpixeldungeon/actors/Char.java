@@ -217,8 +217,8 @@ public abstract class Char extends Actor {
 	public static boolean hit( Char attacker, Char defender, boolean magic ) {
 		float acuRoll = Random.Float( attacker.attackSkill( defender ) );
 		float defRoll = Random.Float( defender.defenseSkill( attacker ) );
-		if (attacker.buff(Bless.class) != null) acuRoll *= 1.20f;
-		if (defender.buff(Bless.class) != null) defRoll *= 1.20f;
+		if (attacker.buff(Bless.class) != null) acuRoll *= 2f;
+		if (defender.buff(Bless.class) != null) defRoll *= 2f;
 		return (magic ? acuRoll * 2 : acuRoll) >= defRoll;
 	}
 	

@@ -86,8 +86,8 @@ public class Mimic extends Mob {
 	public void adjustStats( int level ) {
 		this.level = level;
 		
-		HP = HT = (1 + level) * 6;
-		EXP = 2 + 2 * (level - 1) / 5;
+		HP = HT = (1 + level) * 8;
+		EXP = 1 + level;
 		defenseSkill = attackSkill( null ) / 2;
 		
 		enemySeen = true;

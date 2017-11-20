@@ -35,7 +35,7 @@ public class FightingKnifes extends MeleeWeapon {
 
 	@Override
 	public int max(int lvl) {
-		return  Math.round(2.5f*(tier+1)) +     //18 base, down from 35
+		return  Math.round(1.75f*(tier+1)) +     //12 base, down from 35
 				lvl*Math.round(0.75f*(tier+1));  //+5 per level, down from +7
 	}
 

@@ -49,11 +49,12 @@ public class DoubleDagger extends MeleeWeapon {
 			if (enemy instanceof Mob && ((Mob) enemy).surprisedBy(hero)) {
 				//deals 2x damage on surprise attack
 				int damage = imbue.damageFactor(Random.NormalIntRange(
-						min()*2,
-						max()*2));
+						min(),
+						max()));
+                damage *= 2;
 				int exStr = hero.STR() - STRReq();
 				if (exStr > 0) {
-					damage += Random.IntRange(0, exStr);
+					damage += (Random.IntRange(0, exStr))*2;
 				}
 				return damage;
 			}

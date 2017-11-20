@@ -38,6 +38,7 @@ import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Combo;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Drowsy;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.FlavourBuff;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Fury;
+import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Guard;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Hunger;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Invisibility;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.MindVision;
@@ -328,6 +329,11 @@ public class Hero extends Char {
 		if (momentum != null){
 			bonus += momentum.evasionBonus(Math.max(0, -aEnc));
 		}
+
+        Guard guard = buff(Guard.class);
+        if (guard != null){
+            bonus += guard.level;
+        }
 
 		return Math.round((defenseSkill + bonus) * evasion);
 	}
@@ -962,6 +968,10 @@ public class Hero extends Char {
 			Buff.detach(this, Drowsy.class);
 			GLog.w( Messages.get(this, "pain_resist") );
 		}
+
+        if (this.buff(Guard.class) != null){
+            Buff.detach(this, Guard.class);
+        }
 
 		CapeOfThorns.Thorns thorns = buff( CapeOfThorns.Thorns.class );
 		if (thorns != null) {

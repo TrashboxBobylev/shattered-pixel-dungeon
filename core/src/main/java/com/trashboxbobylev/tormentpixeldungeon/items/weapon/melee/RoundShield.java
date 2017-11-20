@@ -22,12 +22,20 @@
 package com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee;
 
 import com.trashboxbobylev.tormentpixeldungeon.actors.Char;
+import com.trashboxbobylev.tormentpixeldungeon.actors.hero.Hero;
+import com.trashboxbobylev.tormentpixeldungeon.sprites.CharSprite;
 import com.trashboxbobylev.tormentpixeldungeon.sprites.ItemSpriteSheet;
+import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Guard;
+import com.watabou.utils.Random;
 
 public class RoundShield extends MeleeWeapon {
 
+    private final static String AC_GUARD = "GUARD";
+
 	{
 		image = ItemSpriteSheet.ROUND_SHIELD;
+
+        defaultAction = AC_GUARD;
 
 		tier = 3;
 	}
@@ -36,6 +44,25 @@ public class RoundShield extends MeleeWeapon {
 	public int max(int lvl) {
 		return  3*(tier+1) +    //12 base, down from 20
 				lvl*(tier-1);   //+2 per level, down from +4
+	}
+
+   	@Override
+	public ArrayList<String> actions(Hero hero) {
+		ArrayList<String> actions = super.actions( hero );
+		actions.add(AC_GUARD);
+		return actions;
+	}
+
+    @Override
+	public void execute( Hero hero, String action ) {
+
+		super.execute( hero, action );
+
+		if (action.equals(AC_GUARD)) {
+            hero.sprite.showStatus(CharSprite.DEFAULT, Messages.get(Hero.class, "guard"));
+            Buff.affect(hero, Guard.class).level(Random.IntRange(0, isEquipped() ? defenseFactor(hero) : Math.round(defenseFactor(hero)/2f)));
+            hero.spendAndNext(1f);
+		}
 	}
 
 	@Override

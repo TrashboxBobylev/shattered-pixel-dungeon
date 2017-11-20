@@ -28,7 +28,7 @@ public class NinjaSword extends MeleeWeapon {
 	{
 		image = ItemSpriteSheet.NINJA_SWORD;
 
-		tier = 5;
+		tier = 6;
 	}
 
 }
