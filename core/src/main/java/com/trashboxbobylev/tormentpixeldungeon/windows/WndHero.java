@@ -119,8 +119,8 @@ public class WndHero extends WndTabbed {
 
 			pos += GAP;
 
-			statSlot( Messages.get(this, "accuracy"), hero.attackSkill());
-			statSlot( Messages.get(this, "evasion"), hero.defenseSkill());
+			statSlot( Messages.get(this, "accuracy"), hero.attackSkill(hero));
+			statSlot( Messages.get(this, "evasion"), hero.defenseSkill(hero));
 
 			pos += GAP;
 		}

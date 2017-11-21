@@ -43,6 +43,7 @@ import com.trashboxbobylev.tormentpixeldungeon.utils.GLog;
 import com.trashboxbobylev.tormentpixeldungeon.windows.WndOptions;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
+import com.watabou.utils.Random;
 
 import java.util.ArrayList;
 import java.util.HashMap;

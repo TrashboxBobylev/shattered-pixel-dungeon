@@ -76,10 +76,10 @@ public class WandOfPlasma extends DamageWand {
 
         if (!defender.isAlive()) {
         for (int i = 0; i < PathFinder.NEIGHBOURS8.length; i++) {
-			Char ch = findChar( defender.pos + PathFinder.NEIGHBOURS8[i] );
+			Char ch = Actor.findChar( defender.pos + PathFinder.NEIGHBOURS8[i] );
 			if (ch != null && ch.isAlive()) {
-				int damage = Math.max( 0,  Random.NormalIntRange(0, (level()+1)*5) - (ch.drRoll() / 2) );
-				ch.damage( damage, this );
+				int damage_expl = Math.max( 0,  Random.NormalIntRange(0, (level()+1)*5) - (ch.drRoll() / 2) );
+				ch.damage( damage_expl, this );
 				if (ch == attacker && !ch.isAlive()) {
 	                Dungeon.fail( getClass() );
 			        GLog.n( Messages.get(this, "ondeath") );
