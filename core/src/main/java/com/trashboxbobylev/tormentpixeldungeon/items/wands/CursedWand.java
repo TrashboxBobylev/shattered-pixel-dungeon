@@ -389,7 +389,8 @@ public class CursedWand {
 							do {
 								reward = Generator.random(Random.oneOf(Generator.Category.WEAPON, Generator.Category.ARMOR,
 										Generator.Category.RING, Generator.Category.WAND));
-							} while (reward.level() < 2 && !(reward instanceof MissileWeapon));
+                                 reward.upgrade(3);
+							} while (reward.level() < 4 && !(reward instanceof MissileWeapon));
 							Sample.INSTANCE.play(Assets.SND_MIMIC, 1, 1, 0.5f);
 							mimic.items.clear();
 							mimic.items.add(reward);

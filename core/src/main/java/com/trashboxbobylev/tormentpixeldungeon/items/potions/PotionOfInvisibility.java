@@ -38,7 +38,7 @@ public class PotionOfInvisibility extends Potion {
 	@Override
 	public void apply( Hero hero ) {
 		setKnown();
-		Buff.affect( hero, Invisibility.class, Invisibility.DURATION );
+		Buff.affect( hero, Invisibility.class, Math.round(Invisibility.DURATION+Invisibility.DURATION*level()*1.5f) );
 		GLog.i( Messages.get(this, "invisible") );
 		Sample.INSTANCE.play( Assets.SND_MELD );
 	}

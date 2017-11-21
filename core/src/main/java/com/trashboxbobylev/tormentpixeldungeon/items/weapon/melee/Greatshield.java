@@ -22,10 +22,15 @@
 package com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee;
 
 import com.trashboxbobylev.tormentpixeldungeon.actors.Char;
+import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Buff;
+import com.trashboxbobylev.tormentpixeldungeon.actors.hero.Hero;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Guard;
+import com.trashboxbobylev.tormentpixeldungeon.messages.Messages;
 import com.trashboxbobylev.tormentpixeldungeon.sprites.ItemSpriteSheet;
 import com.trashboxbobylev.tormentpixeldungeon.sprites.CharSprite;
 import com.watabou.utils.Random;
+
+import java.util.ArrayList;
 
 public class Greatshield extends MeleeWeapon {
 

@@ -227,7 +227,7 @@ public class WndAlchemy extends Window {
 	private void combine(){
 		ArrayList<Plant.Seed> seeds = filterInput(Plant.Seed.class);
 		ArrayList<Blandfruit> fruits = filterInput(Blandfruit.class);
-        ArrayList<Potion> fruits = filterInput(Potion.class);
+        ArrayList<Potion> potions = filterInput(Potion.class);
 		
 		Item result = null;
 		
@@ -269,9 +269,9 @@ public class WndAlchemy extends Window {
 		} else if (potions.size() == 2 && seeds.size() == 0 && fruits.size() == 0) {
             Potion pot1 = potions.get(0);
             Potion pot2 = potions.get(1);
-            if (pot1.getClass() == pot2.getClass() && pot1.level == pot2.level) {
+            if (pot1.getClass() == pot2.getClass() && pot1.level() == pot2.level()) {
                 result = pot1.getClass().newInstance();
-                result.upgrade(pot1.level + 1);
+                result.upgrade(pot1.level() + 1);
             }
         }
 		

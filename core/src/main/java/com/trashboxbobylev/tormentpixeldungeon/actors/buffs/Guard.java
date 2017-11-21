@@ -27,12 +27,12 @@ import com.trashboxbobylev.tormentpixeldungeon.messages.Messages;
 import com.trashboxbobylev.tormentpixeldungeon.ui.BuffIndicator;
 import com.watabou.utils.Bundle;
 
-public static class Guard extends Buff {
+public class Guard extends Buff {
 		
 	private static final float STEP = 1f;
 		
 	private int pos;
-	private int level;
+	public int level;
 
 	{
 		type = buffType.POSITIVE;

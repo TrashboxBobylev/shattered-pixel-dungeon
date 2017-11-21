@@ -86,6 +86,7 @@ import com.trashboxbobylev.tormentpixeldungeon.items.wands.WandOfFireblast;
 import com.trashboxbobylev.tormentpixeldungeon.items.wands.WandOfFrost;
 import com.trashboxbobylev.tormentpixeldungeon.items.wands.WandOfLightning;
 import com.trashboxbobylev.tormentpixeldungeon.items.wands.WandOfMagicMissile;
+import com.trashboxbobylev.tormentpixeldungeon.items.wands.WandOfPlasma;
 import com.trashboxbobylev.tormentpixeldungeon.items.wands.WandOfPrismaticLight;
 import com.trashboxbobylev.tormentpixeldungeon.items.wands.WandOfRegrowth;
 import com.trashboxbobylev.tormentpixeldungeon.items.wands.WandOfTransfusion;
@@ -115,6 +116,11 @@ import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Sword;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.WarHammer;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Whip;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.WornShortsword;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.NinjaSword;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.DoubleDagger;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Halberd;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.FightingKnifes;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.JjanGo;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles.Boomerang;
 import com.watabou.utils.Bundle;
 
@@ -176,7 +182,12 @@ public enum Catalog {
 		WEAPONS.seen.put( Glaive.class,                     false);
 		WEAPONS.seen.put( Greataxe.class,                   false);
 		WEAPONS.seen.put( Greatshield.class,                false);
-	
+	    WEAPONS.seen.put( NinjaSword.class,                false);
+        WEAPONS.seen.put( DoubleDagger.class,                false);
+        WEAPONS.seen.put( Halberd.class,                false);
+        WEAPONS.seen.put( FightingKnifes.class,                false);
+        WEAPONS.seen.put( JjanGo.class,                false);
+
 		ARMOR.seen.put( ClothArmor.class,                   false);
 		ARMOR.seen.put( LeatherArmor.class,                 false);
 		ARMOR.seen.put( MailArmor.class,                    false);
@@ -196,7 +207,7 @@ public enum Catalog {
 		//WANDS.seen.put( WandOfLivingEarth.class,          false);
 		WANDS.seen.put( WandOfFrost.class,                  false);
 		WANDS.seen.put( WandOfPrismaticLight.class,         false);
-		//WANDS.seen.put( WandOfWarding.class,              false);
+		WANDS.seen.put( WandOfPlasma.class,              false);
 		WANDS.seen.put( WandOfTransfusion.class,            false);
 		WANDS.seen.put( WandOfCorruption.class,             false);
 		WANDS.seen.put( WandOfRegrowth.class,               false);

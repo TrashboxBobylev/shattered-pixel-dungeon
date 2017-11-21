@@ -99,7 +99,7 @@ public class PotionOfPurity extends Potion {
 	@Override
 	public void apply( Hero hero ) {
 		GLog.w( Messages.get(this, "protected") );
-		Buff.prolong( hero, BlobImmunity.class, BlobImmunity.DURATION );
+		Buff.prolong( hero, BlobImmunity.class, Math.round(BlobImmunity.DURATION+BlobImmunity.DURATION*level()*1.5f) );
 		setKnown();
 	}
 	

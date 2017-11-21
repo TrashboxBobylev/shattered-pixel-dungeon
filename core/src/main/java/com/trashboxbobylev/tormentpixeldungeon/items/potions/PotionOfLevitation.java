@@ -49,13 +49,13 @@ public class PotionOfLevitation extends Potion {
 			Sample.INSTANCE.play( Assets.SND_SHATTER );
 		}
 
-		GameScene.add( Blob.seed( cell, 1000, ConfusionGas.class ) );
+		GameScene.add( Blob.seed( cell, Math.round(1000+ 1000*level()*1.5f), ConfusionGas.class ) );
 	}
 	
 	@Override
 	public void apply( Hero hero ) {
 		setKnown();
-		Buff.affect( hero, Levitation.class, Levitation.DURATION );
+		Buff.affect( hero, Levitation.class, Math.round(Levitation.DURATION+Levitation.DURATION*level()*1.5f) );
 		GLog.i( Messages.get(this, "float") );
 	}
 	

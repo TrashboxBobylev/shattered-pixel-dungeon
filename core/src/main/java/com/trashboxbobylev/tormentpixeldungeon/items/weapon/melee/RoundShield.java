@@ -24,9 +24,12 @@ package com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee;
 import com.trashboxbobylev.tormentpixeldungeon.actors.Char;
 import com.trashboxbobylev.tormentpixeldungeon.actors.hero.Hero;
 import com.trashboxbobylev.tormentpixeldungeon.sprites.CharSprite;
+import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Buff;
 import com.trashboxbobylev.tormentpixeldungeon.sprites.ItemSpriteSheet;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Guard;
 import com.watabou.utils.Random;
+
+import java.util.ArrayList;
 
 public class RoundShield extends MeleeWeapon {
 
@@ -60,8 +63,8 @@ public class RoundShield extends MeleeWeapon {
 
 		if (action.equals(AC_GUARD)) {
             hero.sprite.showStatus(CharSprite.DEFAULT, Messages.get(Hero.class, "guard"));
-            Buff.affect(hero, Guard.class).level(Random.IntRange(0, isEquipped() ? defenseFactor(hero) : Math.round(defenseFactor(hero)/2f)));
-            hero.spendAndNext(1f);
+            Buff.affect(hero, Guard.class).level(Random.IntRange(0, defenseFactor(hero)));
+            hero.spendAndNext(isEquipped(hero) ? 1f : 3f);
 		}
 	}
 
