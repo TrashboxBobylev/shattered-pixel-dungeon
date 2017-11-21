@@ -270,8 +270,13 @@ public class WndAlchemy extends Window {
             Potion pot1 = potions.get(0);
             Potion pot2 = potions.get(1);
             if (pot1.getClass() == pot2.getClass() && pot1.level() == pot2.level()) {
-                result = pot1.getClass().newInstance();
-                result.upgrade(pot1.level() + 1);
+                try {
+                    result = pot1.getClass().newInstance();
+                    result.upgrade(pot1.level() + 1);
+                } catch (Exception e){
+                    ShatteredPixelDungeon.reportException(e);
+                   result = Generator.random( Generator.Category.POTION );
+                }
             }
         }
 		
