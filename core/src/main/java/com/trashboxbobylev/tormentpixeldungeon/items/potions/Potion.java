@@ -183,6 +183,8 @@ public class Potion extends Item {
 			//5% chance to be +2
 			upgrade(2);
 		}
+
+        return this;
 	}
 	
 	@Override
