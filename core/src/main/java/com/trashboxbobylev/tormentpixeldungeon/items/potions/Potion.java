@@ -186,6 +186,11 @@ public class Potion extends Item {
 
         return this;
 	}
+
+    @Override
+    public int visiblyUpgraded() {
+		return level();
+	}
 	
 	@Override
 	public void doThrow( final Hero hero ) {
@@ -305,6 +310,11 @@ public class Potion extends Item {
 		return isKnown();
 	}
 	
+    @Override
+    public boolean isSimilar( Item item ) {
+		return getClass() == item.getClass() && level() != item.level();
+	}
+
 	@Override
 	public boolean isUpgradable() {
 		return false;

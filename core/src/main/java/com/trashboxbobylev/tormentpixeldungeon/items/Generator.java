@@ -93,6 +93,7 @@ import com.trashboxbobylev.tormentpixeldungeon.items.wands.WandOfFireblast;
 import com.trashboxbobylev.tormentpixeldungeon.items.wands.WandOfFrost;
 import com.trashboxbobylev.tormentpixeldungeon.items.wands.WandOfLightning;
 import com.trashboxbobylev.tormentpixeldungeon.items.wands.WandOfMagicMissile;
+import com.trashboxbobylev.tormentpixeldungeon.items.wands.WandOfPlasma;
 import com.trashboxbobylev.tormentpixeldungeon.items.wands.WandOfPrismaticLight;
 import com.trashboxbobylev.tormentpixeldungeon.items.wands.WandOfRegrowth;
 import com.trashboxbobylev.tormentpixeldungeon.items.wands.WandOfTransfusion;
@@ -246,11 +247,11 @@ public class Generator {
 					//WandOfLivingEarth.class,
 					WandOfFrost.class,
 					WandOfPrismaticLight.class,
-					//WandOfWarding.class,
+					WandOfPlasma.class,
 					WandOfTransfusion.class,
 					WandOfCorruption.class,
 					WandOfRegrowth.class };
-			WAND.probs = new float[]{ 5, 4, 4, 4, 4, 3, /*3,*/ 3, 3, /*3,*/ 3, 3, 3 };
+			WAND.probs = new float[]{ 5, 4, 4, 4, 4, 3, /*3,*/ 3, 3, 2, 3, 3, 3 };
 			
 			//see generator.randomWeapon
 			WEAPON.classes = new Class<?>[]{};

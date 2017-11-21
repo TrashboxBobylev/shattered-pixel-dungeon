@@ -35,7 +35,7 @@ import com.trashboxbobylev.tormentpixeldungeon.items.potions.PotionOfMindVision;
 import com.trashboxbobylev.tormentpixeldungeon.items.scrolls.ScrollOfMagicMapping;
 import com.trashboxbobylev.tormentpixeldungeon.items.scrolls.ScrollOfMagicalInfusion;
 import com.trashboxbobylev.tormentpixeldungeon.items.scrolls.ScrollOfUpgrade;
-import com.trashboxbobylev.tormentpixeldungeon.items.wands.WandOfMagicMissile;
+import com.trashboxbobylev.tormentpixeldungeon.items.wands.WandOfPlasma;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Dagger;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Knuckles;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.MagesStaff;
@@ -151,10 +151,10 @@ public enum HeroClass {
 		MagesStaff staff;
 
 		if ( Badges.isUnlocked(Badges.Badge.TUTORIAL_MAGE) ){
-			staff = new MagesStaff(new WandOfMagicMissile());
+			staff = new MagesStaff(new WandOfPlasma());
 		} else {
 			staff = new MagesStaff();
-			new WandOfMagicMissile().identify().collect();
+			new WandOfPlasma().identify().collect();
 		}
 
 		(hero.belongings.weapon = staff).identify();
