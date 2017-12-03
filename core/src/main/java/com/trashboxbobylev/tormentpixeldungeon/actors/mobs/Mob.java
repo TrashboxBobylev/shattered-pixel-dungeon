@@ -22,7 +22,6 @@
 package com.trashboxbobylev.tormentpixeldungeon.actors.mobs;
 
 import com.trashboxbobylev.tormentpixeldungeon.Badges;
-import com.trashboxbobylev.tormentpixeldungeon.Challenges;
 import com.trashboxbobylev.tormentpixeldungeon.Dungeon;
 import com.trashboxbobylev.tormentpixeldungeon.ShatteredPixelDungeon;
 import com.trashboxbobylev.tormentpixeldungeon.Statistics;

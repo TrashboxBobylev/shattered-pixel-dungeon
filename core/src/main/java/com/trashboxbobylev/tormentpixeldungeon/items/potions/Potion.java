@@ -294,10 +294,10 @@ public class Potion extends Item {
 		return isKnown();
 	}
 	
-    @Override
+    /*@Override
     public boolean isSimilar( Item item ) {
 		return getClass() == item.getClass() && level() != item.level();
-	}
+	}*/
 
 	@Override
 	public boolean isUpgradable() {
