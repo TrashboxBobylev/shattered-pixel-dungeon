@@ -185,7 +185,9 @@ public abstract class RegularLevel extends Level {
 			mobsToSpawn = Bestiary.getMobRotation(Dungeon.depth);
 		
 		try {
-			return mobsToSpawn.remove(0).newInstance();
+			m = mobsToSpawn.remove(0).newInstance();
+            if (Dungeon.challenges) m.HP = m.HT *= 1.5;
+            return m;
 		} catch (Exception e) {
 			ShatteredPixelDungeon.reportException(e);
 			return null;

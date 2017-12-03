@@ -405,7 +405,7 @@ public class ShatteredPixelDungeon extends Game {
 	}
 
 	public static boolean challenges() {
-		return Preferences.INSTANCE.getBoolean( Preferences.KEY_CHALLENGES, true );
+		return Preferences.INSTANCE.getBoolean( Preferences.KEY_CHALLENGES, false );
 	}
 
 	public static void quickSlots( int value ){ Preferences.INSTANCE.put( Preferences.KEY_QUICKSLOTS, value ); }

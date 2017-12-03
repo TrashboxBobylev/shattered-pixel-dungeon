@@ -25,6 +25,7 @@ import com.trashboxbobylev.tormentpixeldungeon.Dungeon;
 import com.trashboxbobylev.tormentpixeldungeon.actors.Char;
 import com.trashboxbobylev.tormentpixeldungeon.effects.particles.SparkParticle;
 import com.trashboxbobylev.tormentpixeldungeon.items.Generator;
+import com.trashboxbobylev.tormentpixeldungeon.items.Item;
 import com.trashboxbobylev.tormentpixeldungeon.items.armor.glyphs.Potential;
 import com.trashboxbobylev.tormentpixeldungeon.items.wands.WandOfLightning;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.enchantments.Shocking;
@@ -121,6 +122,16 @@ public class Shaman extends Mob implements Callback {
 	public void call() {
 		next();
 	}
+
+    @Override
+    public void die(Object cause){
+        super.die(cause);
+        
+        if (Random.Int(50) == 0 && Dungeon.isChallenged()) {
+Dungeon.level.drop(Generator.random(WandOfLighting. class), pos).sprite.drop();
+        
+        }
+    }
 
 	{
 		resistances.add( WandOfLightning.class );

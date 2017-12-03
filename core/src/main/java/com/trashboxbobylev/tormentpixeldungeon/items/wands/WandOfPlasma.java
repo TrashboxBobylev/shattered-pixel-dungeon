@@ -42,11 +42,11 @@ public class WandOfPlasma extends DamageWand {
 	}
 
 	public int min(int lvl){
-		return 7+lvl;
+		return 4+lvl;
 	}
 
 	public int max(int lvl){
-		return 20+8*lvl;
+		return 16+8*lvl;
 	}
 	
 	@Override

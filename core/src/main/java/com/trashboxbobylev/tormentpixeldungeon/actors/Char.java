@@ -257,7 +257,7 @@ public abstract class Char extends Actor {
 	public void damage( int dmg, Object src ) {
 		
 		if (!isAlive() || dmg < 0) {
-			return;
+			dmg = 0;
 		}
 		if (this.buff(Frost.class) != null){
 			Buff.detach( this, Frost.class );
@@ -285,7 +285,7 @@ public abstract class Char extends Actor {
 			}
 		}
 
-        if (Dungeon.isChallenged() && this instanceof Hero && !(src instanceof Buff) ) dmg *= 1.25;
+        if (Dungeon.isChallenged() && this instanceof Hero) dmg *= 1.25;
 		//FIXME: when I add proper damage properties, should add an IGNORES_SHIELDS property to use here.
 		if (src instanceof Hunger || SHLD == 0){
 			HP -= dmg;
