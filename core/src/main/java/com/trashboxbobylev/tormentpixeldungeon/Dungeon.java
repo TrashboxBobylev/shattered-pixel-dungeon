@@ -725,7 +725,7 @@ public class Dungeon {
 
 		hero.belongings.identify();
 
-		if (challenges != 0) {
+		if (challenges) {
 			Badges.validateChampion();
 		}
 

@@ -487,7 +487,7 @@ public class StartScene extends PixelScene {
 
 			super.createChildren();
 
-			image = Icons.get( ShatteredPixelDungeon.challenges() > 0 ? Icons.CHALLENGE_ON :Icons.CHALLENGE_OFF );
+			image = Icons.get( ShatteredPixelDungeon.challenges() ? Icons.CHALLENGE_ON :Icons.CHALLENGE_OFF );
 			add( image );
 		}
 
