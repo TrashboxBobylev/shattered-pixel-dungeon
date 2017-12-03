@@ -198,9 +198,19 @@ public class Ring extends KindofMisc {
 	public Item random() {
 		int n = 0;
 		if (Random.Int(3) == 0) {
+            //33%
 			n++;
 			if (Random.Int(5) == 0){
+                //6.6%
 				n++;
+                if (Random.Int(4) == 0){
+                //1.7%
+				n++;
+                if (Random.Int(4) == 0){
+                //0.4%
+				n++;
+			}
+			}
 			}
 		}
 		

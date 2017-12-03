@@ -42,11 +42,11 @@ public class WandOfPlasma extends DamageWand {
 	}
 
 	public int min(int lvl){
-		return 4+lvl;
+		return 7+lvl;
 	}
 
 	public int max(int lvl){
-		return 16+8*lvl;
+		return 20+8*lvl;
 	}
 	
 	@Override
@@ -58,10 +58,10 @@ public class WandOfPlasma extends DamageWand {
 			processSoulMark(ch, chargesPerCast());
 			ch.damage(damageRoll(), this);
 
-			ch.sprite.burst(0x006894, (level()+1) * 10);
+			ch.sprite.burst(0x006894, (level()+2) * 10);
 		}
 
-        int damage = Random.IntRange(0, level());
+        int damage = Random.IntRange(0, level()+2);
 		curUser.damage(damage, this);
 
 		if (!curUser.isAlive()){
@@ -78,7 +78,7 @@ public class WandOfPlasma extends DamageWand {
         for (int i = 0; i < PathFinder.NEIGHBOURS8.length; i++) {
 			Char ch = Actor.findChar( defender.pos + PathFinder.NEIGHBOURS8[i] );
 			if (ch != null && ch.isAlive()) {
-				int damage_expl = Math.max( 0,  Random.NormalIntRange(0, (level()+1)*5) - (ch.drRoll() / 2) );
+				int damage_expl = Math.max( 0,  Random.NormalIntRange(0, (this.(level()+1)*2) - (ch.drRoll() / 2) );
 				ch.damage( damage_expl, this );
 				if (ch == attacker && !ch.isAlive()) {
 	                Dungeon.fail( getClass() );

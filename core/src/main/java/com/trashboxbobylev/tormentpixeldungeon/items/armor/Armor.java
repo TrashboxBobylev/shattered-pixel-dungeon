@@ -336,12 +336,21 @@ public class Armor extends EquipableItem {
 			return this;
 		} else if (roll < 0.75f){
 			//45% chance to be level 0
-		} else if (roll < 0.95f){
+		} else if (roll < 0.90f){
 			//15% chance to be +1
 			upgrade(1);
-		} else {
+		} else if (roll < 0.95f){
 			//5% chance to be +2
 			upgrade(2);
+		} else if (roll < 0.96f){
+			//1% chance to be +3
+			upgrade(3);
+		} else if (roll < 0.963f){
+			//0.3% chance to be +4
+			upgrade(4);
+		} else if (roll < 0.9638f){
+			//0.08% chance to be +5
+			upgrade(5);
 		}
 
 		//if not cursed, 16.67% chance to be inscribed (11.67% overall)

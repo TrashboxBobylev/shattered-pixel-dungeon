@@ -21,7 +21,6 @@
 
 package com.trashboxbobylev.tormentpixeldungeon.levels.features;
 
-import com.trashboxbobylev.tormentpixeldungeon.Challenges;
 import com.trashboxbobylev.tormentpixeldungeon.Dungeon;
 import com.trashboxbobylev.tormentpixeldungeon.actors.Char;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Barkskin;
@@ -48,7 +47,7 @@ public class HighGrass {
 		Level.set( pos, Terrain.GRASS );
 		GameScene.updateMap( pos );
 
-		if (!Dungeon.isChallenged( Challenges.NO_HERBALISM )) {
+		if (true) {
 			int naturalismLevel = 0;
 
 			if (ch != null) {

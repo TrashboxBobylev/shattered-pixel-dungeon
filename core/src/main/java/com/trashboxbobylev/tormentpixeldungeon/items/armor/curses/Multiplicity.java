@@ -48,7 +48,7 @@ public class Multiplicity extends Armor.Glyph {
 	@Override
 	public int proc(Armor armor, Char attacker, Char defender, int damage) {
 
-		if (Random.Int(20) == 0){
+		if (Random.Int(Dungeon.isChallenged() ? 8 : 20) == 0){
 			ArrayList<Integer> spawnPoints = new ArrayList<>();
 
 			for (int i = 0; i < PathFinder.NEIGHBOURS8.length; i++) {

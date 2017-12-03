@@ -21,6 +21,7 @@
 
 package com.trashboxbobylev.tormentpixeldungeon.items.weapon.curses;
 
+import com.trashboxbobylev.tormentpixeldungeon.Dungeon;
 import com.trashboxbobylev.tormentpixeldungeon.actors.Char;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.Weapon;
 import com.trashboxbobylev.tormentpixeldungeon.sprites.ItemSprite;
@@ -33,9 +34,9 @@ public class Fragile extends Weapon.Enchantment {
 
 	@Override
 	public int proc( Weapon weapon, Char attacker, Char defender, int damage ) {
-		//degrades from 100% to 25% damage over 150 hits
-		damage *= (1f - hits*0.005f);
-		if (hits < 150) hits++;
+		//degrades from 100% to 25% damage over 150 (50 in expert) hits
+		damage *= (1f - hits*0.005f*(Dungeon.isChallenged() ? 3 : 1));
+		if (hits < (Dungeon.isChallenged() ? 50 : 150)) hits++;
 		return damage;
 	}
 

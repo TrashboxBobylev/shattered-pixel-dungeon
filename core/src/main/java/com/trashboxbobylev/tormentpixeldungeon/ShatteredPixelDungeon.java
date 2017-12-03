@@ -405,7 +405,7 @@ public class ShatteredPixelDungeon extends Game {
 	}
 
 	public static int challenges() {
-		return Preferences.INSTANCE.getInt( Preferences.KEY_CHALLENGES, 0, 0, Challenges.MAX_VALUE );
+		return Preferences.INSTANCE.getInt( Preferences.KEY_CHALLENGES, 0, 0, 0 );
 	}
 
 	public static void quickSlots( int value ){ Preferences.INSTANCE.put( Preferences.KEY_QUICKSLOTS, value ); }

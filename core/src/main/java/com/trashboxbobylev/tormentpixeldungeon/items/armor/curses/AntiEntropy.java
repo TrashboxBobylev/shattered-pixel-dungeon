@@ -42,7 +42,7 @@ public class AntiEntropy extends Glyph {
 	@Override
 	public int proc( Armor armor, Char attacker, Char defender, int damage) {
 
-		if (Random.Int( 8 ) == 0) {
+		if (Random.Int( Dungeon.isChallenged() ? 3 : 8 ) == 0) {
 
 			if (Dungeon.level.adjacent( attacker.pos, defender.pos )) {
 				Buff.prolong(attacker, Frost.class, Frost.duration(attacker) * Random.Float(0.5f, 1f));

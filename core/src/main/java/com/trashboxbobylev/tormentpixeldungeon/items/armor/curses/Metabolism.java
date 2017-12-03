@@ -21,6 +21,7 @@
 
 package com.trashboxbobylev.tormentpixeldungeon.items.armor.curses;
 
+import com.trashboxbobylev.tormentpixeldungeon.Dungeon;
 import com.trashboxbobylev.tormentpixeldungeon.actors.Char;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Hunger;
 import com.trashboxbobylev.tormentpixeldungeon.effects.Speck;
@@ -39,7 +40,7 @@ public class Metabolism extends Glyph {
 	@Override
 	public int proc( Armor armor, Char attacker, Char defender, int damage) {
 
-		if (Random.Int( 6 ) == 0) {
+		if (Random.Int( Dungeon.isChallenged() ? 2 : 6 ) == 0) {
 
 			//assumes using up 10% of starving, and healing of 1 hp per 10 turns;
 			int healing = Math.min((int)Hunger.STARVING/100, defender.HT - defender.HP);

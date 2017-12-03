@@ -21,6 +21,7 @@
 
 package com.trashboxbobylev.tormentpixeldungeon.items.armor.curses;
 
+import com.trashboxbobylev.tormentpixeldungeon.Dungeon;
 import com.trashboxbobylev.tormentpixeldungeon.actors.Char;
 import com.trashboxbobylev.tormentpixeldungeon.actors.blobs.Blob;
 import com.trashboxbobylev.tormentpixeldungeon.actors.blobs.ToxicGas;
@@ -36,7 +37,7 @@ public class Stench extends Armor.Glyph {
 	@Override
 	public int proc(Armor armor, Char attacker, Char defender, int damage) {
 
-		if ( Random.Int( 8 ) == 0) {
+		if ( Random.Int( Dungeon.isChallenged() ? 2 : 8 ) == 0) {
 
 			GameScene.add( Blob.seed( defender.pos, 250, ToxicGas.class ) );
 

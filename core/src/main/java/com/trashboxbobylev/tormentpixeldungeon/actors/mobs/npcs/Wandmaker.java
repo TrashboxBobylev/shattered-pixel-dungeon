@@ -21,7 +21,6 @@
 
 package com.trashboxbobylev.tormentpixeldungeon.actors.mobs.npcs;
 
-import com.trashboxbobylev.tormentpixeldungeon.Challenges;
 import com.trashboxbobylev.tormentpixeldungeon.Dungeon;
 import com.trashboxbobylev.tormentpixeldungeon.actors.Char;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Buff;
@@ -283,7 +282,7 @@ public class Wandmaker extends NPC {
 				
 				// decide between 1,2, or 3 for quest type.
 				// but if the no herbalism challenge is enabled, only pick 1 or 2, no rotberry.
-				if (type == 0) type = Random.Int(Dungeon.isChallenged(Challenges.NO_HERBALISM) ? 2 : 3)+1;
+				if (type == 0) type = Random.Int(3)+1;
 				
 				switch (type){
 					case 1: default:

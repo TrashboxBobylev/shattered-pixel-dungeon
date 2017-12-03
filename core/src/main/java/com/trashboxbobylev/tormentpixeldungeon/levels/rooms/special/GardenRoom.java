@@ -21,7 +21,6 @@
 
 package com.trashboxbobylev.tormentpixeldungeon.levels.rooms.special;
 
-import com.trashboxbobylev.tormentpixeldungeon.Challenges;
 import com.trashboxbobylev.tormentpixeldungeon.Dungeon;
 import com.trashboxbobylev.tormentpixeldungeon.actors.blobs.Foliage;
 import com.trashboxbobylev.tormentpixeldungeon.levels.Level;
@@ -41,7 +40,7 @@ public class GardenRoom extends SpecialRoom {
 		
 		entrance().set( Door.Type.REGULAR );
 
-		if (Dungeon.isChallenged(Challenges.NO_FOOD)) {
+		if (false) {
 			if (Random.Int(2) == 0){
 				level.plant(new Sungrass.Seed(), plantPos( level ));
 			}

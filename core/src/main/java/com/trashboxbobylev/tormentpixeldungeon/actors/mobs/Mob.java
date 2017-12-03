@@ -22,7 +22,6 @@
 package com.trashboxbobylev.tormentpixeldungeon.actors.mobs;
 
 import com.trashboxbobylev.tormentpixeldungeon.Badges;
-import com.trashboxbobylev.tormentpixeldungeon.Challenges;
 import com.trashboxbobylev.tormentpixeldungeon.Dungeon;
 import com.trashboxbobylev.tormentpixeldungeon.ShatteredPixelDungeon;
 import com.trashboxbobylev.tormentpixeldungeon.Statistics;
@@ -64,6 +63,8 @@ public abstract class Mob extends Char {
 		actPriority = 2; //hero gets priority over mobs.
 		
 		alignment = Alignment.ENEMY;
+
+        HP = HT *= Dungeon.isChallenged() ? 1.5 : 1;
 	}
 	
 	private static final String	TXT_DIED	= "You hear something died in the distance";
@@ -660,7 +661,7 @@ public abstract class Mob extends Char {
 				state = HUNTING;
 				target = enemy.pos;
 
-				if (Dungeon.isChallenged( Challenges.SWARM_INTELLIGENCE )) {
+				if (Dungeon.isChallenged()) {
 					for (Mob mob : Dungeon.level.mobs) {
 						if (mob != Mob.this) {
 							mob.beckon( target );

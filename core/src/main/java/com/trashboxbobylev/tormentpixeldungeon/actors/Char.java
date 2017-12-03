@@ -285,6 +285,7 @@ public abstract class Char extends Actor {
 			}
 		}
 
+        if (Dungeon.isChallenged() && this instanceof Hero && !(src instanceof Buff) ) dmg *= 1.25;
 		//FIXME: when I add proper damage properties, should add an IGNORES_SHIELDS property to use here.
 		if (src instanceof Hunger || SHLD == 0){
 			HP -= dmg;

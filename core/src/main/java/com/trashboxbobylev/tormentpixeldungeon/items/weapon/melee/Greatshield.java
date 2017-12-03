@@ -49,14 +49,13 @@ public class Greatshield extends MeleeWeapon {
 		return  Math.round(2.5f*(tier+1)) +     //15 base, down from 30
 				lvl*(tier-2);                   //+3 per level, down from +6
 	}
-
+/*
     @Override
 	public ArrayList<String> actions(Hero hero) {
 		ArrayList<String> actions = super.actions( hero );
 		actions.add(AC_GUARD);
 		return actions;
 	}
-
     @Override
 	public void execute( Hero hero, String action ) {
 
@@ -64,13 +63,13 @@ public class Greatshield extends MeleeWeapon {
 
 		if (action.equals(AC_GUARD)) {
             hero.sprite.showStatus(CharSprite.DEFAULT, Messages.get(Hero.class, "guard"));
-            Buff.affect(hero, Guard.class).level(Random.IntRange(0, defenseFactor(hero)));
-            hero.spendAndNext(isEquipped(hero) ? 1f : 3f);
+            Buff.affect(hero, Guard.class).level(Random.IntRange(0, Math.round(defenseFactor(hero)*0.4f)));
+            hero.spendAndNext(isEquipped(hero) ? 3f : 6f);
 		}
 	}
-
+*/
 	@Override
 	public int defenseFactor( Char owner ) {
-		return 10+3*level();    //10 extra defence, plus 3 per level;
+		return 10+4*level();    //10 extra defence, plus 4 per level;
 	}
 }

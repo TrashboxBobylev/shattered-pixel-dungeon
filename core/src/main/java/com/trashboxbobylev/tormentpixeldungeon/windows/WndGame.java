@@ -54,14 +54,12 @@ public class WndGame extends Window {
 				GameScene.show(new WndSettings());
 			}
 		});
-
-		// Challenges window
 		if (Dungeon.challenges > 0) {
 			addButton( new RedButton( Messages.get(this, "challenges") ) {
 				@Override
 				protected void onClick() {
 					hide();
-					GameScene.show( new WndChallenges( Dungeon.challenges, false ) );
+					GameScene.show( new WndMessage( Messages.get(WndRanking.class, "challenges") );
 				}
 			} );
 		}

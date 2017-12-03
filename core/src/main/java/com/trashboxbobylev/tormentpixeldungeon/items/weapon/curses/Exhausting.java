@@ -36,7 +36,7 @@ public class Exhausting extends Weapon.Enchantment {
 	@Override
 	public int proc(Weapon weapon, Char attacker, Char defender, int damage ) {
 
-		if (attacker == Dungeon.hero && Random.Int(15) == 0) {
+		if (attacker == Dungeon.hero && Random.Int(Dungeon.isChallenged() ? 5 : 15) == 0) {
 			Buff.affect(attacker, Weakness.class, Random.NormalIntRange(5, 20));
 		}
 

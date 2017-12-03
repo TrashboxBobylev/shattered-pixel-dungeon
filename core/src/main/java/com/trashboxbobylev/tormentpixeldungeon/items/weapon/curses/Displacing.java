@@ -37,7 +37,7 @@ public class Displacing extends Weapon.Enchantment {
 	@Override
 	public int proc(Weapon weapon, Char attacker, Char defender, int damage ) {
 
-		if (Random.Int(12) == 0 && !defender.properties().contains(Char.Property.IMMOVABLE)){
+		if (Random.Int(Dungeon.isChallenged() ? 4 : 12) == 0 && !defender.properties().contains(Char.Property.IMMOVABLE)){
 			int count = 10;
 			int newPos;
 			do {

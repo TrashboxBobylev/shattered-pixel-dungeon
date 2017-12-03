@@ -22,7 +22,6 @@
 package com.trashboxbobylev.tormentpixeldungeon.actors.buffs;
 
 import com.trashboxbobylev.tormentpixeldungeon.Badges;
-import com.trashboxbobylev.tormentpixeldungeon.Challenges;
 import com.trashboxbobylev.tormentpixeldungeon.Dungeon;
 import com.trashboxbobylev.tormentpixeldungeon.actors.hero.Hero;
 import com.trashboxbobylev.tormentpixeldungeon.items.artifacts.Artifact;
@@ -73,7 +72,7 @@ public class Hunger extends Buff implements Hero.Doom {
 
 			if (isStarving()) {
 
-				partialDamage += STEP * target.HT/1000f;
+				partialDamage += STEP * target.HT/!Dungeon.isChallenged() ? 1000f : 500f;
 
 				if (partialDamage > 1){
 					target.damage( (int)partialDamage, this);
@@ -122,12 +121,9 @@ public class Hunger extends Buff implements Hero.Doom {
 
 		Artifact.ArtifactBuff buff = target.buff( HornOfPlenty.hornRecharge.class );
 		if (buff != null && buff.isCursed()){
-			energy *= 0.67f;
+			energy *= Dungeon.isChallenged() ? 0.45f : 0.67f;
 			GLog.n( Messages.get(this, "cursedhorn") );
 		}
-
-		if (!Dungeon.isChallenged(Challenges.NO_FOOD))
-			reduceHunger( energy );
 	}
 
 	//directly interacts with hunger, no checks.

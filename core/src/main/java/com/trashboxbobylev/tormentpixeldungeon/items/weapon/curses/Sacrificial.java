@@ -21,6 +21,7 @@
 
 package com.trashboxbobylev.tormentpixeldungeon.items.weapon.curses;
 
+import com.trashboxbobylev.tormentpixeldungeon.Dungeon;
 import com.trashboxbobylev.tormentpixeldungeon.actors.Char;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Bleeding;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Buff;
@@ -35,7 +36,7 @@ public class Sacrificial extends Weapon.Enchantment {
 	@Override
 	public int proc(Weapon weapon, Char attacker, Char defender, int damage ) {
 
-		if (Random.Int(12) == 0){
+		if (Random.Int(Dungeon.isChallenged() ? 4 : 12) == 0){
 			Buff.affect(attacker, Bleeding.class).set(Math.max(1, attacker.HP/6));
 		}
 

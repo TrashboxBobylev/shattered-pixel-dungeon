@@ -232,8 +232,8 @@ public class Dungeon {
 		StartScene.curClass.initHero( hero );
 	}
 
-	public static boolean isChallenged( int mask ) {
-		return (challenges & mask) != 0;
+	public static boolean isChallenged() {
+		return challenges != 0;
 	}
 	
 	public static Level newLevel() {

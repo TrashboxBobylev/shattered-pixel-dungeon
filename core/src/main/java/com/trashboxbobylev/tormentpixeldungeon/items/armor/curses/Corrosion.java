@@ -22,6 +22,7 @@
 package com.trashboxbobylev.tormentpixeldungeon.items.armor.curses;
 
 import com.trashboxbobylev.tormentpixeldungeon.actors.Actor;
+import com.trashboxbobylev.tormentpixeldungeon.Dungeon;
 import com.trashboxbobylev.tormentpixeldungeon.actors.Char;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Buff;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Ooze;
@@ -38,7 +39,7 @@ public class Corrosion extends Armor.Glyph {
 	@Override
 	public int proc(Armor armor, Char attacker, Char defender, int damage) {
 
-		if (Random.Int(10) == 0){
+		if (Random.Int(Dungeon.isChallenged() ? 4: 10) == 0){
 			int pos = defender.pos;
 			for (int i : PathFinder.NEIGHBOURS9){
 				Splash.at(pos+i, 0x000000, 5);

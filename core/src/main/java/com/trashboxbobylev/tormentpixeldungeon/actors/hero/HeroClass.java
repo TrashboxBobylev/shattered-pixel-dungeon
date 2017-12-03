@@ -23,7 +23,6 @@ package com.trashboxbobylev.tormentpixeldungeon.actors.hero;
 
 import com.trashboxbobylev.tormentpixeldungeon.Assets;
 import com.trashboxbobylev.tormentpixeldungeon.Badges;
-import com.trashboxbobylev.tormentpixeldungeon.Challenges;
 import com.trashboxbobylev.tormentpixeldungeon.Dungeon;
 import com.trashboxbobylev.tormentpixeldungeon.items.BrokenSeal;
 import com.trashboxbobylev.tormentpixeldungeon.items.ArmorKit;
@@ -90,10 +89,8 @@ public enum HeroClass {
 	}
 
 	private static void initCommon( Hero hero ) {
-		if (!Dungeon.isChallenged(Challenges.NO_ARMOR))
 			(hero.belongings.armor = new ClothArmor()).identify();
         new ArmorKit().collect();
-		if (!Dungeon.isChallenged(Challenges.NO_FOOD))
 			new Food().identify().collect();
 	}
 
@@ -115,28 +112,18 @@ public enum HeroClass {
 		(hero.belongings.weapon = new WornShortsword()).identify();
 		Dart darts = new Dart( 8 );
 		darts.identify().collect();
-        NinjaSword sword = new NinjaSword();
-		sword.identify().collect();
-        DoubleDagger dagger = new DoubleDagger();
-		dagger.identify().collect();
-        Halberd halberd = new Halberd();
-		halberd.identify().collect();
-        FightingKnifes knifes = new FightingKnifes();
-		knifes.identify().collect();
-        JjanGo go = new JjanGo();
-		go.identify().collect();
 
-        for (int count = 0; count < 200; count++) {
+        for (int count = 0; count < 500; count++) {
             ScrollOfMagicalInfusion scroll = new ScrollOfMagicalInfusion();
             scroll.collect();
         }
 
 		if ( Badges.isUnlocked(Badges.Badge.TUTORIAL_WARRIOR) ){
-			if (!Dungeon.isChallenged(Challenges.NO_ARMOR))
+			if (true)
 				hero.belongings.armor.affixSeal(new BrokenSeal());
 			Dungeon.quickslot.setSlot(0, darts);
 		} else {
-			if (!Dungeon.isChallenged(Challenges.NO_ARMOR)) {
+			if (true) {
 				BrokenSeal seal = new BrokenSeal();
 				seal.collect();
 				Dungeon.quickslot.setSlot(0, seal);

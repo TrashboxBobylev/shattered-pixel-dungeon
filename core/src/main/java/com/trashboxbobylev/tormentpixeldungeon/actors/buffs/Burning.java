@@ -83,8 +83,8 @@ public class Burning extends Buff implements Hero.Doom {
 		
 		if (target.isAlive()) {
 
-			//maximum damage scales from 6 to 2 depending on remaining hp.
-			int maxDmg = 3 + Math.round( 4 * target.HP / (float)target.HT );
+			//maximum damage scales from 6 to 2 (13 to 6 in expert) depending on remaining hp.
+			int maxDmg = Dungeon.isChallenged() ? 6 : 3 + Math.round( Dungeon.isChallenged() ? 7 : 4 * target.HP / (float)target.HT );
 			int damage = Random.Int( 1, maxDmg );
 			Buff.detach( target, Chill.class);
 

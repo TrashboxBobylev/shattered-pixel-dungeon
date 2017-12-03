@@ -22,7 +22,6 @@
 package com.trashboxbobylev.tormentpixeldungeon.levels;
 
 import com.trashboxbobylev.tormentpixeldungeon.Assets;
-import com.trashboxbobylev.tormentpixeldungeon.Challenges;
 import com.trashboxbobylev.tormentpixeldungeon.Dungeon;
 import com.trashboxbobylev.tormentpixeldungeon.ShatteredPixelDungeon;
 import com.trashboxbobylev.tormentpixeldungeon.Statistics;
@@ -113,7 +112,7 @@ public abstract class Level implements Bundlable {
 	public boolean[] mapped;
 	public boolean[] discoverable;
 
-	public int viewDistance = Dungeon.isChallenged( Challenges.DARKNESS ) ? 4 : 8;
+	public int viewDistance = 8;
 	
 	public boolean[] heroFOV;
 	
@@ -636,13 +635,8 @@ public abstract class Level implements Bundlable {
 	
 	public Heap drop( Item item, int cell ) {
 
-		//This messy if statement deals will items which should not drop in challenges primarily.
-		if ((Dungeon.isChallenged( Challenges.NO_FOOD ) && (item instanceof Food || item instanceof BlandfruitBush.Seed)) ||
-			(Dungeon.isChallenged( Challenges.NO_ARMOR ) && item instanceof Armor) ||
-			(Dungeon.isChallenged( Challenges.NO_HEALING ) && item instanceof PotionOfHealing) ||
-			(Dungeon.isChallenged( Challenges.NO_HERBALISM ) && (item instanceof Plant.Seed || item instanceof Dewdrop || item instanceof SeedPouch)) ||
-			(Dungeon.isChallenged( Challenges.NO_SCROLLS ) && ((item instanceof Scroll && !(item instanceof ScrollOfUpgrade || item instanceof ScrollOfMagicalInfusion)) || item instanceof ScrollHolder)) ||
-			item == null) {
+		
+		if (item == null) {
 
 			//create a dummy heap, give it a dummy sprite, don't add it to the game, and return it.
 			//effectively nullifies whatever the logic calling this wants to do, including dropping items.
@@ -688,10 +682,6 @@ public abstract class Level implements Bundlable {
 	}
 	
 	public Plant plant( Plant.Seed seed, int pos ) {
-		
-		if (Dungeon.isChallenged(Challenges.NO_HERBALISM)){
-			return null;
-		}
 
 		Plant plant = plants.get( pos );
 		if (plant != null) {

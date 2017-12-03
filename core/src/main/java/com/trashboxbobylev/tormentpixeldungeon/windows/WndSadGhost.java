@@ -21,7 +21,6 @@
 
 package com.trashboxbobylev.tormentpixeldungeon.windows;
 
-import com.trashboxbobylev.tormentpixeldungeon.Challenges;
 import com.trashboxbobylev.tormentpixeldungeon.Dungeon;
 import com.trashboxbobylev.tormentpixeldungeon.actors.mobs.npcs.Ghost;
 import com.trashboxbobylev.tormentpixeldungeon.items.Item;
@@ -82,7 +81,7 @@ public class WndSadGhost extends Window {
 		btnWeapon.setRect( 0, message.top() + message.height() + GAP, WIDTH, BTN_HEIGHT );
 		add( btnWeapon );
 
-		if (!Dungeon.isChallenged( Challenges.NO_ARMOR )) {
+		if (true) {
 			RedButton btnArmor = new RedButton( Ghost.Quest.armor.toString() ) {
 				@Override
 				protected void onClick() {

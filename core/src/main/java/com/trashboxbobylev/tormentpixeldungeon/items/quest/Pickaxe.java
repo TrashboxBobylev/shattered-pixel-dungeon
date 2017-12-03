@@ -29,7 +29,7 @@ import com.trashboxbobylev.tormentpixeldungeon.actors.hero.Hero;
 import com.trashboxbobylev.tormentpixeldungeon.actors.mobs.Bat;
 import com.trashboxbobylev.tormentpixeldungeon.effects.CellEmitter;
 import com.trashboxbobylev.tormentpixeldungeon.effects.Speck;
-import com.trashboxbobylev.tormentpixeldungeon.items.weapon.Weapon;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.MeleeWeapon;
 import com.trashboxbobylev.tormentpixeldungeon.levels.Level;
 import com.trashboxbobylev.tormentpixeldungeon.levels.Terrain;
 import com.trashboxbobylev.tormentpixeldungeon.messages.Messages;
@@ -45,7 +45,7 @@ import com.watabou.utils.PathFinder;
 
 import java.util.ArrayList;
 
-public class Pickaxe extends Weapon {
+public class Pickaxe extends MeleeWeapon {
 	
 	public static final String AC_MINE	= "MINE";
 	
@@ -58,6 +58,8 @@ public class Pickaxe extends Weapon {
 		
 		unique = true;
 		bones = false;
+
+        tier = 2;
 		
 		defaultAction = AC_MINE;
 
@@ -66,18 +68,10 @@ public class Pickaxe extends Weapon {
 	public boolean bloodStained = false;
 
 	@Override
-	public int min(int lvl) {
-		return 2;   //tier 2
-	}
-
-	@Override
-	public int max(int lvl) {
-		return 15;  //tier 2
-	}
-
-	@Override
 	public int STRReq(int lvl) {
-		return 14;  //tier 3
+		lvl = Math.max(0, lvl);
+		//strength req decreases at +1,+3,+6,+10,etc.
+		return (10 + tier * 2) - (int)(Math.sqrt(8 * lvl + 1) - 1)/2;
 	}
 
 	@Override
@@ -140,7 +134,7 @@ public class Pickaxe extends Weapon {
 	
 	@Override
 	public boolean isUpgradable() {
-		return false;
+		return true;
 	}
 	
 	@Override

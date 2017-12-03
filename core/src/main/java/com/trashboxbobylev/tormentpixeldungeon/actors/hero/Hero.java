@@ -986,6 +986,15 @@ public class Hero extends Char {
 			dmg -= Random.NormalIntRange(belongings.armor.DRMin(), belongings.armor.DRMax())/3;
 		}
 
+         if (Dungeon.isChallenged() && belongings.armor != null){
+             int expertDefenseBonus = 0;
+             int dr = Random.NormalIntRange(belongings.armor.DRMin(), belongings.armor.DRMax());
+             for (int i = 0; i < dr; i++){
+                 if (Random.Int(5) == 0) expertDamageBonus++;
+             }
+             dmg -= expertDamageBonus;
+         }
+
 		if (subClass == HeroSubClass.BERSERKER && berserk == null){
 			berserk = Buff.affect(this, Berserk.class);
 		}

@@ -23,6 +23,7 @@ package com.trashboxbobylev.tormentpixeldungeon.items.weapon;
 
 import com.trashboxbobylev.tormentpixeldungeon.Badges;
 import com.trashboxbobylev.tormentpixeldungeon.ShatteredPixelDungeon;
+import com.trashboxbobylev.tormentpixeldungeon.Dungeon;
 import com.trashboxbobylev.tormentpixeldungeon.actors.Char;
 import com.trashboxbobylev.tormentpixeldungeon.actors.hero.Hero;
 import com.trashboxbobylev.tormentpixeldungeon.actors.hero.HeroClass;
@@ -145,8 +146,9 @@ abstract public class Weapon extends KindOfWeapon {
 			encumbrance = STRReq() - ((Hero)owner).STR();
 		}
 
+        int encrumModifier = Dungeon.isChallenged() ? 7 : 3;
 		if (hasEnchant(Wayward.class))
-			encumbrance = Math.max(3, encumbrance+3);
+			encumbrance = Math.max(encrumModifier, encumbrance+encrumModifier);
 
 		float ACC = this.ACC;
 		
@@ -234,18 +236,23 @@ abstract public class Weapon extends KindOfWeapon {
 			enchant(Enchantment.randomCurse());
 			cursed = true;
 			return this;
-		} else if (roll < 0.6f){
-			//45% chance to be level 0
-		} else if (roll < 0.8f){
+		} else if (roll < 0.75f){
+			//40% chance to be level 0
+		} else if (roll < 0.90f){
 			//15% chance to be +1
 			upgrade(1);
-		} else if (roll < 0.75f){
+		} else if (roll < 0.95f){
 			//5% chance to be +2
 			upgrade(2);
-		} else if (roll < 0.8f){
+		} else if (roll < 0.96f){
+            //1% chance to be +3
             upgrade(3);
-        } else if (roll < 0.95f){
+        } else if (roll < 0.963f){
+            //0.3% chance to be +4
             upgrade(4);
+        } else if (roll < 0.9638f){
+            //0.08% chance to be +5
+            upgrade(5);
         }
 
 		//if not cursed, 10% chance to be enchanted (7.5% overall)

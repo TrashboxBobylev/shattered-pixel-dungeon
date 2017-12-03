@@ -49,7 +49,7 @@ public class RoundShield extends MeleeWeapon {
 		return  3*(tier+1) +    //12 base, down from 20
 				lvl*(tier-1);   //+2 per level, down from +4
 	}
-
+/*
    	@Override
 	public ArrayList<String> actions(Hero hero) {
 		ArrayList<String> actions = super.actions( hero );
@@ -68,7 +68,7 @@ public class RoundShield extends MeleeWeapon {
             hero.spendAndNext(isEquipped(hero) ? 1f : 3f);
 		}
 	}
-
+*/
 	@Override
 	public int defenseFactor( Char owner ) {
 		return 5+2*level();     //5 extra defence, plus 2 per level;

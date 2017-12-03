@@ -38,7 +38,6 @@ import com.trashboxbobylev.tormentpixeldungeon.ui.ExitButton;
 import com.trashboxbobylev.tormentpixeldungeon.ui.Icons;
 import com.trashboxbobylev.tormentpixeldungeon.ui.RedButton;
 import com.trashboxbobylev.tormentpixeldungeon.ui.RenderedTextMultiline;
-import com.trashboxbobylev.tormentpixeldungeon.windows.WndChallenges;
 import com.trashboxbobylev.tormentpixeldungeon.windows.WndClass;
 import com.trashboxbobylev.tormentpixeldungeon.windows.WndMessage;
 import com.trashboxbobylev.tormentpixeldungeon.windows.WndOptions;
@@ -504,12 +503,19 @@ public class StartScene extends PixelScene {
 		@Override
 		protected void onClick() {
 			if (Badges.isUnlocked( Badges.Badge.VICTORY )) {
-				StartScene.this.add(new WndChallenges(ShatteredPixelDungeon.challenges(), true) {
-					public void onBackPressed() {
-						super.onBackPressed();
+				StartScene.this.add(new WndOptions( Messages.get(StartScene.class, "expert"),
+						Messages.get(StartScene.class, "enable_expert"),
+						Messages.get(StartScene.class, "expert_yes"),
+						Messages.get(StartScene.class, "expert_no") ) {
+				@Override
+				protected void onSelect( int index ) {
+					if (index == 0) {
+						ShatteredPixelDungeon.challenges(1);
+
 						image.copy( Icons.get( ShatteredPixelDungeon.challenges() > 0 ?
 								Icons.CHALLENGE_ON :Icons.CHALLENGE_OFF ) );
 					}
+				}
 				} );
 			} else {
 				StartScene.this.add( new WndMessage( Messages.get(StartScene.class, "need_to_win") ) );

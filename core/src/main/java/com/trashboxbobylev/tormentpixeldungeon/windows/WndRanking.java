@@ -161,7 +161,7 @@ public class WndRanking extends WndTabbed {
 				RedButton btnCatalogus = new RedButton( Messages.get(this, "challenges") ) {
 					@Override
 					protected void onClick() {
-						Game.scene().add( new WndChallenges( Dungeon.challenges, false ) );
+						Game.scene().add( new WndMessage( Messages.get(WndRanking.class, " "expert_enabled" ) ) );
 					}
 				};
 				btnCatalogus.setRect( 0, pos, btnCatalogus.reqWidth() + 2, btnCatalogus.reqHeight() + 2 );
