@@ -78,7 +78,7 @@ public class WandOfPlasma extends DamageWand {
         for (int i = 0; i < PathFinder.NEIGHBOURS8.length; i++) {
 			Char ch = Actor.findChar( defender.pos + PathFinder.NEIGHBOURS8[i] );
 			if (ch != null && ch.isAlive()) {
-				int damage_expl = Math.max( 0,  Random.NormalIntRange(0, (this.(level()+1)*2) - (ch.drRoll() / 2) );
+				int damage_expl = Math.max( 0,  Random.NormalIntRange(0, (this.(level()+1)*2) - (ch.drRoll() / 2) ));
 				ch.damage( damage_expl, this );
 				if (ch == attacker && !ch.isAlive()) {
 	                Dungeon.fail( getClass() );
