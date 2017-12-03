@@ -54,7 +54,7 @@ public class WndGame extends Window {
 				GameScene.show(new WndSettings());
 			}
 		});
-		if (Dungeon.challenges > 0) {
+		if (Dungeon.challenges == true) {
 			addButton( new RedButton( Messages.get(this, "challenges") ) {
 				@Override
 				protected void onClick() {

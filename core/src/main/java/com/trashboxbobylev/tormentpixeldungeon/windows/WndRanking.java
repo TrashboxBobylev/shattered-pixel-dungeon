@@ -144,7 +144,7 @@ public class WndRanking extends WndTabbed {
 		public StatsTab() {
 			super();
 
-			if (Dungeon.challenges > 0) GAP--;
+			if (Dungeon.challenges == true) GAP--;
 			
 			String heroClass = Dungeon.hero.className();
 			
@@ -157,11 +157,11 @@ public class WndRanking extends WndTabbed {
 			
 			float pos = title.bottom();
 
-			if (Dungeon.challenges > 0) {
+			if (Dungeon.challenges == true) {
 				RedButton btnCatalogus = new RedButton( Messages.get(this, "challenges") ) {
 					@Override
 					protected void onClick() {
-						Game.scene().add( new WndMessage( Messages.get(WndRanking.class, "expert_enabled" ) ) );
+						Game.scene().add( new WndMessage( Messages.get(WndRanking.class, " "expert_enabled" ) ) );
 					}
 				};
 				btnCatalogus.setRect( 0, pos, btnCatalogus.reqWidth() + 2, btnCatalogus.reqHeight() + 2 );

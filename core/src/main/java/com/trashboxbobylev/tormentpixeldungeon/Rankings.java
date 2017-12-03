@@ -177,7 +177,7 @@ public enum Rankings {
 
 		Statistics.restoreFromBundle(data.getBundle(STATS));
 		
-		Dungeon.challenges = 0;
+		Dungeon.challenges = false;
 
 	}
 	

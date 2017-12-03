@@ -560,7 +560,7 @@ public class Dungeon {
 			saveGame( gameFile( hero.heroClass ) );
 			saveLevel();
 
-			GamesInProgress.set( hero.heroClass, depth, hero.lvl, challenges != 0 );
+			GamesInProgress.set( hero.heroClass, depth, hero.lvl, challenges != false );
 
 		} else if (WndResurrect.instance != null) {
 			
@@ -591,7 +591,7 @@ public class Dungeon {
 		quickslot.reset();
 		QuickSlotButton.reset();
 
-		Dungeon.challenges = bundle.getInt( CHALLENGES );
+		Dungeon.challenges = bundle.getBoolean( CHALLENGES );
 		
 		Dungeon.level = null;
 		Dungeon.depth = -1;
@@ -711,7 +711,7 @@ public class Dungeon {
 	public static void preview( GamesInProgress.Info info, Bundle bundle ) {
 		info.depth = bundle.getInt( DEPTH );
 		info.version = bundle.getInt( VERSION );
-		info.challenges = (bundle.getInt( CHALLENGES ) != 0);
+		info.challenges = (bundle.getBoolean( CHALLENGES ) != false);
 		Hero.preview( info, bundle.getBundle( HERO ) );
 	}
 	
