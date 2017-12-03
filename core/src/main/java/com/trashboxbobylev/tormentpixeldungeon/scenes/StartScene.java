@@ -509,12 +509,10 @@ public class StartScene extends PixelScene {
 						Messages.get(StartScene.class, "expert_no") ) {
 				@Override
 				protected void onSelect( int index ) {
-					if (index == 0) {
-						ShatteredPixelDungeon.challenges(1);
-
-						image.copy( Icons.get( ShatteredPixelDungeon.challenges() > 0 ?
+					if (index == 0) ShatteredPixelDungeon.challenges(true);
+                    if (index == 1) ShatteredPixelDungeon.challenges(false);
+						image.copy( Icons.get( ShatteredPixelDungeon.challenges() ?
 								Icons.CHALLENGE_ON :Icons.CHALLENGE_OFF ) );
-					}
 				}
 				} );
 			} else {

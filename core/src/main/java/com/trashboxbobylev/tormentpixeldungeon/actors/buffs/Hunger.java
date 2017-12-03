@@ -124,6 +124,8 @@ public class Hunger extends Buff implements Hero.Doom {
 			energy *= Dungeon.isChallenged() ? 0.45f : 0.67f;
 			GLog.n( Messages.get(this, "cursedhorn") );
 		}
+
+        reduceHunger(energy);
 	}
 
 	//directly interacts with hunger, no checks.

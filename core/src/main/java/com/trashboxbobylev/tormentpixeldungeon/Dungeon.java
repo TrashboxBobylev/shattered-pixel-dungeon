@@ -162,7 +162,7 @@ public class Dungeon {
 
 	}
 
-	public static int challenges;
+	public static boolean challenges;
 
 	public static Hero hero;
 	public static Level level;
@@ -233,7 +233,7 @@ public class Dungeon {
 	}
 
 	public static boolean isChallenged() {
-		return challenges != 0;
+		return challenges;
 	}
 	
 	public static Level newLevel() {

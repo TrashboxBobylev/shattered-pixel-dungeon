@@ -400,12 +400,12 @@ public class ShatteredPixelDungeon extends Game {
 		return Preferences.INSTANCE.getInt( Preferences.KEY_LAST_CLASS, 0, 0, 3 );
 	}
 
-	public static void challenges( int value ) {
+	public static void challenges( boolean value ) {
 		Preferences.INSTANCE.put( Preferences.KEY_CHALLENGES, value );
 	}
 
-	public static int challenges() {
-		return Preferences.INSTANCE.getInt( Preferences.KEY_CHALLENGES, 0, 0, 0 );
+	public static boolean challenges() {
+		return Preferences.INSTANCE.getBoolean( Preferences.KEY_CHALLENGES, true );
 	}
 
 	public static void quickSlots( int value ){ Preferences.INSTANCE.put( Preferences.KEY_QUICKSLOTS, value ); }
