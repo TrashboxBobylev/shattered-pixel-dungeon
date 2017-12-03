@@ -72,7 +72,7 @@ public class Hunger extends Buff implements Hero.Doom {
 
 			if (isStarving()) {
 
-				partialDamage += STEP * target.HT/!Dungeon.isChallenged() ? 1000f : 500f;
+				partialDamage += STEP * target.HT/(!Dungeon.isChallenged() ? 1000f : 500f);
 
 				if (partialDamage > 1){
 					target.damage( (int)partialDamage, this);

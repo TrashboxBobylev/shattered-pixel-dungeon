@@ -81,7 +81,7 @@ public class Venom extends Buff implements Hero.Doom {
 	public boolean act() {
 		if (target.isAlive()) {
 			target.damage(damage, this);
-			if (damage < ((Dungeon.depth+ Dungeon.isChallenged() ? 3 : 1)/2)+1)
+			if (damage < ((Dungeon.depth+ (Dungeon.isChallenged() ? 3 : 1))/2)+1)
 				damage++;
 			
 			spend( TICK );

@@ -987,7 +987,7 @@ public class Hero extends Char {
 		}
 
          if (Dungeon.isChallenged() && belongings.armor != null){
-             int expertDefenseBonus = 0;
+             int expertDamageBonus = 0;
              int dr = Random.NormalIntRange(belongings.armor.DRMin(), belongings.armor.DRMax());
              for (int i = 0; i < dr; i++){
                  if (Random.Int(5) == 0) expertDamageBonus++;
