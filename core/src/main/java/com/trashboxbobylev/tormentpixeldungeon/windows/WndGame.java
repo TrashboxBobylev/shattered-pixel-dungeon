@@ -59,7 +59,7 @@ public class WndGame extends Window {
 				@Override
 				protected void onClick() {
 					hide();
-					GameScene.show( new WndMessage( Messages.get(WndRanking.class, "challenges") );
+					GameScene.show( new WndMessage( Messages.get(WndRanking.class, "challenges") ));
 				}
 			} );
 		}
