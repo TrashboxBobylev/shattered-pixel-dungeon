@@ -30,7 +30,7 @@ public class ExperienceBelt extends Artifact {
     private static final int BOLT_UPGRADE_SCALE = 75;
 
     {
-        image = ItemSpriteSheet.ARTIFACT_BELT
+        image = ItemSpriteSheet.ARTIFACT_BELT;
 
         levelCap = 5;
     }
