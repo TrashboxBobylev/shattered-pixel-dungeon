@@ -22,6 +22,7 @@
 package com.trashboxbobylev.tormentpixeldungeon.items.artifacts;
 
 import com.trashboxbobylev.tormentpixeldungeon.Dungeon;
+import com.trashboxbobylev.tormentpixeldungeon.messages.Messages;
 import com.trashboxbobylev.tormentpixeldungeon.sprites.ItemSpriteSheet;
 import com.trashboxbobylev.tormentpixeldungeon.utils.GLog;
 

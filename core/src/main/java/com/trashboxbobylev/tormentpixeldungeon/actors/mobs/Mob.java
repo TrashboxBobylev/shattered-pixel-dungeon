@@ -554,8 +554,8 @@ public abstract class Mob extends Char {
                 int bonusMaxLvl = 0;
 				ExperienceBelt.ExpObtain buff = Dungeon.hero.buff(ExperienceBelt.ExpObtain.class);
                 if (buff != null) {
-                    expMod += (buff.level()+1)*0.2f;
-                    bonusMaxLvl += 2*(buff.level()+1);
+                    expMod += (buff.itemLevel()+1)*0.2f;
+                    bonusMaxLvl += 2*(buff.itemLevel()+1);
                 }
 				int exp = Dungeon.hero.lvl <= maxLvl + bonusMaxLvl ? Math.round(EXP*expMod) : 0;
 				if (exp > 0) {
