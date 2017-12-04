@@ -44,6 +44,7 @@ import com.trashboxbobylev.tormentpixeldungeon.effects.Wound;
 import com.trashboxbobylev.tormentpixeldungeon.items.Generator;
 import com.trashboxbobylev.tormentpixeldungeon.items.Item;
 import com.trashboxbobylev.tormentpixeldungeon.items.artifacts.TimekeepersHourglass;
+import com.trashboxbobylev.tormentpixeldungeon.items.artifacts.ExperienceBelt;
 import com.trashboxbobylev.tormentpixeldungeon.items.rings.RingOfAccuracy;
 import com.trashboxbobylev.tormentpixeldungeon.items.rings.RingOfWealth;
 import com.trashboxbobylev.tormentpixeldungeon.messages.Messages;
@@ -548,11 +549,19 @@ public abstract class Mob extends Char {
 				Statistics.enemiesSlain++;
 				Badges.validateMonstersSlain();
 				Statistics.qualifiedForNoKilling = false;
-				
-				int exp = Dungeon.hero.lvl <= maxLvl ? EXP : 0;
+                
+                float expMod = 1f;
+                int bonusMaxLvl = 0;
+				ExperienceBelt.ExpObtain buff = Dungeon.hero.buff(ExperienceBelt.ExpObtain.class);
+                if (buff != null) {
+                    expMod += buff.(buff.level()+1)*0.2f;
+                    bonusMaxLvl += 2*(buff.level()+1);
+                }
+				int exp = Dungeon.hero.lvl <= maxLvl + bonusMaxLvl ? Math.round(EXP*expMod) : 0;
 				if (exp > 0) {
 					Dungeon.hero.sprite.showStatus(CharSprite.POSITIVE, Messages.get(this, "exp", exp));
 					Dungeon.hero.earnExp(exp);
+                    if (buff != null) buff.obtain(Math.round(exp*Random.Float(0.3f, 0.7f)));
 				}
 			}
 		}

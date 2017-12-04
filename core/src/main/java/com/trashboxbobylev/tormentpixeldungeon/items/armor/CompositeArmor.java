@@ -23,14 +23,14 @@ package com.trashboxbobylev.tormentpixeldungeon.items.armor;
 
 import com.trashboxbobylev.tormentpixeldungeon.sprites.ItemSpriteSheet;
 
-public class MailArmor extends Armor {
+public class CompositeArmor extends Armor {
 
 	{
-		image = ItemSpriteSheet.ARMOR_MAIL;
+		image = ItemSpriteSheet.ARMOR_COMPOSITE;
 	}
 	
-	public MailArmor() {
-		super( 3, 3 );
+	public CompositeArmor() {
+		super( 7, 6 );
 	}
 
 }

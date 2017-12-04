@@ -30,7 +30,7 @@ public class ScaleArmor extends Armor {
 	}
 	
 	public ScaleArmor() {
-		super( 4 );
+		super( 4, 4 );
 	}
 
 }

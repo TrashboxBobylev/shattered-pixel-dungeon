@@ -68,15 +68,17 @@ public class Armor extends EquipableItem {
 
 	protected static final String AC_DETACH       = "DETACH";
 	
-	public int tier;
+	public int sprite;
+    public int tier;
 	
 	private int hitsToKnow = HITS_TO_KNOW;
 	
 	public Glyph glyph;
 	private BrokenSeal seal;
 	
-	public Armor( int tier ) {
-		this.tier = tier;
+	public Armor( int sprite, int tier) {
+		this.sprite = sprite;
+        this.tier = tier;
 	}
 
 	private static final String UNFAMILIRIARITY	= "unfamiliarity";

@@ -24,6 +24,7 @@ package com.trashboxbobylev.tormentpixeldungeon.items;
 import com.trashboxbobylev.tormentpixeldungeon.Dungeon;
 import com.trashboxbobylev.tormentpixeldungeon.ShatteredPixelDungeon;
 import com.trashboxbobylev.tormentpixeldungeon.items.armor.Armor;
+import com.trashboxbobylev.tormentpixeldungeon.items.armor.CompositeArmor;
 import com.trashboxbobylev.tormentpixeldungeon.items.armor.ClothArmor;
 import com.trashboxbobylev.tormentpixeldungeon.items.armor.LeatherArmor;
 import com.trashboxbobylev.tormentpixeldungeon.items.armor.MailArmor;
@@ -35,6 +36,7 @@ import com.trashboxbobylev.tormentpixeldungeon.items.artifacts.CapeOfThorns;
 import com.trashboxbobylev.tormentpixeldungeon.items.artifacts.ChaliceOfBlood;
 import com.trashboxbobylev.tormentpixeldungeon.items.artifacts.CloakOfShadows;
 import com.trashboxbobylev.tormentpixeldungeon.items.artifacts.DriedRose;
+import com.trashboxbobylev.tormentpixeldungeon.items.artifacts.ExperienceBelt;
 import com.trashboxbobylev.tormentpixeldungeon.items.artifacts.EtherealChains;
 import com.trashboxbobylev.tormentpixeldungeon.items.artifacts.HornOfPlenty;
 import com.trashboxbobylev.tormentpixeldungeon.items.artifacts.LloydsBeacon;
@@ -199,7 +201,7 @@ public class Generator {
 			return item instanceof Bag ? Integer.MAX_VALUE : Integer.MAX_VALUE - 1;
 		}
 		
-		private static final float[] INITIAL_ARTIFACT_PROBS = new float[]{ 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1};
+		private static final float[] INITIAL_ARTIFACT_PROBS = new float[]{ 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1};
 		
 		static {
 			GOLD.classes = new Class<?>[]{
@@ -325,8 +327,9 @@ public class Generator {
 					LeatherArmor.class,
 					MailArmor.class,
 					ScaleArmor.class,
-					PlateArmor.class };
-			ARMOR.probs = new float[]{ 0, 0, 0, 0, 0 };
+					PlateArmor.class,
+                    CompositeArmor.class };
+			ARMOR.probs = new float[]{ 0, 0, 0, 0, 0, 0 };
 			
 			FOOD.classes = new Class<?>[]{
 					Food.class,
@@ -361,7 +364,8 @@ public class Generator {
 					AlchemistsToolkit.class, //currently removed from drop tables, pending rework.
 					DriedRose.class,
 					LloydsBeacon.class,
-					EtherealChains.class
+					EtherealChains.class,
+                    ExperienceBelt.class
 			};
 			ARTIFACT.probs = INITIAL_ARTIFACT_PROBS.clone();
 			
@@ -384,10 +388,10 @@ public class Generator {
 
 	private static final float[][] floorSetTierProbs = new float[][] {
 			{0, 70, 20,  8,  2, 0},
-			{0, 25, 50, 20,  5, 2},
-			{0, 10, 40, 40, 10, 5},
-			{0,  5, 20, 50, 25, 15},
-			{0,  2,  8, 20, 70, 30}
+			{0, 25, 50, 18,  5, 2},
+			{0, 10, 35, 40, 10, 5},
+			{0,  0, 10, 50, 25, 15},
+			{0,  0,  8, 20, 42, 30}
 	};
 	
 	private static HashMap<Category,Float> categoryProbs = new LinkedHashMap<>();

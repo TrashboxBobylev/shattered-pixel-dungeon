@@ -54,7 +54,7 @@ abstract public class ClassArmor extends Armor {
 	private int armorTier;
 	
 	public ClassArmor() {
-		super( 6 );
+		super( 6, 6 );
 	}
 	
 	public static ClassArmor upgrade ( Hero owner, Armor armor ) {
@@ -185,8 +185,8 @@ abstract public class ClassArmor extends Armor {
                  patrialCharge += (float) 0.5f * level();
                  charges++;
 
-                 if (patrialCharge >= 1f) {
-                     charges++;
+                 if (patrialCharge >= 1) {
+                     charges+=patrialCharge;
                      patrialCharge = 0;
                  }
       
