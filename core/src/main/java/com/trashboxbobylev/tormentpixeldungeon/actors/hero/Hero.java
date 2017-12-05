@@ -341,15 +341,23 @@ public class Hero extends Char {
 	@Override
 	public int drRoll() {
 		int dr = 0;
+        int bonusDR = 0;
 		Barkskin bark = buff(Barkskin.class);
 
 		if (belongings.armor != null) {
 			dr += Random.NormalIntRange( belongings.armor.DRMin(), belongings.armor.DRMax());
+            if (Dungeon.isChallenged()){
+                for (int i = 0; i < dr; i++){
+                    if (Random.Int(10) == 0) bonusDR++;
+                }
+            }
+            dr += bonusDR;
 			if (STR() < belongings.armor.STRReq()){
 				dr -= 2*(belongings.armor.STRReq() - STR());
 				dr = Math.max(dr, 0);
 			}
 		}
+
 		if (belongings.weapon != null)  dr += Random.NormalIntRange( 0 , belongings.weapon.defenseFactor( this ) );
 		if (bark != null)               dr += Random.NormalIntRange( 0 , bark.level() );
 
@@ -985,15 +993,6 @@ public class Hero extends Char {
 				&& RingOfElements.FULL.contains(src.getClass())){
 			dmg -= Random.NormalIntRange(belongings.armor.DRMin(), belongings.armor.DRMax())/3;
 		}
-
-         if (Dungeon.isChallenged() && belongings.armor != null){
-             int expertDamageBonus = 0;
-             int dr = Random.NormalIntRange(belongings.armor.DRMin(), belongings.armor.DRMax());
-             for (int i = 0; i < dr; i++){
-                 if (Random.Int(5) == 0) expertDamageBonus++;
-             }
-             dmg -= expertDamageBonus;
-         }
 
 		if (subClass == HeroSubClass.BERSERKER && berserk == null){
 			berserk = Buff.affect(this, Berserk.class);
