@@ -160,6 +160,27 @@ public class Bestiary {
 						Succubus.class,
 						Eye.class, Eye.class,
 						Scorpio.class, Scorpio.class, Scorpio.class));
+
+             	//Modern Sewers
+			case 27:
+				//10x ratinator
+				return new ArrayList<Class<? extends Mob>>(Arrays.asList(
+						Ratinator.class, Ratinator.class, Ratinator.class, Ratinator.class, Ratinator.class,
+						Ratinator.class, Ratinator.class, Ratinator.class, Ratinar.class, Ratinator.class));
+			case 28:
+				//3x ratinator, 3x adv gnoll
+				return new ArrayList<>(Arrays.asList(Ratinator.class, Ratinator.class, Ratinator.class,
+						AdvGnoll.class, AdvGnoll.class, AdvGnoll.class));
+			case 29:
+				//2x ratinator, 4x adv gnoll, 1x crabor
+				return new ArrayList<>(Arrays.asList(Ratinator.class, Ratinator.class,
+						AdvGnoll.class, AdvGnoll.class, AdvGnoll.class, AdvGnoll.class,
+						Crabor.class));
+			case 30:
+				//1x ratinator, 2x adv gnoll, 3x crabor
+				return new ArrayList<>(Arrays.asList(Ratinator.class,
+						AdvGnoll.class, AdvGnoll.class,
+						Crabor.class, Crabor.class, Crabor.class));
 		}
 		
 	}

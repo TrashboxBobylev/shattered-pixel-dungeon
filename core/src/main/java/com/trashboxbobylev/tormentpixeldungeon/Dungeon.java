@@ -51,6 +51,7 @@ import com.trashboxbobylev.tormentpixeldungeon.levels.HallsLevel;
 import com.trashboxbobylev.tormentpixeldungeon.levels.LastLevel;
 import com.trashboxbobylev.tormentpixeldungeon.levels.LastShopLevel;
 import com.trashboxbobylev.tormentpixeldungeon.levels.Level;
+import com.trashboxbobylev.tormentpixeldungeon.levels.ModernSewerLevel;
 import com.trashboxbobylev.tormentpixeldungeon.levels.PrisonBossLevel;
 import com.trashboxbobylev.tormentpixeldungeon.levels.PrisonLevel;
 import com.trashboxbobylev.tormentpixeldungeon.levels.SewerBossLevel;
@@ -304,6 +305,13 @@ public class Dungeon {
 		case 26:
 			level = new LastLevel();
 			break;
+        case 27:
+		case 28:
+		case 29:
+		case 30:
+        case 31:
+			level = new ModernSewerLevel();
+			break;
 		default:
 			level = new DeadEndLevel();
 			Statistics.deepestFloor--;
@@ -338,7 +346,7 @@ public class Dungeon {
 	}
 	
 	public static boolean shopOnLevel() {
-		return depth == 6 || depth == 11 || depth == 16;
+		return depth == 6 || depth == 11 || depth == 16 || depth == 27;
 	}
 	
 	public static boolean bossLevel() {

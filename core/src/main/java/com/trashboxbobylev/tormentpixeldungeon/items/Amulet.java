@@ -28,8 +28,10 @@ import com.trashboxbobylev.tormentpixeldungeon.Statistics;
 import com.trashboxbobylev.tormentpixeldungeon.actors.Actor;
 import com.trashboxbobylev.tormentpixeldungeon.actors.hero.Hero;
 import com.trashboxbobylev.tormentpixeldungeon.scenes.AmuletScene;
+import com.trashboxbobylev.tormentpixeldungeon.scenes.InterlevelScene;
 import com.trashboxbobylev.tormentpixeldungeon.sprites.ItemSpriteSheet;
 import com.watabou.noosa.Game;
+import com.watabou.noosa.audio.Sample;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,6 +39,7 @@ import java.util.ArrayList;
 public class Amulet extends Item {
 	
 	private static final String AC_END = "END";
+    private static final String AC_CRUSH = "CRUSH";
 	
 	{
 		image = ItemSpriteSheet.AMULET;
@@ -48,6 +51,7 @@ public class Amulet extends Item {
 	public ArrayList<String> actions( Hero hero ) {
 		ArrayList<String> actions = super.actions( hero );
 		actions.add( AC_END );
+        actions.add( AC_CRUSH );
 		return actions;
 	}
 	
@@ -58,7 +62,12 @@ public class Amulet extends Item {
 
 		if (action.equals(AC_END)) {
 			showAmuletScene( false );
-		}
+		} else if (action.equals(AC_CRUSH)) {
+               Sample.INSTANCE.play( Assets.SND_SHATTER );
+                detach( hero.belongings.backpack );
+                InterlevelScene.mode = InterlevelScene.Mode.DESCEND;
+				Game.switchScene( InterlevelScene.class );
+        }
 	}
 	
 	@Override

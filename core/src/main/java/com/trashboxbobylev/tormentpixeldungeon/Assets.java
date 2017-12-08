@@ -106,6 +106,7 @@ public class Assets {
 	public static final String TILES_CAVES	= "tiles_caves.png";
 	public static final String TILES_CITY	= "tiles_city.png";
 	public static final String TILES_HALLS	= "tiles_halls.png";
+    public static final String TILES_MODERN_SEWERS	= "tiles_modern_sewers.png";
 	
 	public static final String WATER_SEWERS	= "water0.png";
 	public static final String WATER_PRISON	= "water1.png";
@@ -128,6 +129,7 @@ public class Assets {
 	
 	public static final String THEME	= "theme.ogg";
 	public static final String TUNE		= "game.ogg";
+	public static final String MODERN_TUNE = "future_game.ogg";
 	public static final String HAPPY	= "surface.ogg";
 	
 	public static final String SND_CLICK	= "snd_click.mp3";

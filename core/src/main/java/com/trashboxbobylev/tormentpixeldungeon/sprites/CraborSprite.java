@@ -21,55 +21,35 @@
 
 package com.trashboxbobylev.tormentpixeldungeon.sprites;
 
-import android.opengl.GLES20;
-
 import com.trashboxbobylev.tormentpixeldungeon.Assets;
-import com.trashboxbobylev.tormentpixeldungeon.effects.Speck;
-import com.trashboxbobylev.tormentpixeldungeon.effects.particles.ShaftParticle;
 import com.watabou.noosa.TextureFilm;
 
-import javax.microedition.khronos.opengles.GL10;
+public class CraborSprite extends MobSprite {
 
-public class GhostSprite extends MobSprite {
-	
-	public GhostSprite() {
+	public CraborSprite() {
 		super();
-		
-		texture( Assets.GHOST );
-		
+
+		texture( Assets.CRAB );
+
 		TextureFilm frames = new TextureFilm( texture, 16, 16 );
-		
+
 		idle = new Animation( 5, true );
-		idle.frames( frames, 0, 1 );
-		
-		run = new Animation( 10, true );
-		run.frames( frames, 0, 1 );
+		idle.frames( frames, 0, 1, 0, 2 );
 
-		attack = new Animation( 10, false );
-		attack.frames( frames, 0, 2, 3 );
+		run = new Animation( 15, true );
+		run.frames( frames, 3, 4, 5, 6 );
 
-		die = new Animation( 8, false );
-		die.frames( frames, 0, 4, 5, 6, 7 );
-		
+		attack = new Animation( 12, false );
+		attack.frames( frames, 7, 8, 9 );
+
+		die = new Animation( 12, false );
+		die.frames( frames, 10, 11, 12, 13 );
+
 		play( idle );
 	}
-	
-	@Override
-	public void draw() {
-		GLES20.glBlendFunc( GL10.GL_SRC_ALPHA, GL10.GL_ONE );
-		super.draw();
-		GLES20.glBlendFunc( GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA );
-	}
-	
-	@Override
-	public void die() {
-		super.die();
-		emitter().start( ShaftParticle.FACTORY, 0.3f, 4 );
-		emitter().start( Speck.factory( Speck.LIGHT ), 0.2f, 3 );
-	}
-	
+
 	@Override
 	public int blood() {
-		return 0xFFFFFF;
+		return 0xFFFFEA80;
 	}
 }
