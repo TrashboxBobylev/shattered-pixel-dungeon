@@ -59,13 +59,13 @@ public class ModernSewerLevel extends RegularLevel {
 	@Override
 	protected int standardRooms() {
 		//10 to 14, average 12
-		return 10+Random.chances(new float[]{6, 4, 2, 1});
+		return 10+Random.chances(new float[]{4, 2, 1});
 	}
 	
 	@Override
 	protected int specialRooms() {
 		//2 to 4, average 3
-		return 2+Random.chances(new float[]{4, 4, 4, 2});
+		return 2+Random.chances(new float[]{4, 4, 2});
 	}
 	
 	@Override
