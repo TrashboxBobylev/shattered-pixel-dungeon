@@ -166,7 +166,7 @@ public class Bestiary {
 				//10x ratinator
 				return new ArrayList<Class<? extends Mob>>(Arrays.asList(
 						Ratinator.class, Ratinator.class, Ratinator.class, Ratinator.class, Ratinator.class,
-						Ratinator.class, Ratinator.class, Ratinator.class, Ratinar.class, Ratinator.class));
+						Ratinator.class, Ratinator.class, Ratinator.class, Ratinator.class, Ratinator.class));
 			case 28:
 				//3x ratinator, 3x adv gnoll
 				return new ArrayList<>(Arrays.asList(Ratinator.class, Ratinator.class, Ratinator.class,

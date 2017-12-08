@@ -25,7 +25,7 @@ import com.trashboxbobylev.tormentpixeldungeon.actors.Char;
 import com.trashboxbobylev.tormentpixeldungeon.sprites.RatinatorSprite;
 import com.watabou.utils.Random;
 
-public class Rat extends Mob {
+public class Ratinator extends Mob {
 
 	{
 		spriteClass = RatinatorSprite.class;

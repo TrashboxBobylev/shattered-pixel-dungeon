@@ -21,6 +21,7 @@
 
 package com.trashboxbobylev.tormentpixeldungeon.items;
 
+import com.trashboxbobylev.tormentpixeldungeon.Assets;
 import com.trashboxbobylev.tormentpixeldungeon.Badges;
 import com.trashboxbobylev.tormentpixeldungeon.Dungeon;
 import com.trashboxbobylev.tormentpixeldungeon.ShatteredPixelDungeon;

@@ -42,7 +42,7 @@ public class AdvGnoll extends Mob {
 	}
 	
     @Override
-    protected int attackDelay() {
+    protected float attackDelay() {
         return 0.33f;
     }
 
