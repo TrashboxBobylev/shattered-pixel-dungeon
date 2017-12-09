@@ -59,7 +59,7 @@ public abstract class StandardRoom extends Room {
 	//but would (effectively) never roll that size category, consider using Float.MIN_VALUE
 	public float[] sizeCatProbs(){
 		//always normal by default
-		return new float[]{1, 0, 0};
+		return new float[]{1, 0, 0, 0};
 	}
 	
 	public boolean setSizeCat(){
