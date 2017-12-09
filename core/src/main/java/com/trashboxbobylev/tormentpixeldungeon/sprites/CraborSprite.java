@@ -40,16 +40,16 @@ public class CraborSprite extends MobSprite {
 		run.frames( frames, 35, 36, 37, 38 );
 
 		attack = new Animation( 12, false );
-		attack.frames( frames, 39, 40, 49 );
+		attack.frames( frames, 39, 40, 41 );
 
 		die = new Animation( 12, false );
-		die.frames( frames, 50, 51, 52, 53 );
+		die.frames( frames, 42, 43, 44, 45 );
 
 		play( idle );
 	}
 
 	@Override
 	public int blood() {
-		return 0xFFFFEA80;
+		return 0xE5E3DC;
 	}
 }

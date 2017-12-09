@@ -36,13 +36,13 @@ public class SpecialRoom extends Room {
 	
 	@Override
 	public int minWidth() { return 5; }
-	public int maxWidth() { return 10; }
+	public int maxWidth() { return 10 + (Dungeon.isChallenged() ? 5 : 0); }
 	
 	@Override
 	public int minHeight() {
 		return 5;
 	}
-	public int maxHeight() { return 10; }
+	public int maxHeight() { return 10 + (Dungeon.isChallenged() ? 5 : 0); }
 	
 	@Override
 	public int minConnections(int direction) {

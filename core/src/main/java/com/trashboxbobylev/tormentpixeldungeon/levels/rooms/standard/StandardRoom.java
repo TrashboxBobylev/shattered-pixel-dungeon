@@ -35,6 +35,7 @@ public abstract class StandardRoom extends Room {
 		NORMAL(4, 10, 1),
 		LARGE(10, 14, 2),
 		GIANT(14, 18, 3);
+        EXTREME(18, 23, 4);
 		
 		public final int minDim, maxDim;
 		public final int roomValue;
@@ -144,7 +145,7 @@ public abstract class StandardRoom extends Room {
 		rooms.add(MinefieldRoom.class);
 	}
 	
-	private static float[][] chances = new float[27][];
+	private static float[][] chances = new float[30][];
 	static {
 		chances[1] =  new float[]{20,  15,5, 0,0, 0,0, 0,0, 0,0,    1,0,1,0,1,0,1,1,0,0};
 		chances[2] =  new float[]{20,  15,5, 0,0, 0,0, 0,0, 0,0,    1,1,1,1,1,1,1,1,1,1};
@@ -164,6 +165,7 @@ public abstract class StandardRoom extends Room {
 		
 		chances[22] = new float[]{20,  0,0, 0,0, 0,0, 0,0, 15,5,    1,1,1,1,1,1,1,1,1,1};
 		chances[26] = chances[25] = chances[24] = chances[23] = chances[22];
+        chances[30] = chances[29] = chances[28] = chances[27] = chances[1];
 	}
 	
 	
