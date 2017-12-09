@@ -34,7 +34,7 @@ public abstract class StandardRoom extends Room {
 		
 		NORMAL(4, 10, 1),
 		LARGE(10, 14, 2),
-		GIANT(14, 18, 3);
+		GIANT(14, 18, 3),
         EXTREME(18, 23, 4);
 		
 		public final int minDim, maxDim;

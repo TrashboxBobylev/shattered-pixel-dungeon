@@ -48,7 +48,7 @@ public class AdvGnoll extends Mob {
 
 	@Override
 	public int damageRoll() {
-		return Random.NormalIntRange( 7, 14 );
+		return Random.NormalIntRange( 9, 18 );
 	}
 	
 	@Override
