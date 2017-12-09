@@ -165,7 +165,8 @@ public abstract class StandardRoom extends Room {
 		
 		chances[22] = new float[]{20,  0,0, 0,0, 0,0, 0,0, 15,5,    1,1,1,1,1,1,1,1,1,1};
 		chances[26] = chances[25] = chances[24] = chances[23] = chances[22];
-        chances[30] = chances[29] = chances[28] = chances[27] = chances[1];
+ 		chances[27] =  new float[]{20,  15,5, 0,0, 0,0, 0,0, 0,0,    1,0,1,0,1,0,1,1,0,0};
+        chances[30] = chances[29] = chances[28] = chances[27];
 	}
 	
 	
