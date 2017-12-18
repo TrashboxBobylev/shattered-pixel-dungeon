@@ -78,7 +78,7 @@ public class Electroshock extends Buff {
 	@Override
 	public boolean act() {
 		if (target.isAlive()) {		
-			damage = Random.NormalIntRange((Dungeon.depth/5), Dungeon.depth);
+			int damage = Random.NormalIntRange((Dungeon.depth/5), Dungeon.depth);
             if (Dungeon.level.water[pos]) damage *= 2;
             if (target.pos != pos) {
                 pos = target.pos;
@@ -86,7 +86,7 @@ public class Electroshock extends Buff {
             }	
 target.damage( damage * (Dungeon.isChallenged() ? 2 : 1), this );
 				if (target.sprite.visible) {
-					target.sprite.parent.add( new Lightning( target.pos, target.pos));
+					target.sprite.parent.add( new Lightning( target.pos, target.pos, null));
 			}
 				
 				if (target == Dungeon.hero && !target.isAlive()) {

@@ -274,7 +274,7 @@ public abstract class Char extends Actor {
 			dmg *= 2;
 		}
 
-        if ((src instanceof WandOfLightning || src instanceof Shaman || src instanceof Potential || src instanceof Shocking) && Random.Int(5) == 0) Buff.affect(this, Electroshock.class).set(Electroshock.durationFactor() * Random.IntRange(4, 10));
+        if ((src instanceof WandOfLightning || src instanceof Shaman || src instanceof Potential || src instanceof Shocking) && Random.Int(5) == 0) Buff.affect(this, Electroshock.class).set(Random.IntRange(4, 10));
 		
 		Class<?> srcClass = src.getClass();
 		if (immunities().contains( srcClass )) {
