@@ -112,6 +112,7 @@ import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Greatshield;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Greatsword;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.HandAxe;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Knuckles;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Katars;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Longsword;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Mace;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.MagesStaff;
@@ -297,9 +298,10 @@ public class Generator {
 					Flail.class,
 					RunicBlade.class,
 					AssassinsBlade.class,
+                    Katars.class,
 					Javelin.class
 			};
-			WEP_T4.probs = new float[]{ 6, 5, 5, 4, 4, 6 };
+			WEP_T4.probs = new float[]{ 5, 5, 4, 4, 3, 3, 5 };
 			
 			WEP_T5.classes = new Class<?>[]{
 					Greatsword.class,
@@ -391,7 +393,8 @@ public class Generator {
 			{0, 25, 50, 18,  5, 2},
 			{0, 10, 35, 40, 10, 5},
 			{0,  0, 10, 50, 25, 15},
-			{0,  0,  8, 20, 42, 30}
+			{0,  0,  8, 20, 42, 30},
+            {0,  0,  0, 20, 30, 50}
 	};
 	
 	private static HashMap<Category,Float> categoryProbs = new LinkedHashMap<>();

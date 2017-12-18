@@ -39,6 +39,7 @@ import com.trashboxbobylev.tormentpixeldungeon.items.armor.LeatherArmor;
 import com.trashboxbobylev.tormentpixeldungeon.items.armor.MailArmor;
 import com.trashboxbobylev.tormentpixeldungeon.items.armor.PlateArmor;
 import com.trashboxbobylev.tormentpixeldungeon.items.armor.ScaleArmor;
+import com.trashboxbobylev.tormentpixeldungeon.items.armor.CompositeArmor;
 import com.trashboxbobylev.tormentpixeldungeon.items.artifacts.TimekeepersHourglass;
 import com.trashboxbobylev.tormentpixeldungeon.items.bags.Bag;
 import com.trashboxbobylev.tormentpixeldungeon.items.bags.PotionBandolier;
@@ -53,19 +54,7 @@ import com.trashboxbobylev.tormentpixeldungeon.items.scrolls.ScrollOfIdentify;
 import com.trashboxbobylev.tormentpixeldungeon.items.scrolls.ScrollOfMagicMapping;
 import com.trashboxbobylev.tormentpixeldungeon.items.scrolls.ScrollOfRemoveCurse;
 import com.trashboxbobylev.tormentpixeldungeon.items.wands.Wand;
-import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.BattleAxe;
-import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Greatsword;
-import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.HandAxe;
-import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Longsword;
-import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Mace;
-import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Shortsword;
-import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Sword;
-import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.WarHammer;
-import com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles.CurareDart;
-import com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles.IncendiaryDart;
-import com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles.Javelin;
-import com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles.Shuriken;
-import com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles.Tamahawk;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles.MissileWeapon;
 import com.trashboxbobylev.tormentpixeldungeon.levels.Level;
 import com.trashboxbobylev.tormentpixeldungeon.levels.Terrain;
 import com.trashboxbobylev.tormentpixeldungeon.levels.painters.Painter;
@@ -82,13 +71,13 @@ public class ShopRoom extends SpecialRoom {
 	@Override
 	public int minWidth() {
 		if (itemsToSpawn == null) itemsToSpawn = generateItems();
-		return Math.max(7, (int)(Math.sqrt(itemsToSpawn.size())+3));
+		return Math.max(10, (int)(Math.sqrt(itemsToSpawn.size())+3));
 	}
 	
 	@Override
 	public int minHeight() {
 		if (itemsToSpawn == null) itemsToSpawn = generateItems();
-		return Math.max(7, (int)(Math.sqrt(itemsToSpawn.size())+3));
+		return Math.max(10, (int)(Math.sqrt(itemsToSpawn.size())+3));
 	}
 	
 	public void paint( Level level ) {
@@ -161,42 +150,9 @@ public class ShopRoom extends SpecialRoom {
 
 		ArrayList<Item> itemsToSpawn = new ArrayList<>();
 		
-		switch (Dungeon.depth) {
-		case 6:
-			itemsToSpawn.add( (Random.Int( 2 ) == 0 ? new Shortsword().identify() : new HandAxe()).identify() );
-			itemsToSpawn.add( Random.Int( 2 ) == 0 ?
-					new IncendiaryDart().quantity(Random.NormalIntRange(2, 4)) :
-					new CurareDart().quantity(Random.NormalIntRange(1, 3)));
-			itemsToSpawn.add( new LeatherArmor().identify() );
-			break;
-			
-		case 11:
-			itemsToSpawn.add( (Random.Int( 2 ) == 0 ? new Sword().identify() : new Mace()).identify() );
-			itemsToSpawn.add( Random.Int( 2 ) == 0 ?
-					new CurareDart().quantity(Random.NormalIntRange(2, 5)) :
-					new Shuriken().quantity(Random.NormalIntRange(3, 6)));
-			itemsToSpawn.add( new MailArmor().identify() );
-			break;
-			
-		case 16:
-			itemsToSpawn.add( (Random.Int( 2 ) == 0 ? new Longsword().identify() : new BattleAxe()).identify() );
-			itemsToSpawn.add( Random.Int( 2 ) == 0 ?
-					new Shuriken().quantity(Random.NormalIntRange(4, 7)) :
-					new Javelin().quantity(Random.NormalIntRange(3, 6)));
-			itemsToSpawn.add( new ScaleArmor().identify() );
-			break;
-			
-		case 21:
-			itemsToSpawn.add( Random.Int( 2 ) == 0 ? new Greatsword().identify() : new WarHammer().identify() );
-			itemsToSpawn.add( Random.Int(2) == 0 ?
-					new Javelin().quantity(Random.NormalIntRange(4, 7)) :
-					new Tamahawk().quantity(Random.NormalIntRange(4, 7)));
-			itemsToSpawn.add( new PlateArmor().identify() );
-			itemsToSpawn.add( new Torch() );
-			itemsToSpawn.add( new Torch() );
-			itemsToSpawn.add( new Torch() );
-			break;
-		}
+        itemsToSpawn.add( shopItem(Generator.Category.WEAPON) );
+			itemsToSpawn.add( shopItem(Generator.Category.WEAPON));
+			itemsToSpawn.add( shopItem(Generator.Category.ARMOR) );
 
 		itemsToSpawn.add( new MerchantsBeacon() );
 
@@ -287,8 +243,8 @@ public class ShopRoom extends SpecialRoom {
 		itemsToSpawn.add( rare );
 
 		//hard limit is 63 items + 1 shopkeeper, as shops can't be bigger than 8x8=64 internally
-		if (itemsToSpawn.size() > 63)
-			throw new RuntimeException("Shop attempted to carry more than 63 items!");
+		if (itemsToSpawn.size() > 100)
+			throw new RuntimeException("Shop attempted to carry more than 100 items!");
 
 		Random.shuffle(itemsToSpawn);
 		return itemsToSpawn;
@@ -331,5 +287,15 @@ public class ShopRoom extends SpecialRoom {
 
 		return null;
 	}
+
+    private Item shopItem(Generator.Category cat){
+        Item itemForShop;
+
+        do {
+            itemForShop = Generator.random(cat);
+        } while ((itemForShop.level() < 1 && !item.cursed) || (itemForShop instanceof MissileWeapon));
+        
+        return itemForShop;
+    }
 
 }

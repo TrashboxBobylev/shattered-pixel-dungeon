@@ -24,6 +24,7 @@ package com.trashboxbobylev.tormentpixeldungeon.journal;
 import com.trashboxbobylev.tormentpixeldungeon.Badges;
 import com.trashboxbobylev.tormentpixeldungeon.items.Item;
 import com.trashboxbobylev.tormentpixeldungeon.items.armor.ClothArmor;
+import com.trashboxbobylev.tormentpixeldungeon.items.armor.CompositeArmor;
 import com.trashboxbobylev.tormentpixeldungeon.items.armor.HuntressArmor;
 import com.trashboxbobylev.tormentpixeldungeon.items.armor.LeatherArmor;
 import com.trashboxbobylev.tormentpixeldungeon.items.armor.MageArmor;
@@ -121,6 +122,7 @@ import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.DoubleDagger;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Halberd;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.FightingKnifes;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.JjanGo;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Katars;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles.Boomerang;
 import com.watabou.utils.Bundle;
 
@@ -177,6 +179,7 @@ public enum Catalog {
 		WEAPONS.seen.put( Flail.class,                      false);
 		WEAPONS.seen.put( RunicBlade.class,                 false);
 		WEAPONS.seen.put( AssassinsBlade.class,             false);
+        WEAPONS.seen.put(Katars.class, false);
 		WEAPONS.seen.put( Greatsword.class,                 false);
 		WEAPONS.seen.put( WarHammer.class,                  false);
 		WEAPONS.seen.put( Glaive.class,                     false);
@@ -190,6 +193,7 @@ public enum Catalog {
 
 		ARMOR.seen.put( ClothArmor.class,                   false);
 		ARMOR.seen.put( LeatherArmor.class,                 false);
+        ARMOR.seen.put( CompositeArmor.class, false);
 		ARMOR.seen.put( MailArmor.class,                    false);
 		ARMOR.seen.put( ScaleArmor.class,                   false);
 		ARMOR.seen.put( PlateArmor.class,                   false);
