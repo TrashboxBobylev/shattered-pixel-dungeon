@@ -288,12 +288,12 @@ public class ShopRoom extends SpecialRoom {
 		return null;
 	}
 
-    private Item shopItem(Generator.Category cat){
+    private static Item shopItem(Generator.Category cat){
         Item itemForShop;
 
         do {
             itemForShop = Generator.random(cat);
-        } while ((itemForShop.level() < 1 && !item.cursed) || (itemForShop instanceof MissileWeapon));
+        } while ((itemForShop.level() < 1 && !itemForShop.cursed) || (itemForShop instanceof MissileWeapon));
         
         return itemForShop;
     }
