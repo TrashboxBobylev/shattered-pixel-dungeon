@@ -47,6 +47,7 @@ import com.trashboxbobylev.tormentpixeldungeon.items.weapon.enchantments.Lucky;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.enchantments.Projecting;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.enchantments.Shocking;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.enchantments.Stunning;
+import com.trashboxbobylev. tormentpixeldungeon.items.weapon.enchantments.Soporific;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.enchantments.Unstable;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.enchantments.Vampiric;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.enchantments.Venomous;
@@ -298,11 +299,11 @@ abstract public class Weapon extends KindOfWeapon {
 
 		private static final Class<?>[] enchants = new Class<?>[]{
 			Blazing.class, Venomous.class, Vorpal.class, Shocking.class,
-			Chilling.class, Eldritch.class, Lucky.class, Projecting.class, Unstable.class, Dazzling.class, Impulse.class, 
+			Chilling.class, Eldritch.class, Lucky.class, Projecting.class, Unstable.class, Dazzling.class, Impulse.class, Soporific.class,
 			Grim.class, Stunning.class, Vampiric.class,};
 		private static final float[] chances= new float[]{
 			10, 10, 10, 10,
-			5, 5, 5, 5, 5, 5, 5,
+			5, 5, 5, 5, 5, 5, 5, 5,
 			2, 2, 2 };
 
 		private static final Class<?>[] curses = new Class<?>[]{

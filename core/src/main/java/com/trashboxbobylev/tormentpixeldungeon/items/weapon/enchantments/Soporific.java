@@ -19,48 +19,39 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package com.trashboxbobylev.tormentpixeldungeon.items.armor.glyphs;
+package com.trashboxbobylev.tormentpixeldungeon.items.weapon.enchantments;
 
-import com.trashboxbobylev.tormentpixeldungeon.Dungeon;
 import com.trashboxbobylev.tormentpixeldungeon.actors.Char;
-import com.trashboxbobylev.tormentpixeldungeon.effects.Lightning;
-import com.trashboxbobylev.tormentpixeldungeon.items.armor.Armor;
-import com.trashboxbobylev.tormentpixeldungeon.items.armor.Armor.Glyph;
+import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Buff;
+import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Drowsy;
+import com.trashboxbobylev.tormentpixeldungeon.effects.CellEmitter;
+import com.trashboxbobylev.tormentpixeldungeon.effects.particles.PoisonParticle;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.Weapon;
 import com.trashboxbobylev.tormentpixeldungeon.sprites.ItemSprite;
 import com.trashboxbobylev.tormentpixeldungeon.sprites.ItemSprite.Glowing;
-import com.watabou.noosa.Camera;
 import com.watabou.utils.Random;
 
-public class Potential extends Glyph {
-	
-	private static ItemSprite.Glowing WHITE = new ItemSprite.Glowing( 0xFFFFFF, 0.6f );
+public class Soporific extends Weapon.Enchantment {
+
+	private static ItemSprite.Glowing LIGHT_PURPLE = new ItemSprite.Glowing( 0xE975DE );
 	
 	@Override
-	public int proc( Armor armor, Char attacker, Char defender, int damage) {
-
-		int level = Math.max( 0, armor.level() );
-
-		if (Random.Int( level + 20 ) >= 18) {
-
-			int shockDmg = Random.NormalIntRange( 1, 3 );
-
-			defender.damage( shockDmg, this );
-			
-			checkOwner( defender );
-			if (defender == Dungeon.hero) {
-				Dungeon.hero.belongings.charge(1f + level/10f);
-				Camera.main.shake( 2, 0.3f );
-			}
-
-			attacker.sprite.parent.add( new Lightning( attacker.pos, defender.pos, null ) );
-
-		}
+	public int proc( Weapon weapon, Char attacker, Char defender, int damage ) {
+		// lvl 0 - 10%
+		// lvl 1 - 25%
+		// lvl 2 - 30%
+		int level = Math.max( 0, weapon.level() );
 		
+		if (Random.Int( level + 10 ) >= 2) {
+			
+			Buff.affect( defender, Drowsy.class );
+		}
+
 		return damage;
 	}
-
+	
 	@Override
 	public Glowing glowing() {
-		return WHITE;
+		return LIGHT_PURPLE;
 	}
 }

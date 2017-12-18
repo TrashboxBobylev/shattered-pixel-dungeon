@@ -128,7 +128,7 @@ public class Shaman extends Mob implements Callback {
         super.die(cause);
         
         if (Random.Int(50) == 0 && Dungeon.isChallenged()) {
-Dungeon.level.drop(Generator.random(WandOfLightning. class), pos).sprite.drop();
+Dungeon.level.drop(Generator.random(WandOfLightning.class), pos).sprite.drop();
         
         }
     }

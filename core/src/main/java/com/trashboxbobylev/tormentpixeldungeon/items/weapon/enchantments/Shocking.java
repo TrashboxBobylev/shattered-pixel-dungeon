@@ -51,7 +51,7 @@ public class Shocking extends Weapon.Enchantment {
 
 			arcs.clear();
 			arcs.add(new Lightning.Arc(attacker.sprite.center(), defender.sprite.center()));
-			hit(defender, Random.Int(1, damage / 3));
+			hit(defender, Random.Int(1, damage / 6));
 
 			attacker.sprite.parent.addToFront( new Lightning( arcs, null ) );
 			
@@ -86,7 +86,7 @@ public class Shocking extends Weapon.Enchantment {
 			Char n = Actor.findChar( ch.pos + PathFinder.NEIGHBOURS8[i] );
 			if (n != null && !affected.contains( n )) {
 				arcs.add(new Lightning.Arc(ch.sprite.center(), n.sprite.center()));
-				hit(n, Random.Int(damage / 2, damage));
+				hit(n, Random.Int(damage / 4, damage));
 			}
 		}
 	}

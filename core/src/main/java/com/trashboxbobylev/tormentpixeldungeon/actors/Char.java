@@ -32,6 +32,7 @@ import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Doom;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.EarthImbue;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.FireImbue;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Frost;
+import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Electroshock;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Hunger;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.MagicalSleep;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Paralysis;
@@ -41,12 +42,16 @@ import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Speed;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Vertigo;
 import com.trashboxbobylev.tormentpixeldungeon.actors.hero.Hero;
 import com.trashboxbobylev.tormentpixeldungeon.actors.hero.HeroSubClass;
+import com.trashboxbobylev.tormentpixeldungeon.actors.mobs.Shaman;
 import com.trashboxbobylev.tormentpixeldungeon.items.rings.RingOfElements;
+import com.trashboxbobylev.tormentpixeldungeon.items.armor.glyphs.Potential;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.enchantments.Shocking;
 import com.trashboxbobylev.tormentpixeldungeon.levels.Terrain;
 import com.trashboxbobylev.tormentpixeldungeon.levels.features.Door;
 import com.trashboxbobylev.tormentpixeldungeon.messages.Messages;
 import com.trashboxbobylev.tormentpixeldungeon.sprites.CharSprite;
 import com.trashboxbobylev.tormentpixeldungeon.utils.GLog;
+import com.trashboxbobylev.tormentpixeldungeon.items.wands.WandOfLightning;
 import com.watabou.noosa.Camera;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundlable;
@@ -268,6 +273,8 @@ public abstract class Char extends Actor {
 		if (this.buff(Doom.class) != null){
 			dmg *= 2;
 		}
+
+        if ((src instanceof WandOfLightning || src instanceof Shaman || src instanceof Potential || src instanceof Shocking) && Random.Int(5) == 0) Buff.affect(this, Electroshock.class).set(Electroshock.durationFactor() * Random.IntRange(4, 10));
 		
 		Class<?> srcClass = src.getClass();
 		if (immunities().contains( srcClass )) {
