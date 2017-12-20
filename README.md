@@ -1,25 +1,19 @@
-Shattered Pixel Dungeon
+Torment Pixel Dungeon
 =======================
 
-A Roguelike RPG, with randomly generated levels, items, enemies, and traps!
-Based on the source code of Pixel Dungeon, by Watabou.
+A Roguelike RPG, with randomly generated levels, items, enemies, traps and lulz!
+Based on the source code of Shattered Pixel Dungeon, by 00-Evan.
 
-Shattered Pixel Dungeon uses gradle and is most easily compiled/edited using Android Studio.
+Torment Pixel Dungeon uses gradle and is most easily compiled/edited using Android Studio.
 
-Shattered Pixel Dungeon on Google Play:
-https://play.google.com/store/apps/details?id=com.shatteredpixel.shatteredpixeldungeon
-
-On Amazon:
-https://www.amazon.com/Shattered-Pixel-Dungeon/dp/B00OH2C21M
+Torment Pixel Dungeon on Google Play:
+Not exists.
 
 On F-Droid (Which compiles directly from this source code):
-https://f-droid.org/repository/browse/?fdid=com.shatteredpixel.shatteredpixeldungeon
+Non exists.
 
 Official web-site: 
-http://www.shatteredpixel.com
+VK page: @tbobylev
 
-Developer's blog: 
-http://shatteredpixel.tumblr.com/
-
-Source code of original Pixel Dungeon:
-https://github.com/watabou/pixel-dungeon
+Source code of original Shattered Pixel Dungeon:
+https://github.com/00-Evan/shattered-pixel-dungeon
