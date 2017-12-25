@@ -136,7 +136,7 @@ import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.GalacticSword;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Interhammer;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Electroglaive;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.DoubleShortswords;
-import import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.ChlorateEruption;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.ChlorateEruption;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles.Boomerang;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles.CurareDart;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles.Dart;
