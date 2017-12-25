@@ -292,8 +292,8 @@ public class ShopRoom extends SpecialRoom {
         Item itemForShop;
 
         do {
-            itemForShop = Generator.random(cat);
-        } while ((itemForShop.level() < 1 && !itemForShop.cursed) || (itemForShop instanceof MissileWeapon));
+            itemForShop = Generator.random(cat).identify();
+        } while ((itemForShop.level() < 2 && itemForShop.cursed) || (itemForShop instanceof MissileWeapon));
         
         return itemForShop;
     }

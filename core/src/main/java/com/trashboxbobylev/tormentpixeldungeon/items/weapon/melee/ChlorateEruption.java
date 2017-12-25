@@ -23,20 +23,19 @@ package com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee;
 
 import com.trashboxbobylev.tormentpixeldungeon.sprites.ItemSpriteSheet;
 
-public class Katars extends MeleeWeapon {
+public class ChlorateEruption extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.KATARS;
+		image = ItemSpriteSheet.CHLORATE_ERUPTION;
 
-		tier = 4;
-		DLY = 0.5f; //2x speed
-        ACC = 1.1f; //10% boost to accuracy
+		tier = 7;
+		ACC = 0.6f; //0.6x accuracy
+		//also cannot surprise attack, see Hero.canSurpriseAttack
 	}
 
 	@Override
 	public int max(int lvl) {
-		return  2*(tier+2) +    //12 base, down from 25
-				lvl*(tier-1);       //+3 per level, down from +5
+		return  Math.round(7*(tier+1)) +        //56 base, up from 40
+				lvl*Math.round(1.5f*(tier+1));  //+12 per level, up from +8
 	}
-
 }

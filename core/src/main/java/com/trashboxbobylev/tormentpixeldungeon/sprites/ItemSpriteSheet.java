@@ -221,6 +221,20 @@ public class ItemSpriteSheet {
 		assignItemRect(JJAN_GO, 15, 16);
 	}
 
+private static final int WEP_TIER7     =                               xy(16, 7);   //8 slots
+	public static final int GALACTIC_SWORD      = WEP_TIER7+0;
+	public static final int INTERMOLOT       = WEP_TIER7+1;
+	public static final int ELECTROGLAVIE           = WEP_TIER7+2;
+	public static final int DOUBLE_SHORTSWORDS    = WEP_TIER7+3;
+	public static final int CHLORATE_ERUPTION           = WEP_TIER7+4;
+	static{
+		assignItemRect(GALACTIC_SWORD,      16, 16);
+		assignItemRect(INTERMOLOT,        16, 16);
+		assignItemRect(ELECTROGLAVIE,           16, 16);
+		assignItemRect(DOUBLE_SHORTSWORDS,    15, 16);
+		assignItemRect(CHLORATE_ERUPTION,            14, 14);
+	}
+
 
 	                                                                                    //8 free slots
 

@@ -23,20 +23,20 @@ package com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee;
 
 import com.trashboxbobylev.tormentpixeldungeon.sprites.ItemSpriteSheet;
 
-public class Katars extends MeleeWeapon {
+public class Electroglaive extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.KATARS;
+		image = ItemSpriteSheet.ELECTROGLAVIE;
 
-		tier = 4;
-		DLY = 0.5f; //2x speed
-        ACC = 1.1f; //10% boost to accuracy
+		tier = 7;
+		DLY = 1.45f; //0.69x speed
+		RCH = 2;    //extra reach
 	}
 
 	@Override
 	public int max(int lvl) {
-		return  2*(tier+2) +    //12 base, down from 25
-				lvl*(tier-1);       //+3 per level, down from +5
+		return  Math.round(6.75f*(tier+1)) +    //54 base, up from 40
+				lvl*Math.round(1.33f*(tier+1)); //+11 per level, up from +8
 	}
 
 }

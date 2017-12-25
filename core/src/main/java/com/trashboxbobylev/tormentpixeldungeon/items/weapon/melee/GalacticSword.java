@@ -23,20 +23,12 @@ package com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee;
 
 import com.trashboxbobylev.tormentpixeldungeon.sprites.ItemSpriteSheet;
 
-public class Katars extends MeleeWeapon {
+public class GalacticSword extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.KATARS;
+		image = ItemSpriteSheet.GALACTIC_SWORD;
 
-		tier = 4;
-		DLY = 0.5f; //2x speed
-        ACC = 1.1f; //10% boost to accuracy
-	}
-
-	@Override
-	public int max(int lvl) {
-		return  2*(tier+2) +    //12 base, down from 25
-				lvl*(tier-1);       //+3 per level, down from +5
+		tier = 7;
 	}
 
 }

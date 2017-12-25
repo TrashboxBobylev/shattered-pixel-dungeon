@@ -21,22 +21,26 @@
 
 package com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee;
 
+import com.trashboxbobylev.tormentpixeldungeon.actors.Char;
 import com.trashboxbobylev.tormentpixeldungeon.sprites.ItemSpriteSheet;
 
-public class Katars extends MeleeWeapon {
+public class DoubleShortswords extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.KATARS;
+		image = ItemSpriteSheet.DOUBLE_SHORTSWORDS;
 
-		tier = 4;
+		tier = 7;
 		DLY = 0.5f; //2x speed
-        ACC = 1.1f; //10% boost to accuracy
 	}
 
 	@Override
 	public int max(int lvl) {
-		return  2*(tier+2) +    //12 base, down from 25
-				lvl*(tier-1);       //+3 per level, down from +5
+		return  Math.round(2.5f*(tier+1)) +     //20 base, down from 40
+				lvl*Math.round(0.5f*(tier+1));  //+4 per level, down from +8
 	}
 
+	@Override
+	public int defenseFactor( Char owner ) {
+		return 6;	//6 extra defence
+	}
 }

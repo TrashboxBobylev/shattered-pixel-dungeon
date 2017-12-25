@@ -132,6 +132,11 @@ import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.DoubleDagger;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Halberd;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.FightingKnifes;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.JjanGo;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.GalacticSword;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Interhammer;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Electroglaive;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.DoubleShortswords;
+import import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.ChlorateEruption;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles.Boomerang;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles.CurareDart;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles.Dart;
@@ -171,6 +176,7 @@ public class Generator {
 		WEP_T4	( 0,    Weapon.class),
 		WEP_T5	( 0,    Weapon.class),
         WEP_T6  ( 0,    Weapon.class),
+        WEP_T7 (  0,    Weapon.class),
 		ARMOR	( 4,    Armor.class ),
 		POTION	( 20,   Potion.class ),
 		SCROLL	( 20,   Scroll.class ),
@@ -323,6 +329,16 @@ public class Generator {
 			};
 			WEP_T6.probs = new float[]{ 6, 4, 4, 4, 5, 6 };
 			
+            WEP_T7.classes = new Class<?>[]{
+					GalacticSword.class,
+					Interhammer.class,
+					Electroglaive.class,
+					DoubleShortswords.class,
+					ChlorateEruption.class,
+					CobaltScytle.class
+			};
+			WEP_T5.probs = new float[]{ 6, 5, 5, 4, 3, 6 };
+
 			//see Generator.randomArmor
 			ARMOR.classes = new Class<?>[]{
 					ClothArmor.class,
@@ -330,8 +346,9 @@ public class Generator {
 					MailArmor.class,
 					ScaleArmor.class,
 					PlateArmor.class,
+                    CompositeArmor.class,
                     CompositeArmor.class };
-			ARMOR.probs = new float[]{ 0, 0, 0, 0, 0, 0 };
+			ARMOR.probs = new float[]{ 0, 0, 0, 0, 0, 0, 0};
 			
 			FOOD.classes = new Class<?>[]{
 					Food.class,
@@ -389,12 +406,12 @@ public class Generator {
 	}
 
 	private static final float[][] floorSetTierProbs = new float[][] {
-			{0, 70, 20,  8,  2, 0},
-			{0, 25, 50, 18,  5, 2},
-			{0, 10, 35, 40, 10, 5},
-			{0,  0, 10, 50, 25, 15},
-			{0,  0,  8, 20, 42, 30},
-            {0,  0,  0, 20, 30, 50}
+			{0, 70, 20,  8,  2, 0, 0},
+			{0, 25, 50, 18,  5, 2, 0},
+			{0, 10, 35, 40, 10, 5, 0},
+			{0,  0, 10, 50, 25, 15, 0},
+			{0,  0,  8, 20, 42, 30, 0},
+            {0,  0,  0, 0, 10, 75, 15}
 	};
 	
 	private static HashMap<Category,Float> categoryProbs = new LinkedHashMap<>();
@@ -476,7 +493,8 @@ public class Generator {
 			Category.WEP_T3,
 			Category.WEP_T4,
 			Category.WEP_T5,
-            Category.WEP_T6
+            Category.WEP_T6,
+            Category.WEP_T7
 	};
 
 	public static Weapon randomWeapon(){

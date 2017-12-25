@@ -39,7 +39,7 @@ public class Ratinator extends Mob {
 	
 	@Override
 	public int damageRoll() {
-		return Random.NormalIntRange( 15, 38 );
+		return Random.NormalIntRange( 15, 32 );
 	}
 	
 	@Override

@@ -21,13 +21,26 @@
 
 package com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee;
 
+import com.trashboxbobylev.tormentpixeldungeon.Assets;
 import com.trashboxbobylev.tormentpixeldungeon.Dungeon;
+import com.trashboxbobylev.tormentpixeldungeon.Badges;
+import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Invisibility;
+import com.trashboxbobylev.tormentpixeldungeon.actors.hero.Hero;
+import com.trashboxbobylev.tormentpixeldungeon.windows.WndBag;
+import com.trashboxbobylev.tormentpixeldungeon.scenes.GameScene;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.Weapon;
 import com.trashboxbobylev.tormentpixeldungeon.messages.Messages;
+
+import com.watabou.noosa.audio.Sample;
+
+import java.util.ArrayList;
 
 public class MeleeWeapon extends Weapon {
 	
 	public int tier;
+    public boolean reforged;
+
+    public static final String AC_UPGRADE = "UPGRADE";
 
 	@Override
 	public int min(int lvl) {
@@ -46,7 +59,21 @@ public class MeleeWeapon extends Weapon {
 		//strength req decreases at +1,+3,+6,+10,etc.
 		return (8 + tier * 2) - (int)(Math.sqrt(8 * lvl + 1) - 1)/2;
 	}
-	
+
+
+	@Override
+	public ArrayList<String> actions(Hero hero ) {
+		ArrayList<String> actions = super.actions( hero );
+		if (tier > 6 && reforged == false) actions.add( AC_UPGRADE );
+		return actions;
+	}
+
+    @Override
+	public void execute( Hero hero, String action ){
+        super.execute(hero, action);
+        if (action == AC_UPGRADE) GameScene.selectItem( itemSelector, WndBag.Mode.WEAPON, Messages.get(MeleeWeapon.class, "reforge"));
+    }
+
 	@Override
 	public String info() {
 
@@ -110,5 +137,28 @@ public class MeleeWeapon extends Weapon {
 		}
 		return price;
 	}
+
+    protected static WndBag.Listener itemSelector = new WndBag.Listener() {
+		@Override
+		public void onSelect( Item item ) {
+			
+			if (item != null) {
+			Weapon w = (Weapon) item;
+			boolean wasCursed = w.cursed;
+            int level = w.level();
+
+			for (int i = 0; i < w.level(); i++) curItem.upgrade();
+            if (wasCursed) curItem.cursed = true;
+
+            item.detach(Dungeon.hero.belongings.backpack);
+		
+		Badges.validateItemLevelAquired( curItem );
+				Sample.INSTANCE.play( Assets.SND_EVOKE );
+				Invisibility.dispel();
+				
+                curItem.reforged = true;
+			} 
+		}
+	};
 
 }

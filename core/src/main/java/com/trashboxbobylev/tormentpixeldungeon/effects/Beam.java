@@ -73,6 +73,12 @@ public class Beam extends Image {
 			super(s, e, Effects.Type.HEALTH_RAY, 0.75f);
 		}
 	}
+
+	public static class GalacticRay extends Beam{
+		public GalacticRay(PointF s, PointF e){
+			super(s, e, Effects.Type.GALACTIC_RAY, 0.3f);
+		}
+	}
 	
 	@Override
 	public void update() {
