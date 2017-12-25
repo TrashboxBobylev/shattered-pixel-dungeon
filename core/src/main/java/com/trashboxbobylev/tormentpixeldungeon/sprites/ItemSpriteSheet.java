@@ -221,7 +221,7 @@ public class ItemSpriteSheet {
 		assignItemRect(JJAN_GO, 15, 16);
 	}
 
-private static final int WEP_TIER7     =                               xy(16, 7);   //8 slots
+private static final int WEP_TIER7     =                               xy(1, 12);   //8 slots
 	public static final int GALACTIC_SWORD      = WEP_TIER7+0;
 	public static final int INTERMOLOT       = WEP_TIER7+1;
 	public static final int ELECTROGLAVIE           = WEP_TIER7+2;

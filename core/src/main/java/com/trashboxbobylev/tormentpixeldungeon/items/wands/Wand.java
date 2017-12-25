@@ -281,10 +281,22 @@ public abstract class Wand extends Item {
 	public Item random() {
 		int n = 0;
 
-		if (Random.Int(3) == 0) {
+		if (Random.Int(3) == 0) { //33%
 			n++;
-			if (Random.Int(5) == 0) {
+			if (Random.Int(2) == 0) {//16.5%
 				n++;
+                if (Random.Int(3) == 0) {//5.44%
+                    n++;
+                    if (Random.Int(4) == 0) {//1.36%
+                        n++;
+                        if (Random.Int(3)==0) {//0.45%
+                            n++;
+                            if (Random.Int(5)==0) {//0.09%
+                                n++;
+                            }
+                        }
+                    }
+                }
 			}
 		}
 

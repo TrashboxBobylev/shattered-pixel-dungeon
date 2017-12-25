@@ -226,12 +226,10 @@ public class ShopRoom extends SpecialRoom {
 		Item rare;
 		switch (Random.Int(10)){
 			case 0:
-				rare = Generator.random( Generator.Category.WAND );
-				rare.level( 0 );
+				rare = shopItem( Generator.Category.WAND );
 				break;
 			case 1:
-				rare = Generator.random(Generator.Category.RING);
-				rare.level( 0 );
+				rare = shopItem(Generator.Category.RING);
 				break;
 			case 2:
 				rare = Generator.random( Generator.Category.ARTIFACT );

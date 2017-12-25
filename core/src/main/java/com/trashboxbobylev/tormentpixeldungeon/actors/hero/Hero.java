@@ -29,6 +29,8 @@ import com.trashboxbobylev.tormentpixeldungeon.GamesInProgress;
 import com.trashboxbobylev.tormentpixeldungeon.Statistics;
 import com.trashboxbobylev.tormentpixeldungeon.actors.Actor;
 import com.trashboxbobylev.tormentpixeldungeon.actors.Char;
+import com.trashboxbobylev.tormentpixeldungeon.actors.blobs.Blob;
+import com.trashboxbobylev.tormentpixeldungeon.actors.blobs.ToxicGas;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Awareness;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Barkskin;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Berserk;
@@ -95,6 +97,7 @@ import com.trashboxbobylev.tormentpixeldungeon.items.scrolls.ScrollOfMagicalInfu
 import com.trashboxbobylev.tormentpixeldungeon.items.scrolls.ScrollOfUpgrade;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.Weapon;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Flail;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.ChlorateEruption;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles.MissileWeapon;
 import com.trashboxbobylev.tormentpixeldungeon.journal.Notes;
 import com.trashboxbobylev.tormentpixeldungeon.levels.Level;
@@ -420,7 +423,7 @@ public class Hero extends Char {
 		if (STR() < ((Weapon)belongings.weapon).STRReq())
 			return false;
 
-		if (belongings.weapon instanceof Flail && rangedWeapon == null)
+		if ((belongings.weapon instanceof Flail || belongings.weapon instanceof ChlorateEruption) && rangedWeapon == null)
 			return false;
 
 		return true;
@@ -928,6 +931,8 @@ public class Hero extends Char {
 		KindOfWeapon wep = rangedWeapon != null ? rangedWeapon : belongings.weapon;
 
 		if (wep != null) damage = wep.proc( this, enemy, damage );
+
+        if (wep instanceof ChlorateEruption && Random.Int(5) == 0) GameScene.add(Blob.seed(pos, 100*wep.level(), ToxicGas.class));
 			
 		switch (subClass) {
 		case SNIPER:
