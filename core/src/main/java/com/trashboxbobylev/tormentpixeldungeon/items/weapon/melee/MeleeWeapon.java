@@ -160,7 +160,7 @@ public class MeleeWeapon extends Weapon {
 				Sample.INSTANCE.play( Assets.SND_EVOKE );
 				Invisibility.dispel();
 				
-                curItem.reforged = true;
+                ((MeleeWeapon)curItem).reforged = true;
 			} 
 		}
 	};
