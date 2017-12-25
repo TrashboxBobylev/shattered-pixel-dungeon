@@ -117,7 +117,7 @@ public class GalacticSword extends MeleeWeapon {
 
                    	Char ch = Actor.findChar(shot.collisionPos);
 		if (ch != null){
-			ch.damage(curSword.damageRoll(ch)*1.5f, curSword);
+			ch.damage(Math.round(curSword.damageRoll(ch)*1.5f), curSword);
 		}
 				
 			}
