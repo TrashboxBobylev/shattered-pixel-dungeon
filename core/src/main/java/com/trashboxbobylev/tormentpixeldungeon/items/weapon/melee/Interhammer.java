@@ -26,7 +26,7 @@ import com.trashboxbobylev.tormentpixeldungeon.sprites.ItemSpriteSheet;
 public class Interhammer extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.INTERHAMMER;
+		image = ItemSpriteSheet.INTERMOLOT;
 
 		tier = 7;
 		ACC = 1.15f; //15% boost to accuracy

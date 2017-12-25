@@ -28,6 +28,7 @@ import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Invisibility;
 import com.trashboxbobylev.tormentpixeldungeon.actors.hero.Hero;
 import com.trashboxbobylev.tormentpixeldungeon.windows.WndBag;
 import com.trashboxbobylev.tormentpixeldungeon.scenes.GameScene;
+import com.trashboxbobylev.tormentpixeldungeon.items.Item;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.Weapon;
 import com.trashboxbobylev.tormentpixeldungeon.messages.Messages;
 
@@ -71,7 +72,10 @@ public class MeleeWeapon extends Weapon {
     @Override
 	public void execute( Hero hero, String action ){
         super.execute(hero, action);
-        if (action == AC_UPGRADE) GameScene.selectItem( itemSelector, WndBag.Mode.WEAPON, Messages.get(MeleeWeapon.class, "reforge"));
+        if (action == AC_UPGRADE){
+        curItem = this;
+ GameScene.selectItem( itemSelector, WndBag.Mode.WEAPON, Messages.get(MeleeWeapon.class, "reforge"));
+       }
     }
 
 	@Override
