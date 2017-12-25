@@ -85,7 +85,7 @@ public class GalacticSword extends MeleeWeapon {
 				//FIXME this safety check shouldn't be necessary
 				//it would be better to eliminate the curItem static variable.
 				final GalacticSword curSword;
-				if (curSword instanceof GalacticSword) {
+				if (curItem instanceof GalacticSword) {
 					curSword = (GalacticSword) GalacticSword.curItem;
 				} else {
 					return;
