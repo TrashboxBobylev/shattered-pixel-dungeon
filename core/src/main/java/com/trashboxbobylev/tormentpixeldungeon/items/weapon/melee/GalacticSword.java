@@ -22,6 +22,7 @@
 package com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee;
 
 import com.trashboxbobylev.tormentpixeldungeon.actors.Actor;
+import com.trashboxbobylev.tormentpixeldungeon.actors.Char;
 import com.trashboxbobylev.tormentpixeldungeon.actors.hero.Hero;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Invisibility;
 import com.trashboxbobylev.tormentpixeldungeon.effects.Beam;
@@ -116,7 +117,7 @@ public class GalacticSword extends MeleeWeapon {
 
                    	Char ch = Actor.findChar(shot.collisionPos);
 		if (ch != null){
-			ch.damage(curSword.damageRoll()*1.5f, curSword);
+			ch.damage(curSword.damageRoll(ch)*1.5f, curSword);
 		}
 				
 			}
