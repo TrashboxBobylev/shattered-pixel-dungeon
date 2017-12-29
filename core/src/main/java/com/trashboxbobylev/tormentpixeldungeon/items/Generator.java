@@ -185,7 +185,8 @@ public class Generator {
 		ARTIFACT( 1,    Artifact.class),
 		SEED	( 0,    Plant.Seed.class ),
 		FOOD	( 0,    Food.class ),
-		GOLD	( 25,   Gold.class );
+		GOLD	( 25,   Gold.class ),
+        MISC   ( 20,    Item.class );
 		
 		public Class<?>[] classes;
 		public float[] probs;
@@ -337,7 +338,7 @@ public class Generator {
 					ChlorateEruption.class,
 					CobaltScytle.class
 			};
-			WEP_T5.probs = new float[]{ 6, 5, 5, 4, 3, 6 };
+			WEP_T7.probs = new float[]{ 6, 5, 5, 4, 3, 6 };
 
 			//see Generator.randomArmor
 			ARMOR.classes = new Class<?>[]{

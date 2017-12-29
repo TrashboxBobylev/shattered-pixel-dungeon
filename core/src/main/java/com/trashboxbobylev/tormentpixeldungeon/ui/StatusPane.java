@@ -67,6 +67,7 @@ public class StatusPane extends Component {
 	private BitmapText depth;
 
 	private DangerIndicator danger;
+    private ArrowIndicator arrow;
 	private BuffIndicator buffs;
 	private Compass compass;
 
@@ -131,6 +132,9 @@ public class StatusPane extends Component {
 
 		danger = new DangerIndicator();
 		add( danger );
+
+        arrow = new ArrowIndicator();
+        add( arrow );
 
 		buffs = new BuffIndicator( Dungeon.hero );
 		add( buffs );

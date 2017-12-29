@@ -111,13 +111,13 @@ public class GalacticSword extends MeleeWeapon {
                 
                 curUser.sprite.parent.add(
 				new Beam.GalacticRay(curUser.sprite.center(), DungeonTilemap.raisedTileCenterToWorld(shot.collisionPos)));
-                curUser.spendAndNext(curSword.DLY*2f);
+                curUser.spendAndNext(curSword.DLY*3f);
 					
 					Invisibility.dispel();
 
                    	Char ch = Actor.findChar(shot.collisionPos);
 		if (ch != null){
-			ch.damage(Math.round(curSword.damageRoll(ch)*1.5f), curSword);
+			curUser.attack(ch);
 		}
 				
 			}

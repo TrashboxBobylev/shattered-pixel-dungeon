@@ -172,6 +172,7 @@ public class Dungeon {
 	
 	public static int depth;
 	public static int gold;
+    public static int arrows;
 	
 	public static HashSet<Integer> chapters;
 
@@ -210,6 +211,7 @@ public class Dungeon {
 		
 		depth = 0;
 		gold = 0;
+        arrows = 0;
 
 		droppedItems = new SparseArray<ArrayList<Item>>();
 
@@ -454,6 +456,7 @@ public class Dungeon {
 	private static final String CHALLENGES	= "challenges";
 	private static final String HERO		= "hero";
 	private static final String GOLD		= "gold";
+	private static final String ARROWS		= "arrows";
 	private static final String DEPTH		= "depth";
 	private static final String DROPPED     = "dropped%d";
 	private static final String LEVEL		= "level";
@@ -499,6 +502,7 @@ public class Dungeon {
 			bundle.put( HERO, hero );
 			bundle.put( GOLD, gold );
 			bundle.put( DEPTH, depth );
+            bundle.put( ARROWS, arrows );
 
 			for (int d : droppedItems.keyArray()) {
 				bundle.put(Messages.format(DROPPED, d), droppedItems.get(d));
@@ -658,6 +662,7 @@ public class Dungeon {
 		
 		gold = bundle.getInt( GOLD );
 		depth = bundle.getInt( DEPTH );
+        arrows = bundle.getInt( ARROWS );
 		
 		Statistics.restoreFromBundle( bundle );
 		Generator.restoreFromBundle( bundle );
