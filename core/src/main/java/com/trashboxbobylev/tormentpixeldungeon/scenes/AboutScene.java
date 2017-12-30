@@ -39,10 +39,10 @@ import com.watabou.noosa.TouchArea;
 
 public class AboutScene extends PixelScene {
 
-	private static final String TTL_SHPX = "Shattered Pixel Dungeon";
+	private static final String TTL_SHPX = "Torment Pixel Dungeon";
 
 	private static final String TXT_SHPX =
-			"Design, Code, & Graphics: Evan";
+			"Based on ShatteredPD at 00-Evan\nAuthor: TrashboxBobylev\n\nCredits:\nRussian PD Community\nMoonshine PD Team\nLind Erebros (soundtrack)";
 
 	private static final String LNK_SHPX = "ShatteredPixel.com";
 

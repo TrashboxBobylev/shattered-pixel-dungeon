@@ -24,6 +24,7 @@ package com.trashboxbobylev.tormentpixeldungeon.ui;
 import com.trashboxbobylev.tormentpixeldungeon.Dungeon;
 import com.trashboxbobylev.tormentpixeldungeon.items.Item;
 import com.trashboxbobylev.tormentpixeldungeon.items.Arrow;
+import com.trashboxbobylev.tormentpixeldungeon.scenes.PixelScene;
 
 public class ArrowIndicator extends Tag {
 	
@@ -50,6 +51,7 @@ public class ArrowIndicator extends Tag {
 		super.layout();
 		
     	slot.setRect( x + 2, y + 3, width - 2, height - 6 );
+        PixelScene.align(slot);
 	}
 	
 	@Override
@@ -58,6 +60,7 @@ public class ArrowIndicator extends Tag {
         
         slot.item(arrow);
         slot.enable(Dungeon.hero.ready);
+        PixelScene.align(slot);
 		super.update();
 	}
 }
