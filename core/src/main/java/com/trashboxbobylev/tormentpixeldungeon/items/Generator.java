@@ -403,6 +403,9 @@ public class Generator {
 					Stormvine.Seed.class,
 					Starflower.Seed.class};
 			SEED.probs = new float[]{ 12, 12, 12, 12, 12, 12, 12, 0, 3, 12, 12, 1 };
+
+            MISC.classes = new Class<?>[]{Arrow.class};
+            MISC.probs = new float[]{1};
 		}
 	}
 

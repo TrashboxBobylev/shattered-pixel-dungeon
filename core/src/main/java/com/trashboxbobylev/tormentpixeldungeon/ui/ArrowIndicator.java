@@ -22,6 +22,7 @@
 package com.trashboxbobylev.tormentpixeldungeon.ui;
 
 import com.trashboxbobylev.tormentpixeldungeon.Dungeon;
+import com.trashboxbobylev.tormentpixeldungeon.items.Item;
 import com.trashboxbobylev.tormentpixeldungeon.items.Arrow;
 
 public class ArrowIndicator extends Tag {
