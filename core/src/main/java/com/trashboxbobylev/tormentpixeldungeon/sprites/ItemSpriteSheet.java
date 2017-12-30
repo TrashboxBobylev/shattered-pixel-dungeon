@@ -134,6 +134,20 @@ public class ItemSpriteSheet {
 
 	                                                                                    //32 free slots
 
+   	private static final int WEP_BOWS      =                               xy(1, 6);   //16 slots
+	public static final int WOODEN_BOW = WEP_BOWS+0;
+	public static final int EXACT_BOW          = WEP_BOWS+1;
+	public static final int SIMPLE_CROSSBOW   = WEP_BOWS+2;
+	public static final int PRINCE_CROSSBOW          = WEP_BOWS+3;
+	public static final int ADAMANTINE_BOW        = WEP_BOWS+4;
+	static{
+		assignItemRect(WOODEN_BOW, 14, 14);
+		assignItemRect(EXACT_BOW,   14, 14);
+		assignItemRect(SIMPLE_CROSSBOW,  16, 16);
+		assignItemRect(PRINCE_CROSSBOW,  16, 16);
+        assignItemRect(ADAMANTINE_BOW, 16, 16);
+	}
+
 	private static final int WEP_TIER1      =                               xy(1, 7);   //8 slots
 	public static final int WORN_SHORTSWORD = WEP_TIER1+0;
 	public static final int CUDGEL          = WEP_TIER1+1;

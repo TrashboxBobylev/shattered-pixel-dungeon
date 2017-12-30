@@ -55,7 +55,7 @@ public class Bow extends MeleeWeapon {
     {
        defaultAction = AC_SHOT;
        
-       DLY = 0.66f; //1.5 speed
+       DLY = 1.5f; //0.66 speed
        ACC = 0.4f*rangedACC();
 
        tier = 0;
@@ -203,8 +203,7 @@ public class Bow extends MeleeWeapon {
             Invisibility.dispel();
 		}
         else {Heap heap = Dungeon.level.drop( arrow, cell );
-		if (!heap.isEmpty()) {
-			heap.sprite.drop( cell	}
+		if (!heap.isEmpty()) heap.sprite.drop( cell);
         }
 							curUser.spendAndNext(DLY);
 						}
