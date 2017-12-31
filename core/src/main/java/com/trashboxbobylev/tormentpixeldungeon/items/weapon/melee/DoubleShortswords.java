@@ -45,7 +45,7 @@ public class DoubleShortswords extends MeleeWeapon {
   	@Override
 	public ArrayList<String> actions(Hero hero ) {
 		ArrayList<String> actions = super.actions( hero );
-		if (isEquipped(hero)) actions.add( MODE == " ACCURACY" ? AC_SPEED : AC_ACCURACY );
+		if (isEquipped(hero)) actions.add( mode == " ACCURACY" ? AC_SPEED : AC_ACCURACY );
 		return actions;
 	}
 
@@ -56,6 +56,8 @@ public class DoubleShortswords extends MeleeWeapon {
 
 		if (action.equals( AC_SPEED )) mode = "SPEED";
 	    else if (action.equals( AC_ACCURACY )) mode = "ACCURACY";
+        	DLY = mode == "SPEED" ? 0.5f : 1f; //2x speed on speed mode, else normal
+        ACC = mode == "ACCURACY" ? 1.3f : 1f; //+30% acc in accuracy mode, else normal
 	}
 
 	@Override

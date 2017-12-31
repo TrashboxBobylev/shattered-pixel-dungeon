@@ -509,18 +509,21 @@ public class GameScene extends PixelScene {
 		if (tagAttack != attack.active ||
 				tagLoot != loot.visible ||
 				tagAction != action.visible ||
-				tagResume != resume.visible) {
+				tagResume != resume.visible ||
+                tagArrow != arrow.visible) {
 
 			//we only want to change the layout when new tags pop in, not when existing ones leave.
 			boolean tagAppearing = (attack.active && !tagAttack) ||
 									(loot.visible && !tagLoot) ||
 									(action.visible && !tagAction) ||
-									(resume.visible && !tagResume);
+									(resume.visible && !tagResume) ||
+                                    (arrow.visible && !tagArrow);
 
 			tagAttack = attack.active;
 			tagLoot = loot.visible;
 			tagAction = action.visible;
 			tagResume = resume.visible;
+            tagArrow = arrow.visible;
 
 			if (tagAppearing) layoutTags();
 		}
@@ -532,6 +535,7 @@ public class GameScene extends PixelScene {
 	private boolean tagLoot      = false;
 	private boolean tagAction    = false;
 	private boolean tagResume    = false;
+    private boolean tagArrow = false;
 
 	public static void layoutTags() {
 
@@ -563,6 +567,12 @@ public class GameScene extends PixelScene {
 			scene.action.setPos( tagLeft, pos - scene.action.height() );
 			scene.action.flip(tagLeft == 0);
 			pos = scene.action.top();
+		}
+
+	    if (scene.tagArrow) {
+			scene.arrow.setPos( tagLeft, pos - scene.arrow.height() );
+			scene.arrow.flip(tagLeft == 0);
+			pos = scene.arrow.top();
 		}
 
 		if (scene.tagResume) {
