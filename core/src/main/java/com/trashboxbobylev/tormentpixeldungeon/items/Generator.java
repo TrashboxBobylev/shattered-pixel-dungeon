@@ -137,6 +137,11 @@ import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Interhammer;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Electroglaive;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.DoubleShortswords;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.ChlorateEruption;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.WoodenBow;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.ExactBow;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.SimpleCrossbow;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.PrinceCrossbow;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.AdamantineBow;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles.Boomerang;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles.CurareDart;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles.Dart;
@@ -283,9 +288,10 @@ public class Generator {
 					Spear.class,
 					Quarterstaff.class,
 					Dirk.class,
+                    WoodenBow.class,
 					IncendiaryDart.class
 			};
-			WEP_T2.probs = new float[]{ 6, 5, 5, 4, 4, 6 };
+			WEP_T2.probs = new float[]{ 6, 5, 5, 4, 4, 4, 6};
 			
 			WEP_T3.classes = new Class<?>[]{
 					Sword.class,
@@ -294,21 +300,23 @@ public class Generator {
 					RoundShield.class,
 					Sai.class,
 					Whip.class,
+                    ExactBow.class,
 					Shuriken.class,
 					CurareDart.class
 			};
-			WEP_T3.probs = new float[]{ 6, 5, 5, 4, 4, 4, 6, 6 };
+			WEP_T3.probs = new float[]{ 6, 5, 5, 4, 4, 4, 4, 6, 6 };
 			
 			WEP_T4.classes = new Class<?>[]{
 					Longsword.class,
 					BattleAxe.class,
 					Flail.class,
 					RunicBlade.class,
+                    SimpleCrossbow.class,
 					AssassinsBlade.class,
                     Katars.class,
 					Javelin.class
 			};
-			WEP_T4.probs = new float[]{ 5, 5, 4, 4, 3, 3, 5 };
+			WEP_T4.probs = new float[]{ 5, 5, 5, 4, 4, 4, 4, 5 };
 			
 			WEP_T5.classes = new Class<?>[]{
 					Greatsword.class,
@@ -316,9 +324,10 @@ public class Generator {
 					Glaive.class,
 					Greataxe.class,
 					Greatshield.class,
+                    PrinceCrossbow.class,
 					Tamahawk.class
 			};
-			WEP_T5.probs = new float[]{ 6, 5, 4, 4, 4, 6 };
+			WEP_T5.probs = new float[]{ 6, 5, 4, 4, 4, 4, 6 };
 
 			WEP_T6.classes = new Class<?>[]{
 					NinjaSword.class,
@@ -326,9 +335,10 @@ public class Generator {
 					Halberd.class,
 					FightingKnifes.class,
 					JjanGo.class,
+                    AdamantineBow.class,
 					CobaltScytle.class
 			};
-			WEP_T6.probs = new float[]{ 6, 4, 4, 4, 5, 6 };
+			WEP_T6.probs = new float[]{ 6, 4, 4, 4, 4, 5, 6 };
 			
             WEP_T7.classes = new Class<?>[]{
 					GalacticSword.class,
