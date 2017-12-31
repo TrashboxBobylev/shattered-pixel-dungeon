@@ -43,6 +43,7 @@ import com.trashboxbobylev.tormentpixeldungeon.Assets;
 import com.trashboxbobylev.tormentpixeldungeon.items.Heap;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Invisibility;
 import com.trashboxbobylev.tormentpixeldungeon.scenes.CellSelector;
+import com.trashboxbobylev.tormentpixeldungeon.ui.QuickSlotButton;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Random;
 import com.watabou.utils.Callback;
@@ -55,6 +56,7 @@ public class Bow extends MeleeWeapon {
 
     {
        defaultAction = AC_SHOT;
+       usesTargeting = true;
        
        DLY = 1.5f; //0.66 speed
        ACC = 0.4f*rangedACC();
@@ -208,13 +210,13 @@ public class Bow extends MeleeWeapon {
 						public void call() {
 							Char ch = Actor.findChar(shot.collisionPos);
 		if (ch != null){
-			shoot(ch);
+			curBow.shoot(ch);
             Invisibility.dispel();
 		}
         else {Heap heap = Dungeon.level.drop( arrow, cell );
 		if (!heap.isEmpty()) heap.sprite.drop( cell);
         }
-							curUser.spendAndNext(DLY);
+							curUser.spendAndNext(curBow.DLY);
 						}
 					});
 				
@@ -232,7 +234,7 @@ if (enemy == null || !enemy.isAlive()) return false;
 		
 		boolean visibleFight = Dungeon.level.heroFOV[curUser.pos] || Dungeon.level.heroFOV[enemy.pos];
 		
-		if (hit( enemy)) {
+		if (this.hit( enemy)) {
 			
 			// FIXME
 			int dr = ((Hero)curUser).subClass ==
@@ -254,7 +256,7 @@ if (enemy == null || !enemy.isAlive()) return false;
 				return true;
 			}
 
-			enemy.damage( effectiveDamage, curBow );
+			enemy.damage( effectiveDamage, this );
 
 			if (curUser.buff(FireImbue.class) != null)
 				curUser.buff(FireImbue.class).proc(enemy);
