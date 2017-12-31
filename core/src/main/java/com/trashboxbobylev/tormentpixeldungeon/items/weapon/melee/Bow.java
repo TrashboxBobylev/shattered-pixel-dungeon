@@ -181,10 +181,10 @@ public class Bow extends MeleeWeapon {
                 }
 
                 Dungeon.arrows--;
-                Arrow arrow = new Arrow();
+                final Arrow arrow = new Arrow();
 
 				final Ballistica shot = new Ballistica( curUser.pos, target, curBow.collisionProperties);
-				int cell = shot.collisionPos;
+				final int cell = shot.collisionPos;
 				
 				if (target == curUser.pos || cell == curUser.pos) {
 					GLog.i( Messages.get(Wand.class, "self_target") );
