@@ -22,25 +22,68 @@
 package com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee;
 
 import com.trashboxbobylev.tormentpixeldungeon.actors.Char;
+import com.trashboxbobylev.tormentpixeldungeon.actors.hero.Hero;
 import com.trashboxbobylev.tormentpixeldungeon.sprites.ItemSpriteSheet;
+import com.watabou.utils.Bundle;
+
+import java.util.ArrayList;
 
 public class DoubleShortswords extends MeleeWeapon {
+
+    public String mode = "ACCURACY";
+    public static final String AC_ACCURACY	= "CHANGE TO 'ACCURACY'";
+    public static final String AC_SPEED	= "CHANGE TO 'SPEED'";
 
 	{
 		image = ItemSpriteSheet.DOUBLE_SHORTSWORDS;
 
 		tier = 7;
-		DLY = 0.5f; //2x speed
+		DLY = mode == "SPEED" ? 0.5f : 1f; //2x speed on speed mode, else normal
+        ACC = mode == "ACCURACY" ? 1.3f : 1f; //+30% acc in accuracy mode, else normal
+	}
+
+  	@Override
+	public ArrayList<String> actions(Hero hero ) {
+		ArrayList<String> actions = super.actions( hero );
+		if (isEquipped(hero)) actions.add( MODE == " ACCURACY" ? AC_SPEED : AC_ACCURACY );
+		return actions;
+	}
+
+	@Override
+	public void execute( Hero hero, String action ) {
+
+		super.execute( hero, action );
+
+		if (action.equals( AC_SPEED )) mode = "SPEED";
+	    else if (action.equals( AC_ACCURACY )) mode = "ACCURACY";
 	}
 
 	@Override
 	public int max(int lvl) {
-		return  Math.round(2.5f*(tier+1)) +     //20 base, down from 40
-				lvl*Math.round(0.5f*(tier+1));  //+4 per level, down from +8
+		return  Math.round(
+(mode == "SPEED" ? 2.5f : 4f)
+                *(tier+1)) +     //20-32 base, down from 40
+				lvl*Math.round(
+(mode == "SPEED" ? 0.5f : 1f)
+                *(tier+1));  //+4-+8 per level, down from +8
 	}
 
 	@Override
 	public int defenseFactor( Char owner ) {
 		return 6;	//6 extra defence
+	}
+
+    private static final String MODE	= "mode";
+	
+	@Override
+	public void storeInBundle( Bundle bundle ) {
+		super.storeInBundle( bundle );
+		bundle.put( MODE, mode );
+	}
+	
+	@Override
+	public void restoreFromBundle( Bundle bundle ) {
+		super.restoreFromBundle(bundle);
+		mode = bundle.getString( MODE );
 	}
 }

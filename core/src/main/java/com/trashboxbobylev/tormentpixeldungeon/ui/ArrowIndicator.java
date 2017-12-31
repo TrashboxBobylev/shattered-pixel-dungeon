@@ -35,7 +35,7 @@ public class ArrowIndicator extends Tag {
 		
 		setSize( 24, 24 );
 		
-		visible = true;
+		visible = false;
 	}
 	
 	@Override
@@ -61,6 +61,10 @@ public class ArrowIndicator extends Tag {
         slot.item(arrow);
         slot.enable(Dungeon.hero.ready);
         PixelScene.align(slot);
+
+        if (Dungeon.arrows > 0) visible = true;
+            else visible = false;
+
 		super.update();
 	}
 }
