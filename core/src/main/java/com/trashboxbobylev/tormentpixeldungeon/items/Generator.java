@@ -191,7 +191,7 @@ public class Generator {
 		SEED	( 0,    Plant.Seed.class ),
 		FOOD	( 0,    Food.class ),
 		GOLD	( 25,   Gold.class ),
-        MISC   ( 20,    Item.class );
+        MISC   ( 30,    Item.class );
 		
 		public Class<?>[] classes;
 		public float[] probs;

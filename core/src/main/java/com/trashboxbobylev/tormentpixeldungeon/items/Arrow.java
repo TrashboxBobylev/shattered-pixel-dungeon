@@ -80,7 +80,7 @@ public class Arrow extends Item {
 	
 	@Override
 	public Item random() {
-		quantity = Random.Int( 10 + Dungeon.depth * 1, 20 + Dungeon.depth * 2 );
+		quantity = Random.Int( 20 + Dungeon.depth * 2, 50 + Dungeon.depth * 4 );
 		return this;
 	}
 	

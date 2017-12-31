@@ -42,7 +42,7 @@ public class AboutScene extends PixelScene {
 	private static final String TTL_SHPX = "Torment Pixel Dungeon";
 
 	private static final String TXT_SHPX =
-			"Based on ShatteredPD at 00-Evan\nAuthor: TrashboxBobylev\n\nCredits:\nRussian PD Community\nMoonshine PD Team\nLind Erebros (soundtrack)";
+			"Based on ShatteredPD by 00-Evan\nAuthor: TrashboxBobylev\n\nCredits:\nRussian PD Community\nMoonshine PD Team\nLind Erebros (soundtrack)";
 
 	private static final String LNK_SHPX = "ShatteredPixel.com";
 
@@ -68,7 +68,7 @@ public class AboutScene extends PixelScene {
 		align(shpx);
 		add( shpx );
 
-		new Flare( 7, 64 ).color( 0x225511, true ).show( shpx, 0 ).angularSpeed = +20;
+		new Flare( 7, 64 ).color( 0x3C9CF4, true ).show( shpx, 0 ).angularSpeed = +20;
 
 		RenderedText shpxtitle = renderText( TTL_SHPX, 8 );
 		shpxtitle.hardlight( Window.SHPX_COLOR );

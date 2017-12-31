@@ -75,6 +75,7 @@ import com.trashboxbobylev.tormentpixeldungeon.ui.GameLog;
 import com.trashboxbobylev.tormentpixeldungeon.ui.LootIndicator;
 import com.trashboxbobylev.tormentpixeldungeon.ui.QuickSlotButton;
 import com.trashboxbobylev.tormentpixeldungeon.ui.ResumeIndicator;
+import com.trashboxbobylev.tormentpixeldungeon.ui.ArrowIndicator;
 import com.trashboxbobylev.tormentpixeldungeon.ui.StatusPane;
 import com.trashboxbobylev.tormentpixeldungeon.ui.TargetHealthIndicator;
 import com.trashboxbobylev.tormentpixeldungeon.ui.Toast;
@@ -157,6 +158,7 @@ public class GameScene extends PixelScene {
 	private LootIndicator loot;
 	private ActionIndicator action;
 	private ResumeIndicator resume;
+    private ArrowIndicator arrow;
 	
 	@Override
 	public void create() {
@@ -313,6 +315,10 @@ public class GameScene extends PixelScene {
 		resume = new ResumeIndicator();
 		resume.camera = uiCamera;
 		add( resume );
+
+     	arrow = new ArrowIndicator();
+		arrow.camera = uiCamera;
+		add( arrow );
 
 		log = new GameLog();
 		log.camera = uiCamera;
