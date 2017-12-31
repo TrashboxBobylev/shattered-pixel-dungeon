@@ -23,10 +23,10 @@ package com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee;
 
 import com.trashboxbobylev.tormentpixeldungeon.sprites.ItemSpriteSheet;
 
-public class AdamantiteBow extends Bow {
+public class AdamantineBow extends Bow {
 	
 	{
-		image = ItemSpriteSheet.ADAMANTITE_BOW;
+		image = ItemSpriteSheet.ADAMANTINE_BOW;
 
 		tier = 6;
         DLY = 1f; //1 speed

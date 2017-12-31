@@ -23,7 +23,7 @@ package com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee;
 
 import com.trashboxbobylev.tormentpixeldungeon.sprites.ItemSpriteSheet;
 import com.trashboxbobylev.tormentpixeldungeon.messages.Messages;
-import com.trashboxbobylev.tormentpixeldungeon.items.weapons.Weapon;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.Weapon;
 import com.trashboxbobylev.tormentpixeldungeon.items.wands.Wand;
 import com.trashboxbobylev.tormentpixeldungeon.Dungeon;
 import com.trashboxbobylev.tormentpixeldungeon.mechanics.Ballistica;
@@ -42,9 +42,10 @@ import com.trashboxbobylev.tormentpixeldungeon.utils.GLog;
 import com.trashboxbobylev.tormentpixeldungeon.Assets;
 import com.trashboxbobylev.tormentpixeldungeon.items.Heap;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Invisibility;
-import com.trashboxbobylev.tormentpixeldungeon.scenes.CellListener;
+import com.trashboxbobylev.tormentpixeldungeon.scenes.CellSelector;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Random;
+import com.watabou.utils.Callback;
 
 import java.util.ArrayList;
 
@@ -61,12 +62,20 @@ public class Bow extends MeleeWeapon {
        tier = 0;
     }
 
+    public int minRanged(){
+        return minRanged(level());
+    }
+
     public int minRanged(int lvl){
         return tier + lvl;
     }
 
     public float rangedACC(){
         return 1f;
+    }
+
+    public int maxRanged(){
+        return maxRanged(level());
     }
 
     public int maxRanged(int lvl){
@@ -135,7 +144,7 @@ public class Bow extends MeleeWeapon {
 	@Override
 	public ArrayList<String> actions( Hero hero ) {
 		ArrayList<String> actions = super.actions( hero );
-		if (isEquipped()) actions.add( AC_SHOT );
+		if (isEquipped(hero)) actions.add( AC_SHOT );
 		return actions;
 	}
 	
@@ -221,7 +230,7 @@ public class Bow extends MeleeWeapon {
     public boolean shoot( Char enemy){
 if (enemy == null || !enemy.isAlive()) return false;
 		
-		boolean visibleFight = Dungeon.level.heroFOV[pos] || Dungeon.level.heroFOV[enemy.pos];
+		boolean visibleFight = Dungeon.level.heroFOV[curUser.pos] || Dungeon.level.heroFOV[enemy.pos];
 		
 		if (hit( enemy)) {
 			
@@ -245,14 +254,14 @@ if (enemy == null || !enemy.isAlive()) return false;
 				return true;
 			}
 
-			enemy.damage( effectiveDamage, arrow );
+			enemy.damage( effectiveDamage, curBow );
 
 			if (curUser.buff(FireImbue.class) != null)
 				curUser.buff(FireImbue.class).proc(enemy);
 			if (curUser.buff(EarthImbue.class) != null)
 				curUser.buff(EarthImbue.class).proc(enemy);
 
-			enemy.sprite.bloodBurstA( sprite.center(), effectiveDamage );
+			enemy.sprite.bloodBurstA( curUser.sprite.center(), effectiveDamage );
 			enemy.sprite.flash();
 
 			if (!enemy.isAlive() && visibleFight) {
@@ -275,10 +284,10 @@ if (enemy == null || !enemy.isAlive()) return false;
 		}
 	}
 	
-	public static boolean hit( Char defender ) {
+	public boolean hit( Char defender ) {
 		float acuRoll = Random.Float( curUser.attackSkill( defender )*2.5f );
 		float defRoll = Random.Float( defender.defenseSkill( curUser ) );
-		if (attacker.buff(Bless.class) != null) acuRoll *= 2f;
+		if (curUser.buff(Bless.class) != null) acuRoll *= 2f;
 		if (defender.buff(Bless.class) != null) defRoll *= 2f;
 		return acuRoll >= defRoll;
 	}
