@@ -342,6 +342,7 @@ public class Goo extends Mob {
 			sprite.emitter().burst( Speck.factory( Speck.HEALING ), 1 );
 			if (HP*2 == HT) {
 				((GooSprite)sprite).spray(false);
+            }
 			HP++;
 		}
 
