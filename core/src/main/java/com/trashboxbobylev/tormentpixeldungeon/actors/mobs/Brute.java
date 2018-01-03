@@ -24,6 +24,7 @@ package com.trashboxbobylev.tormentpixeldungeon.actors.mobs;
 import com.trashboxbobylev.tormentpixeldungeon.Dungeon;
 import com.trashboxbobylev.tormentpixeldungeon.actors.Char;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Terror;
+import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Buff;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Cripple;
 import com.trashboxbobylev.tormentpixeldungeon.items.Gold;
 import com.trashboxbobylev.tormentpixeldungeon.messages.Messages;

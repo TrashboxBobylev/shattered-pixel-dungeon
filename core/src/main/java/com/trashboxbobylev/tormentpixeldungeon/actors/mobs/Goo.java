@@ -205,7 +205,7 @@ public class Goo extends Mob {
 	public boolean attack( Char enemy ) {
 		boolean result = super.attack( enemy );
 		pumpedUp = 0;
-        if (Dungeon.isChallenged() && !(this instanceof Shade)) spawnShade();
+        if (Dungeon.isChallenged()) spawnShade();
 		return result;
 	}
 
@@ -251,7 +251,7 @@ public class Goo extends Mob {
        HashSet<Mob> shades = new HashSet<>();
 
 		for (Mob mob : Dungeon.level.mobs)
-			if (mob instanceof Shades)
+			if (mob instanceof Shade)
 				shades.add( mob );
 
 		for (Mob shade : shades)
