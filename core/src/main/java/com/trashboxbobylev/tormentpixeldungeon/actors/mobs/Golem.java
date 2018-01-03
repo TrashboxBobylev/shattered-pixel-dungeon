@@ -29,7 +29,7 @@ import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Sleep;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Terror;
 import com.trashboxbobylev.tormentpixeldungeon.actors.mobs.npcs.Imp;
 import com.trashboxbobylev.tormentpixeldungeon.sprites.GolemSprite;
-com.trashboxbobylev.tormentpixeldungeon.sprites.CharSprite;
+import com.trashboxbobylev.tormentpixeldungeon.sprites.CharSprite;
 import com.watabou.utils.Random;
 import com.watabou.utils.Bundle;
 
