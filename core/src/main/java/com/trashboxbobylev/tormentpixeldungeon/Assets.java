@@ -76,6 +76,7 @@ public class Assets {
 	public static final String MONK		= "monk.png";
 	public static final String WARLOCK	= "warlock.png";
 	public static final String GOLEM	= "golem.png";
+    public static final String CURSED = "witcher.png";
 	public static final String UNDEAD	= "undead.png";
 	public static final String KING		= "king.png";
 	public static final String STATUE	= "statue.png";
@@ -83,6 +84,7 @@ public class Assets {
 	public static final String EYE		= "eye.png";
 	public static final String SUCCUBUS	= "succubus.png";
 	public static final String SCORPIO	= "scorpio.png";
+    public static final String DEMON = "demonolog.png";
 	public static final String ROTTING	= "rotting_fist.png";
 	public static final String BURNING	= "burning_fist.png";
 	public static final String YOG		= "yog.png";

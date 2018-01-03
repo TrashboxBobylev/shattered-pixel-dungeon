@@ -164,6 +164,8 @@ public abstract class Char extends Actor {
 			effectiveDamage = attackProc( enemy, effectiveDamage );
 			effectiveDamage = enemy.defenseProc( this, effectiveDamage );
 
+            if (Dungeon.isChallenged() && this instanceof Hero) effectiveDamage = Math.round(effectiveDamage*1.2f);
+
 			if (visibleFight) {
 				Sample.INSTANCE.play( Assets.SND_HIT, 1, 1, Random.Float( 0.8f, 1.25f ) );
 			}
@@ -292,7 +294,7 @@ public abstract class Char extends Actor {
 			}
 		}
 
-        if (Dungeon.isChallenged() && this instanceof Hero) dmg *= 1.25;
+        if (Dungeon.isChallenged() && this instanceof Hero) dmg *= 1.75;
 		//FIXME: when I add proper damage properties, should add an IGNORES_SHIELDS property to use here.
 		if (src instanceof Hunger || SHLD == 0){
 			HP -= dmg;

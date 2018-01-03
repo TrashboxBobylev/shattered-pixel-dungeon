@@ -40,10 +40,20 @@ public class Golem extends Mob {
 		EXP = 12;
 		maxLvl = 22;
 	}
+
+   private boolean enraged = false;
+	
+	@Override
+	public void restoreFromBundle( Bundle bundle ) {
+		super.restoreFromBundle( bundle );
+		enraged = HP < HT / 2 && Dungeon.isChallenged();
+	}
 	
 	@Override
 	public int damageRoll() {
-		return Random.NormalIntRange( 25, 40 );
+		return enraged ?
+        Random.NormalIntRange( 25, 40 ) :
+        Random.NormalIntRange( 40, 77 );
 	}
 	
 	@Override
@@ -53,12 +63,25 @@ public class Golem extends Mob {
 	
 	@Override
 	protected float attackDelay() {
-		return 1.5f;
+		return 1.6f;
+	}
+
+    @Override
+	public void damage( int dmg, Object src ) {
+		super.damage( dmg, src );
+		
+		if (isAlive() && !enraged && HP < HT / 2 && Dungeon.isChallenged()) {
+			enraged = true;
+			spend( TICK*0.5f );
+			if (Dungeon.level.heroFOV[pos]) {
+				sprite.showStatus( CharSprite.NEGATIVE, Messages.get(Brute.class, "enraged") );
+			}
+		}
 	}
 	
 	@Override
 	public int drRoll() {
-		return Random.NormalIntRange(0, 12);
+		return enraged ? Random.NormalIntRange(0, 20) : 0;
 	}
 
 	@Override

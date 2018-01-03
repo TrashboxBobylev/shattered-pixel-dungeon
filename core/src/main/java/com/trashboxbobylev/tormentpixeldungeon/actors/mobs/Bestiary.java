@@ -128,25 +128,25 @@ public class Bestiary {
 						Warlock.class, Warlock.class,
 						Monk.class, Monk.class));
 			case 18:
-				//1x elemental, 1x warlock, 2x monk, 1x golem
+				//1x elemental, 1x warlock, 2x monk, 1x golem, 1x gnoll
 				return new ArrayList<>(Arrays.asList(
 						Elemental.class,
 						Warlock.class,
-						Monk.class, Monk.class,
-						Golem.class));
+						Monk.class,
+						Golem.class, CursedGnoll.class));
 			case 19:
-				//1x elemental, 1x warlock, 2x monk, 3x golem
+				//1x elemental, 1x warlock, 2x monk, 3x golem, 2x gnoll
 				return new ArrayList<>(Arrays.asList(
 						Elemental.class,
 						Warlock.class,
 						Monk.class, Monk.class,
-						Golem.class, Golem.class, Golem.class));
+						Golem.class, Golem.class, Golem.class, CursedGnoll.class, CursedGnoll.class));
 				
 			// Halls
 			case 22:
-				//3x succubus, 3x evil eye
+				//2x succubus, 1x cursed gnoll, 3x evil eye
 				return new ArrayList<>(Arrays.asList(
-						Succubus.class, Succubus.class, Succubus.class,
+						Succubus.class, Succubus.class, CursedGnoll.class,
 						Eye.class, Eye.class, Eye.class));
 			case 23:
 				//2x succubus, 4x evil eye, 2x scorpio

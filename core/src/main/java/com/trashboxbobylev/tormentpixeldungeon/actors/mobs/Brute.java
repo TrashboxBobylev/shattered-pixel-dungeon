@@ -24,6 +24,7 @@ package com.trashboxbobylev.tormentpixeldungeon.actors.mobs;
 import com.trashboxbobylev.tormentpixeldungeon.Dungeon;
 import com.trashboxbobylev.tormentpixeldungeon.actors.Char;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Terror;
+import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Cripple;
 import com.trashboxbobylev.tormentpixeldungeon.items.Gold;
 import com.trashboxbobylev.tormentpixeldungeon.messages.Messages;
 import com.trashboxbobylev.tormentpixeldungeon.sprites.BruteSprite;
@@ -82,6 +83,16 @@ public class Brute extends Mob {
 				sprite.showStatus( CharSprite.NEGATIVE, Messages.get(this, "enraged") );
 			}
 		}
+	}
+
+    @Override
+	public int attackProc( Char enemy, int damage ) {
+		damage = super.attackProc( enemy, damage );
+		if (Random.Int( 2 ) == 0 && Dungeon.isChallenged()) {
+			Buff.affect( enemy, Cripple.class );
+		}
+		
+		return damage;
 	}
 	
 	{

@@ -24,6 +24,7 @@ package com.trashboxbobylev.tormentpixeldungeon.actors.mobs;
 import com.trashboxbobylev.tormentpixeldungeon.Assets;
 import com.trashboxbobylev.tormentpixeldungeon.Badges;
 import com.trashboxbobylev.tormentpixeldungeon.Dungeon;
+import com.trashboxbobylev.tormentpixeldungeon.actors.Actor;
 import com.trashboxbobylev.tormentpixeldungeon.actors.Char;
 import com.trashboxbobylev.tormentpixeldungeon.actors.blobs.Blob;
 import com.trashboxbobylev.tormentpixeldungeon.actors.blobs.GooWarn;
@@ -34,6 +35,7 @@ import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Ooze;
 import com.trashboxbobylev.tormentpixeldungeon.effects.CellEmitter;
 import com.trashboxbobylev.tormentpixeldungeon.effects.Speck;
 import com.trashboxbobylev.tormentpixeldungeon.effects.particles.ElmoParticle;
+import com.trashboxbobylev.tormentpixeldungeon.effects.Pushing;
 import com.trashboxbobylev.tormentpixeldungeon.items.artifacts.LloydsBeacon;
 import com.trashboxbobylev.tormentpixeldungeon.items.keys.SkeletonKey;
 import com.trashboxbobylev.tormentpixeldungeon.items.scrolls.ScrollOfPsionicBlast;
@@ -42,6 +44,7 @@ import com.trashboxbobylev.tormentpixeldungeon.messages.Messages;
 import com.trashboxbobylev.tormentpixeldungeon.scenes.GameScene;
 import com.trashboxbobylev.tormentpixeldungeon.sprites.CharSprite;
 import com.trashboxbobylev.tormentpixeldungeon.sprites.GooSprite;
+import com.trashboxbobylev.tormentpixeldungeon.sprites.GooShadeSprite;
 import com.trashboxbobylev.tormentpixeldungeon.ui.BossHealthBar;
 import com.trashboxbobylev.tormentpixeldungeon.utils.BArray;
 import com.trashboxbobylev.tormentpixeldungeon.utils.GLog;
@@ -50,6 +53,9 @@ import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
+
+import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Goo extends Mob {
 
@@ -199,8 +205,34 @@ public class Goo extends Mob {
 	public boolean attack( Char enemy ) {
 		boolean result = super.attack( enemy );
 		pumpedUp = 0;
+        if (Dungeon.isChallenged() && !(this instanceof Shade)) spawnShade();
 		return result;
 	}
+
+    private void spawnShade(){
+        ArrayList<Integer> spawnPoints = new ArrayList<>();
+		
+		for (int i=0; i < PathFinder.NEIGHBOURS8.length; i++) {
+			int p = pos + PathFinder.NEIGHBOURS8[i];
+			if (Actor.findChar( p ) == null && (Dungeon.level.passable[p] || Dungeon.level.avoid[p])) {
+				spawnPoints.add( p );
+			}
+		}
+		
+		if (spawnPoints.size() > 0) {
+			Shade shade = new Shade();
+			shade.pos = Random.element( spawnPoints );
+			
+			GameScene.add( shade );
+			Actor.addDelayed( new Pushing( shade, pos, shade.pos ), -1 );
+		}
+
+		for (Mob mob : Dungeon.level.mobs) {
+			if (mob instanceof Shade) {
+				mob.aggro( Dungeon.hero );
+			}
+		}
+    }
 
 	@Override
 	protected boolean getCloser( int target ) {
@@ -216,6 +248,17 @@ public class Goo extends Mob {
 
 	@Override
 	public void damage(int dmg, Object src) {
+       HashSet<Mob> shades = new HashSet<>();
+
+		for (Mob mob : Dungeon.level.mobs)
+			if (mob instanceof Shades)
+				shades.add( mob );
+
+		for (Mob shade : shades)
+			shade.beckon( pos );
+
+		dmg >>= shades.size();
+
 		boolean bleeding = (HP*2 <= HT);
 		super.damage(dmg, src);
 		if ((HP*2 <= HT) && !bleeding){
@@ -270,6 +313,59 @@ public class Goo extends Mob {
 		if ((HP*2 <= HT)) BossHealthBar.bleed(true);
 
 	}
+
+    public static class Shade extends Mob {
+        {
+		HP = HT = 25;
+		defenseSkill = 14;
+		spriteClass = GooShadeSprite.class;
+
+        properties.add(Property.MINIBOSS);
+		properties.add(Property.DEMONIC);
+	    }
+
+    @Override
+	public int attackProc( Char enemy, int damage ) {
+		damage = super.attackProc( enemy, damage );
+		if (Random.Int( 2 ) == 0) {
+			Buff.affect( enemy, Ooze.class );
+			enemy.sprite.burst( 0x000000, 5 );
+		}
+
+		return damage;
+	}
+
+   	@Override
+	public boolean act() {
+
+		if (Dungeon.level.water[pos] && HP < HT) {
+			sprite.emitter().burst( Speck.factory( Speck.HEALING ), 1 );
+			if (HP*2 == HT) {
+				((GooSprite)sprite).spray(false);
+			HP++;
+		}
+
+		return super.act();
+	}
+      
+      @Override
+      public int damageRoll(){
+          return Random.NormalIntRange(4, 10);
+      }
+
+    @Override
+	public int attackSkill( Char target ) {
+		int attack = 20;
+		if (HP*2 <= HT) attack = 30;
+		return attack;
+    }
+
+	@Override
+	public int drRoll() {
+		return Random.NormalIntRange(0, 1);
+	}
+
+    }
 	
 	{
 		resistances.add( ToxicGas.class );

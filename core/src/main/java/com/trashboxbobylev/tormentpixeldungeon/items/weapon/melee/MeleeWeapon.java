@@ -55,12 +55,19 @@ public class MeleeWeapon extends Weapon {
 				lvl*(tier+1);   //level scaling
 	}
 
+    public static final int[] highTierStrReq = {3, 4, 5, 6, 7, 8, 9};
+
 	public int STRReq(int lvl){
 		lvl = Math.max(0, lvl);
 		//strength req decreases at +1,+3,+6,+10,etc.
-		return (8 + tier * 2) - (int)(Math.sqrt(8 * lvl + 1) - 1)/2;
+		return (8 + Math.min(tier * 2, 12) + (tier > 6 ? getHighStrReq(tier - 6) : 0)) - (int)(Math.sqrt(8 * lvl + 1) - 1)/2 + imbue == Weapon.Imbue.HEAVY ? 1 : (imbue == Weapon.Imbue.LIGHT ? -1 : 0);
 	}
 
+    public static int getHighStrReq(int highTier){
+        int result = 0;
+        for (int i = 0; i < highTier; i++) result += highTierStrReq[i-1];
+        return result;
+    }
 
 	@Override
 	public ArrayList<String> actions(Hero hero ) {
