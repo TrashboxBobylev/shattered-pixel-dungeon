@@ -165,7 +165,7 @@ abstract public class ClassArmor extends Armor {
 	}
 
 	@Override
-	public int DRMax(int lvl){
+	public int DR(int lvl){
 		int effectiveTier = armorTier;
 		if (glyph != null) effectiveTier += glyph.tierDRAdjust();
 		effectiveTier = Math.max(0, effectiveTier);

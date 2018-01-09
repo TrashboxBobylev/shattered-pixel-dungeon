@@ -192,7 +192,7 @@ public enum HeroClass {
         
 		
 		OldBow oldbow = new OldBow();
-	    hero.belongings.weapon = oldbow.identify();
+	    (hero.belongings.weapon = oldbow).identify();
         Dungeon.arrows = 50;
 
 		Dungeon.quickslot.setSlot(0, oldbow);
