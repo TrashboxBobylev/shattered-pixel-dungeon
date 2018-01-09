@@ -107,7 +107,7 @@ public class Goo extends Mob {
 
 	@Override
 	public int drRoll() {
-		return Random.NormalIntRange(0, 2);
+		return 4;
 	}
 
 	@Override
@@ -204,8 +204,8 @@ public class Goo extends Mob {
 	@Override
 	public boolean attack( Char enemy ) {
 		boolean result = super.attack( enemy );
-		pumpedUp = 0;
-        if (Dungeon.isChallenged()) spawnShade();
+        if (Dungeon.isChallenged() && pumpedUp >= 2) spawnShade();
+        pumpedUp = 0;
 		return result;
 	}
 
@@ -316,7 +316,7 @@ public class Goo extends Mob {
 
     public static class Shade extends Mob {
         {
-		HP = HT = 25;
+		HP = HT = 10;
 		defenseSkill = 14;
 		spriteClass = GooShadeSprite.class;
 
@@ -351,7 +351,7 @@ public class Goo extends Mob {
       
       @Override
       public int damageRoll(){
-          return Random.NormalIntRange(4, 10);
+          return Random.NormalIntRange(2, 5);
       }
 
     @Override
@@ -363,7 +363,7 @@ public class Goo extends Mob {
 
 	@Override
 	public int drRoll() {
-		return Random.NormalIntRange(0, 1);
+		return Random.NormalIntRange(0, 3);
 	}
 
     }

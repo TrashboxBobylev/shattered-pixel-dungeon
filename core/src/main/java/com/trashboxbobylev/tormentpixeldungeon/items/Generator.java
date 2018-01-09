@@ -137,6 +137,7 @@ import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Interhammer;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Electroglaive;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.DoubleShortswords;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.ChlorateEruption;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.OldBow;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.WoodenBow;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.ExactBow;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.SimpleCrossbow;
@@ -278,9 +279,10 @@ public class Generator {
 					Dagger.class,
 					MagesStaff.class,
 					Boomerang.class,
+                    OldBow.class,
 					Dart.class
 			};
-			WEP_T1.probs = new float[]{ 1, 1, 1, 0, 0, 1 };
+			WEP_T1.probs = new float[]{ 1, 1, 1, 0, 0, 1, 1 };
 			
 			WEP_T2.classes = new Class<?>[]{
 					Shortsword.class,
@@ -484,7 +486,7 @@ public class Generator {
 	}
 
 	public static Armor randomArmor(){
-		return randomArmor(Dungeon.depth / 5);
+		return randomArmor(Dungeon.getChapter());
 	}
 	
 	public static Armor randomArmor(int floorSet) {
@@ -512,7 +514,7 @@ public class Generator {
 	};
 
 	public static Weapon randomWeapon(){
-		return randomWeapon(Dungeon.depth / 5);
+		return randomWeapon(Dungeon.getChapter());
 	}
 	
 	public static Weapon randomWeapon(int floorSet) {

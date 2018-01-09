@@ -68,7 +68,7 @@ public class Warlock extends Mob implements Callback {
 	
 	@Override
 	public int drRoll() {
-		return Random.NormalIntRange(0, 8);
+		return 17;
 	}
 	
 	@Override

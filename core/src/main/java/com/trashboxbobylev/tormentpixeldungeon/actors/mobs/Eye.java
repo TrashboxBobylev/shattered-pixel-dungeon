@@ -75,7 +75,7 @@ public class Eye extends Mob {
 	
 	@Override
 	public int drRoll() {
-		return Random.NormalIntRange(0, 10);
+		return 22;
 	}
 	
 	private Ballistica beam;

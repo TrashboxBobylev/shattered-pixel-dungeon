@@ -70,7 +70,7 @@ public class Brute extends Mob {
 	
 	@Override
 	public int drRoll() {
-		return Random.NormalIntRange(0, 8);
+		return 18;
 	}
 	
 	@Override

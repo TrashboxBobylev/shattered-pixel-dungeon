@@ -31,6 +31,7 @@ import com.trashboxbobylev.tormentpixeldungeon.items.artifacts.CloakOfShadows;
 import com.trashboxbobylev.tormentpixeldungeon.items.food.Food;
 import com.trashboxbobylev.tormentpixeldungeon.items.potions.PotionOfHealing;
 import com.trashboxbobylev.tormentpixeldungeon.items.potions.PotionOfMindVision;
+import com.trashboxbobylev.tormentpixeldungeon.items.potions.PotionOfParalyticGas;
 import com.trashboxbobylev.tormentpixeldungeon.items.scrolls.ScrollOfMagicMapping;
 import com.trashboxbobylev.tormentpixeldungeon.items.scrolls.ScrollOfMagicalInfusion;
 import com.trashboxbobylev.tormentpixeldungeon.items.scrolls.ScrollOfUpgrade;
@@ -39,6 +40,7 @@ import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Dagger;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Knuckles;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.MagesStaff;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.WornShortsword;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.OldBow;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.NinjaSword;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.DoubleDagger;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Halberd;
@@ -54,7 +56,8 @@ public enum HeroClass {
 	WARRIOR( "warrior" ),
 	MAGE( "mage" ),
 	ROGUE( "rogue" ),
-	HUNTRESS( "huntress" );
+	HUNTRESS( "huntress" ),
+    ARCHER( "archer" );
 
 	private String title;
 
@@ -84,6 +87,10 @@ public enum HeroClass {
 			case HUNTRESS:
 				initHuntress( hero );
 				break;
+
+            case ARCHER:
+                initArcher( hero );
+                break;
 		}
 		
 	}
@@ -104,6 +111,8 @@ public enum HeroClass {
 				return Badges.Badge.MASTERY_ROGUE;
 			case HUNTRESS:
 				return Badges.Badge.MASTERY_HUNTRESS;
+             case ARCHER:
+				return Badges.Badge.MASTERY_ARCHER;
 		}
 		return null;
 	}
@@ -178,6 +187,18 @@ public enum HeroClass {
 
 		new PotionOfMindVision().identify();
 	}
+
+    private static void initArcher( Hero hero ) {
+        
+		
+		OldBow oldbow = new OldBow();
+	    hero.belongings.weapon = oldbow.identify();
+        Dungeon.arrows = 50;
+
+		Dungeon.quickslot.setSlot(0, oldbow);
+
+		new PotionOfParalyticGas().identify();
+	}
 	
 	public String title() {
 		return Messages.get(HeroClass.class, title);
@@ -194,6 +215,8 @@ public enum HeroClass {
 			return Assets.ROGUE;
 		case HUNTRESS:
 			return Assets.HUNTRESS;
+        case ARCHER:
+            return Assets.ARCHER;
 		}
 		
 		return null;
@@ -233,6 +256,13 @@ public enum HeroClass {
 					Messages.get(HeroClass.class, "huntress_perk3"),
 					Messages.get(HeroClass.class, "huntress_perk4"),
 					Messages.get(HeroClass.class, "huntress_perk5"),
+			};
+            case ARCHER:
+			return new String[]{
+					Messages.get(HeroClass.class, "archer_perk1"),
+					Messages.get(HeroClass.class, "archer_perk2"),
+					Messages.get(HeroClass.class, "archer_perk3"),
+					Messages.get(HeroClass.class, "archer_perk4"),
 			};
 		}
 		

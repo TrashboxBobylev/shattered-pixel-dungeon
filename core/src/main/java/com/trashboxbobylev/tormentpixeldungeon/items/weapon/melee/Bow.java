@@ -87,7 +87,7 @@ public class Bow extends MeleeWeapon {
 
     @Override
     public int min(int lvl){
-        return (tier-1) + lvl;
+        return (tier+1) + lvl;
     }
 
     @Override

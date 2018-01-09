@@ -41,6 +41,7 @@ import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Slow;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Speed;
 import com.trashboxbobylev.tormentpixeldungeon.actors.buffs.Vertigo;
 import com.trashboxbobylev.tormentpixeldungeon.actors.hero.Hero;
+import com.trashboxbobylev.tormentpixeldungeon.actors.hero.HeroClass;
 import com.trashboxbobylev.tormentpixeldungeon.actors.hero.HeroSubClass;
 import com.trashboxbobylev.tormentpixeldungeon.actors.mobs.Shaman;
 import com.trashboxbobylev.tormentpixeldungeon.items.rings.RingOfElements;
@@ -159,7 +160,7 @@ public abstract class Char extends Actor {
 			} else {
 				dmg = damageRoll();
 			}
-			int effectiveDamage = Math.max( dmg - dr, 0 );
+			int effectiveDamage = Math.max( dmg - (dr / 2), 1 );
 			
 			effectiveDamage = attackProc( enemy, effectiveDamage );
 			effectiveDamage = enemy.defenseProc( this, effectiveDamage );
@@ -278,13 +279,13 @@ public abstract class Char extends Actor {
 
         if ((src instanceof WandOfLightning || src instanceof Shaman || src instanceof Potential || src instanceof Shocking) && Random.Int(5) == 0) Buff.affect(this, Electroshock.class).set(Random.IntRange(4, 10));
 		
-		Class<?> srcClass = src.getClass();
+        Class<?> srcClass = src.getClass();
 		if (immunities().contains( srcClass )) {
-			dmg = 0;
-		} else if (resistances().contains( srcClass )) {
-			dmg = Random.IntRange( 0, dmg );
-		}
-		
+			dmg = 1;
+		} else if (resistances().contains( srcClass ) && RingOfElements.FULL.contains(srcClass)) {
+			dmg -= drRoll() / (Dungeon.isChallenged() ? 0.4 : 0.2);
+	    }
+
 		if (buff( Paralysis.class ) != null) {
 			if (Random.Int( dmg ) >= Random.Int( HP )) {
 				Buff.detach( this, Paralysis.class );
@@ -295,6 +296,7 @@ public abstract class Char extends Actor {
 		}
 
         if (Dungeon.isChallenged() && this instanceof Hero) dmg *= 1.75;
+        if (this instanceof Hero && Dungeon.hero.heroClass == HeroClass.ARCHER) dmg *= 1.15;
 		//FIXME: when I add proper damage properties, should add an IGNORES_SHIELDS property to use here.
 		if (src instanceof Hunger || SHLD == 0){
 			HP -= dmg;

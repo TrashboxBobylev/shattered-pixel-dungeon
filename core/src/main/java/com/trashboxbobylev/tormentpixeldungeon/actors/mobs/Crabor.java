@@ -54,6 +54,6 @@ public class Crabor extends Mob {
 	
 	@Override
 	public int drRoll() {
-		return Random.NormalIntRange(0, 14);
+		return 30;
 	}
 }

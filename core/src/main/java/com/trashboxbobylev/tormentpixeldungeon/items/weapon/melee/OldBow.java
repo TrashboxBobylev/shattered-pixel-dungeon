@@ -19,28 +19,21 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package com.trashboxbobylev.tormentpixeldungeon.actors.mobs;
+package com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee;
 
-import com.trashboxbobylev.tormentpixeldungeon.Badges;
-import com.trashboxbobylev.tormentpixeldungeon.sprites.ShieldedSprite;
-import com.watabou.utils.Random;
+import com.trashboxbobylev.tormentpixeldungeon.sprites.ItemSpriteSheet;
 
-public class Shielded extends Brute {
-
+public class OldBow extends Bow {
+	
 	{
-		spriteClass = ShieldedSprite.class;
-		
-		defenseSkill = 20;
+		image = ItemSpriteSheet.OLD_BOW;
+
+		tier = 1;
+        DLY = 1f;
 	}
-	
-	@Override
-	public int drRoll() {
-		return 25;
-	}
-	
-	@Override
-	public void die( Object cause ) {
-		super.die( cause );
-		Badges.validateRare( this );
-	}
+
+    public int maxRanged(int lvl){
+        return 4*(tier+1) +//8 damage, down from 10
+                     lvl*(tier+1); //scaling unchanged
+    }
 }

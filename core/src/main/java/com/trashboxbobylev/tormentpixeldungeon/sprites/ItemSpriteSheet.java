@@ -150,7 +150,7 @@ public class ItemSpriteSheet {
 
 	private static final int WEP_TIER1      =                               xy(1, 7);   //8 slots
 	public static final int WORN_SHORTSWORD = WEP_TIER1+0;
-	public static final int CUDGEL          = WEP_TIER1+1;
+	public static final int OLD_BOW         = WEP_TIER1+1;
 	public static final int KNUCKLEDUSTER   = WEP_TIER1+2;
 	public static final int RAPIER          = WEP_TIER1+3;
 	public static final int DAGGER          = WEP_TIER1+4;
@@ -160,6 +160,7 @@ public class ItemSpriteSheet {
 		assignItemRect(KNUCKLEDUSTER,   15, 10);
 		assignItemRect(DAGGER,          12, 13);
 		assignItemRect(MAGES_STAFF,     15, 16);
+        assignItemRect(OLD_BOW, 13, 13);
 	}
 
 	private static final int WEP_TIER2      =                               xy(9, 7);   //8 slots
@@ -285,6 +286,7 @@ private static final int WEP_TIER7     =                               xy(1, 12)
 	public static final int ARMOR_ROGUE     = ARMOR+7;
 	public static final int ARMOR_HUNTRESS  = ARMOR+8;
     public static final int ARMOR_COMPOSITE = ARMOR+9;
+    public static final int ARMOR_ARCHER = ARMOR+10;
 	static{
 		assignItemRect(ARMOR_CLOTH,     15, 12);
 		assignItemRect(ARMOR_LEATHER,   14, 13);
@@ -295,6 +297,7 @@ private static final int WEP_TIER7     =                               xy(1, 12)
 		assignItemRect(ARMOR_MAGE,      15, 15);
 		assignItemRect(ARMOR_ROGUE,     14, 12);
 		assignItemRect(ARMOR_HUNTRESS,  13, 15);
+        assignItemRect(ARMOR_ARCHER,      14, 12);
 		assignItemRect(ARMOR_COMPOSITE,  14, 13);
 	}
 
@@ -443,17 +446,17 @@ assignItemRect(ARTIFACT_BELT,    16, 13);
 	public static final int POTION_IVORY    = POTIONS+11;
 	static {
 		assignItemRect(POTION_CRIMSON, 10, 14);
-               assignItemRect(POTION_AMBER, 8, 14);
-assignItemRect(POTION_GOLDEN, 12, 14);
-assignItemRect(POTION_JADE, 10, 13);
+               assignItemRect(POTION_AMBER, 10, 14);
+assignItemRect(POTION_GOLDEN, 10, 14);
+assignItemRect(POTION_JADE, 10, 14);
 assignItemRect(POTION_TURQUOISE, 10, 14);
-assignItemRect(POTION_AZURE, 8, 14);
-assignItemRect(POTION_INDIGO, 12, 14);
+assignItemRect(POTION_AZURE, 10, 14);
+assignItemRect(POTION_INDIGO, 10, 14);
 assignItemRect(POTION_MAGENTA, 10, 14);
-assignItemRect(POTION_BISTRE, 14, 14);
-assignItemRect(POTION_CHARCOAL, 8, 11);
-assignItemRect(POTION_SILVER, 14, 13);
-assignItemRect(POTION_IVORY, 12, 14);
+assignItemRect(POTION_BISTRE, 10, 14);
+assignItemRect(POTION_CHARCOAL, 10, 14);
+assignItemRect(POTION_SILVER, 10, 14);
+assignItemRect(POTION_IVORY, 10, 14);
 	}
 
 	private static final int SEEDS          =                               xy(1, 23);  //16 slots

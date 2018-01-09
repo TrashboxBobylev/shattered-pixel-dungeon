@@ -35,6 +35,11 @@ public class Stone extends Armor.Glyph {
 		return damage;
 	}
 
+   @Override
+   public int tierDRAdjust(){
+       return 1;
+   }
+
 	@Override
 	public ItemSprite.Glowing glowing() {
 		return GREY;

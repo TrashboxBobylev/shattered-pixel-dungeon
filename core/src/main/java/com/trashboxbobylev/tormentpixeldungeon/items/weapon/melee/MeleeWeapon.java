@@ -65,7 +65,7 @@ public class MeleeWeapon extends Weapon {
 
     public static int getHighStrReq(int highTier){
         int result = 0;
-        for (int i = 0; i < highTier; i++) result += highTierStrReq[i-1];
+        for (int i = 0; i < highTier; i++) result += highTierStrReq[i];
         return result;
     }
 

@@ -60,7 +60,7 @@ public class Bat extends Mob {
 	
 	@Override
 	public int drRoll() {
-		return Random.NormalIntRange(0, 4);
+		return 9;
 	}
 	
 	@Override

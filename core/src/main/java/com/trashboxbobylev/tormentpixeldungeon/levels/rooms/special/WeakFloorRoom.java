@@ -80,7 +80,7 @@ public class WeakFloorRoom extends SpecialRoom {
 		@Override
 		public CustomTiledVisual create() {
 			tileW = tileH = 1;
-			map( new int[]{Dungeon.depth/5}, 1);
+			map( new int[]{Dungeon.getChapter()}, 1);
 			return super.create();
 		}
 

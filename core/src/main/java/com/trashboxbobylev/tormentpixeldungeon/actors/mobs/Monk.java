@@ -70,7 +70,7 @@ public class Monk extends Mob {
 	
 	@Override
 	public int drRoll() {
-		return Random.NormalIntRange(0, 2);
+		return 3;
 	}
 	
 	@Override

@@ -67,7 +67,7 @@ public class Shaman extends Mob implements Callback {
 	
 	@Override
 	public int drRoll() {
-		return Random.NormalIntRange(0, 4);
+		return 7;
 	}
 	
 	@Override

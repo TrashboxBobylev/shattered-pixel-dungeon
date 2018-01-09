@@ -78,6 +78,9 @@ abstract public class ClassArmor extends Armor {
 		case HUNTRESS:
 			classArmor = new HuntressArmor();
 			break;
+        case ARCHER:
+            classArmor = new ArcherArmor();
+            break;
 		}
 		
 		classArmor.level(armor.level());
@@ -167,7 +170,7 @@ abstract public class ClassArmor extends Armor {
 		if (glyph != null) effectiveTier += glyph.tierDRAdjust();
 		effectiveTier = Math.max(0, effectiveTier);
 
-		return effectiveTier * (2 + lvl);
+		return effectiveTier * (3 + lvl);
 	}
 	
     public class Charger extends Buff {

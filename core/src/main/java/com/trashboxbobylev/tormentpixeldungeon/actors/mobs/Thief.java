@@ -120,7 +120,7 @@ public class Thief extends Mob {
 
 	@Override
 	public int drRoll() {
-		return Random.NormalIntRange(0, 3);
+		return 5;
 	}
 
 	@Override

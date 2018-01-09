@@ -217,27 +217,16 @@ public class Armor extends EquipableItem {
 		return hero.belongings.armor == this;
 	}
 
-	public final int DRMax(){
-		return DRMax(level());
+	public final int DR(){
+		return DR(level());
 	}
 
-	public int DRMax(int lvl){
+	public int DR(int lvl){
 		int effectiveTier = tier;
 		if (glyph != null) effectiveTier += glyph.tierDRAdjust();
 		effectiveTier = Math.max(0, effectiveTier);
 
-		return Math.max(DRMin(lvl), effectiveTier * (2 + lvl));
-	}
-
-	public final int DRMin(){
-		return DRMin(level());
-	}
-
-	public int DRMin(int lvl){
-		if (glyph != null && glyph instanceof Stone)
-			return 2*lvl;
-		else
-			return lvl;
+		return effectiveTier * (3 + lvl);
 	}
 
 	@Override
@@ -289,13 +278,13 @@ public class Armor extends EquipableItem {
 		String info = desc();
 		
 		if (levelKnown) {
-			info += "\n\n" + Messages.get(Armor.class, "curr_absorb", DRMin(), DRMax(), STRReq());
+			info += "\n\n" + Messages.get(Armor.class, "curr_absorb", DR(), STRReq());
 			
 			if (STRReq() > Dungeon.hero.STR()) {
 				info += " " + Messages.get(Armor.class, "too_heavy");
 			}
 		} else {
-			info += "\n\n" + Messages.get(Armor.class, "avg_absorb", DRMin(0), DRMax(0), STRReq(0));
+			info += "\n\n" + Messages.get(Armor.class, "avg_absorb", DR(0), STRReq(0));
 
 			if (STRReq(0) > Dungeon.hero.STR()) {
 				info += " " + Messages.get(Armor.class, "probably_too_heavy");

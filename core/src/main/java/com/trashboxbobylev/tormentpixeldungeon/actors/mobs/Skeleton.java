@@ -103,7 +103,7 @@ public class Skeleton extends Mob {
 	
 	@Override
 	public int drRoll() {
-		return Random.NormalIntRange(0, 5);
+		return 10;
 	}
 
 }

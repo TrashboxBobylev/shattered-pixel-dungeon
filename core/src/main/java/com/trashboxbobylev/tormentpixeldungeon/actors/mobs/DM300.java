@@ -79,7 +79,7 @@ public class DM300 extends Mob {
 	
 	@Override
 	public int drRoll() {
-		return Random.NormalIntRange(0, 10);
+		return HP / 5;
 	}
 	
 	@Override

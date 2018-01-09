@@ -54,7 +54,7 @@ import com.watabou.utils.Random;
 
 public class King extends Mob {
 	
-	private static final int MAX_ARMY_SIZE	= 5;
+	private static final int MAX_ARMY_SIZE	= Dungeon.isChallenged() ? 8 : 5;
 	
 	{
 		spriteClass = KingSprite.class;
@@ -98,7 +98,7 @@ public class King extends Mob {
 	
 	@Override
 	public int drRoll() {
-		return Random.NormalIntRange(0, 14);
+		return 30;
 	}
 	
 	@Override
@@ -308,7 +308,7 @@ public class King extends Mob {
 		
 		@Override
 		public int drRoll() {
-			return Random.NormalIntRange(0, 5);
+			return 10;
 		}
 
 		{

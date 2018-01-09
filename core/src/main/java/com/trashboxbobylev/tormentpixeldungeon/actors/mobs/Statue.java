@@ -105,7 +105,7 @@ public class Statue extends Mob {
 
 	@Override
 	public int drRoll() {
-		return Random.NormalIntRange(0, Dungeon.depth + weapon.defenseFactor(this));
+		return Dungeon.depth*2 + weapon.defenseFactor(this);
 	}
 	
 	@Override

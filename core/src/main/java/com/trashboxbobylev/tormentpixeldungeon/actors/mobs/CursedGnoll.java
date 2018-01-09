@@ -54,14 +54,14 @@ public class CursedGnoll extends Mob {
 	
 	@Override
 	public int drRoll() {
-		return Random.NormalIntRange(0, 6);
+		return 13;
 	}
 
     @Override
 	public int attackProc( Char enemy, int damage ) {
 		damage = super.attackProc( enemy, damage );
 		if (Random.Int( 2 ) == 0) {
-			int heal = Random.NormalIntRange(0, damage);
+			int heal = Random.NormalIntRange(damage / 2, damage);
             heal = Math.min(HT - HP, heal);
 
             HP += heal;

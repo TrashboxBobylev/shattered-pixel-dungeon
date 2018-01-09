@@ -348,13 +348,7 @@ public class Hero extends Char {
 		Barkskin bark = buff(Barkskin.class);
 
 		if (belongings.armor != null) {
-			dr += Random.NormalIntRange( belongings.armor.DRMin(), belongings.armor.DRMax());
-            if (Dungeon.isChallenged()){
-                for (int i = 0; i < dr; i++){
-                    if (Random.Int(10) == 0) bonusDR++;
-                }
-            }
-            dr += bonusDR;
+			dr += Random.NormalIntRange( 0, belongings.armor.DR());
 			if (STR() < belongings.armor.STRReq()){
 				dr -= 2*(belongings.armor.STRReq() - STR());
 				dr = Math.max(dr, 0);
@@ -372,7 +366,7 @@ public class Hero extends Char {
 		KindOfWeapon wep = rangedWeapon != null ? rangedWeapon : belongings.weapon;
 		int dmg;
 
-		if (wep != null) {
+		if (wep != null || (wep instanceof Bow && heroClass == HeroSubClass.ARCHER)) {
 			dmg = wep.damageRoll( this ) + RingOfForce.armedDamageBonus(this);
 		} else {
 			dmg = RingOfForce.damageRoll(this);
@@ -996,7 +990,7 @@ public class Hero extends Char {
 		//TODO improve this when I have proper damage source logic
 		if (belongings.armor != null && belongings.armor.hasGlyph(AntiMagic.class)
 				&& RingOfElements.FULL.contains(src.getClass())){
-			dmg -= Random.NormalIntRange(belongings.armor.DRMin(), belongings.armor.DRMax())/3;
+			dmg -= drRoll()/2;
 		}
 
 		if (subClass == HeroSubClass.BERSERKER && berserk == null){

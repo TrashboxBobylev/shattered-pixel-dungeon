@@ -359,6 +359,45 @@ public class Dungeon {
 		return depth == 5 || depth == 10 || depth == 15 || depth == 20 || depth == 25;
 	}
 	
+    public static int getChapter() {
+        if (depth <= 25) {
+            return depth / 5;
+        }
+        else if (depth == 26){
+            return 5;
+        }
+        else if (depth <= 51) {
+            return (depth - 1) / 5;
+        }
+        else if (52 <= depth <= 59) {
+            return 11;
+        }
+        else if (depth <= 85) {
+            return depth / 5;
+        }
+        else if (depth == 86) {
+            return 17;
+        }
+        else if (depth <= 91) {
+            return 18;
+        }
+        else if (depth <= 96) {
+           return 19;
+        }
+        else if (depth <= 101) {
+           return 20;
+        }
+        else if (depth <= 106) {
+            return 21;
+        }
+        else if (depth <= 112) {
+            return 22;
+        }
+        else if (depth > 200) {
+            return (depth - 199) / 5;
+        }
+    }
+
 	@SuppressWarnings("deprecation")
 	public static void switchLevel( final Level level, int pos ) {
 		
