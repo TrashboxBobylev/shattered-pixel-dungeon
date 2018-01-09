@@ -96,6 +96,7 @@ import com.trashboxbobylev.tormentpixeldungeon.items.scrolls.ScrollOfMagicMappin
 import com.trashboxbobylev.tormentpixeldungeon.items.scrolls.ScrollOfMagicalInfusion;
 import com.trashboxbobylev.tormentpixeldungeon.items.scrolls.ScrollOfUpgrade;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.Weapon;
+import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Bow;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.Flail;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.melee.ChlorateEruption;
 import com.trashboxbobylev.tormentpixeldungeon.items.weapon.missiles.MissileWeapon;
@@ -366,7 +367,7 @@ public class Hero extends Char {
 		KindOfWeapon wep = rangedWeapon != null ? rangedWeapon : belongings.weapon;
 		int dmg;
 
-		if (wep != null || (wep instanceof Bow && heroClass == HeroSubClass.ARCHER)) {
+		if (wep != null || (wep instanceof Bow && heroClass == HeroClass.ARCHER)) {
 			dmg = wep.damageRoll( this ) + RingOfForce.armedDamageBonus(this);
 		} else {
 			dmg = RingOfForce.damageRoll(this);

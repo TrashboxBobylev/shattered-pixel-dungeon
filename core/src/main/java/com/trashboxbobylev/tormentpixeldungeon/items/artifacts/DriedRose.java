@@ -539,7 +539,7 @@ public class DriedRose extends Artifact {
 			//TODO improve this when I have proper damage source logic
 			if (rose != null && rose.armor != null && rose.armor.hasGlyph(AntiMagic.class)
 					&& RingOfElements.FULL.contains(src.getClass())){
-				dmg -= Random.NormalIntRange(rose.armor.DRMin(), rose.armor.DRMax())/3;
+				dmg -= drRoll()/2;
 			}
 			
 			super.damage( dmg, src );
@@ -586,7 +586,7 @@ public class DriedRose extends Artifact {
 		public int drRoll() {
 			int block = 0;
 			if (rose != null && rose.armor != null){
-				block += Random.NormalIntRange( rose.armor.DRMin(), rose.armor.DRMax());
+				block += Random.NormalIntRange(0, rose.armor.DR());
 			}
 			if (rose != null && rose.weapon != null){
 				block += Random.NormalIntRange( 0, rose.weapon.defenseFactor( this ));

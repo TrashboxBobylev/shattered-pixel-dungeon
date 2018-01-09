@@ -22,6 +22,7 @@
 package com.trashboxbobylev.tormentpixeldungeon.levels.rooms.secret;
 
 import com.trashboxbobylev.tormentpixeldungeon.ShatteredPixelDungeon;
+import com.trashboxbobylev.tormentpixeldungeon.Dungeon;
 import com.trashboxbobylev.tormentpixeldungeon.actors.hero.HeroClass;
 import com.trashboxbobylev.tormentpixeldungeon.levels.rooms.special.SpecialRoom;
 import com.trashboxbobylev.tormentpixeldungeon.scenes.StartScene;

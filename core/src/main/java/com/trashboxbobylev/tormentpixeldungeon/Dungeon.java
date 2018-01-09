@@ -369,7 +369,7 @@ public class Dungeon {
         else if (depth <= 51) {
             return (depth - 1) / 5;
         }
-        else if (52 <= depth <= 59) {
+        else if (depth >= 52 && depth <= 59) {
             return 11;
         }
         else if (depth <= 85) {
