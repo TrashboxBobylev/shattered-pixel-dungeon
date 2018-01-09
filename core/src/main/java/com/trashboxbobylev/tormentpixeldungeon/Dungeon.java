@@ -396,6 +396,7 @@ public class Dungeon {
         else if (depth > 200) {
             return (depth - 199) / 5;
         }
+        return 0;
     }
 
 	@SuppressWarnings("deprecation")
