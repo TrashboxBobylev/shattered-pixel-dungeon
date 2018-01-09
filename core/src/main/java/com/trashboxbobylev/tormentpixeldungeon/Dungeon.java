@@ -479,8 +479,8 @@ public class Dungeon {
 		return Random.Int(5 - floorThisSet) < asLeftThisSet;
 	}
 	
-	private static final String RG_GAME_FILE	= "game.dat";
-	private static final String RG_DEPTH_FILE	= "depth%d.dat";
+	private static final String RG_GAME_FILE	= "rogue.dat";
+	private static final String RG_DEPTH_FILE	= "rogue%d.dat";
 	
 	private static final String WR_GAME_FILE	= "warrior.dat";
 	private static final String WR_DEPTH_FILE	= "warrior%d.dat";
@@ -490,6 +490,9 @@ public class Dungeon {
 	
 	private static final String RN_GAME_FILE	= "ranger.dat";
 	private static final String RN_DEPTH_FILE	= "ranger%d.dat";
+
+   private static final String AH_GAME_FILE	= "archer.dat";
+	private static final String AH_DEPTH_FILE	= "archer%d.dat";
 	
 	private static final String VERSION		= "version";
 	private static final String SEED		= "seed";
@@ -513,6 +516,8 @@ public class Dungeon {
 			return MG_GAME_FILE;
 		case HUNTRESS:
 			return RN_GAME_FILE;
+       	case ARCHER:
+			return AH_GAME_FILE;
 		default:
 			return RG_GAME_FILE;
 		}
@@ -526,6 +531,8 @@ public class Dungeon {
 			return MG_DEPTH_FILE;
 		case HUNTRESS:
 			return RN_DEPTH_FILE;
+       	case ARCHER:
+			return AH_DEPTH_FILE;
 		default:
 			return RG_DEPTH_FILE;
 		}

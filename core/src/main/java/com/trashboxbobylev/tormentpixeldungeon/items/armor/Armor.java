@@ -226,7 +226,7 @@ public class Armor extends EquipableItem {
 		if (glyph != null) effectiveTier += glyph.tierDRAdjust();
 		effectiveTier = Math.max(0, effectiveTier);
 
-		return effectiveTier * (3 + lvl);
+		return effectiveTier * (3 + Math.round(lvl*1.5f));
 	}
 
 	@Override

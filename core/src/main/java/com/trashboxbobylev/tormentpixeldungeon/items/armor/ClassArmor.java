@@ -170,7 +170,7 @@ abstract public class ClassArmor extends Armor {
 		if (glyph != null) effectiveTier += glyph.tierDRAdjust();
 		effectiveTier = Math.max(0, effectiveTier);
 
-		return effectiveTier * (3 + lvl);
+		return effectiveTier * (3 + Math.round(lvl*1.5f));
 	}
 	
     public class Charger extends Buff {

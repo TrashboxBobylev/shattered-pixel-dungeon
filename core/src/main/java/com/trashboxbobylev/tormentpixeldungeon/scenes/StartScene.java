@@ -161,7 +161,7 @@ public class StartScene extends PixelScene {
 			add( shield );
 		}
 		if (ShatteredPixelDungeon.landscape()) {
-			float shieldW = width / 4;
+			float shieldW = width / 5f;
 			float shieldH = Math.min( centralHeight, shieldW );
 			top = title.y + title.height + (centralHeight - shieldH) / 2;
 			for (int i=0; i < classes.length; i++) {
@@ -178,14 +178,14 @@ public class StartScene extends PixelScene {
 			add( challenge );
 
 		} else {
-			float shieldW = width / 2;
-			float shieldH = Math.min( centralHeight / 2, shieldW * 1.2f );
+			float shieldW = width / 3;
+			float shieldH = Math.min( centralHeight / 3, shieldW * 1.2f );
 			top = title.y + title.height() + centralHeight / 2 - shieldH;
 			for (int i=0; i < classes.length; i++) {
 				ClassShield shield = shields.get( classes[i] );
 				shield.setRect(
-						left + (i % 2) * shieldW,
-						top + (i / 2) * shieldH,
+						left + (i % 3) * shieldW,
+						top + (i / 3) * shieldH+(float)Math.floor(i/3*shieldH*0.5),
 						shieldW, shieldH );
 				align(shield);
 			}

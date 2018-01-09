@@ -241,7 +241,7 @@ if (enemy == null || !enemy.isAlive()) return false;
 				HeroSubClass.SNIPER ? 0 : enemy.drRoll();
 			
 			int dmg = Random.NormalIntRange(minRanged(), maxRanged());
-			int effectiveDamage = Math.max( dmg - dr, 0 );
+			int effectiveDamage = Math.max( dmg - dr / 2, 1 );
 			
 			effectiveDamage = curUser.attackProc( enemy, effectiveDamage );
 			effectiveDamage = enemy.defenseProc( curUser, effectiveDamage );
