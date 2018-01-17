@@ -51,7 +51,6 @@ import com.trashboxbobylev.tormentpixeldungeon.levels.HallsLevel;
 import com.trashboxbobylev.tormentpixeldungeon.levels.LastLevel;
 import com.trashboxbobylev.tormentpixeldungeon.levels.LastShopLevel;
 import com.trashboxbobylev.tormentpixeldungeon.levels.Level;
-import com.trashboxbobylev.tormentpixeldungeon.levels.ModernSewerLevel;
 import com.trashboxbobylev.tormentpixeldungeon.levels.PrisonBossLevel;
 import com.trashboxbobylev.tormentpixeldungeon.levels.PrisonLevel;
 import com.trashboxbobylev.tormentpixeldungeon.levels.SewerBossLevel;
