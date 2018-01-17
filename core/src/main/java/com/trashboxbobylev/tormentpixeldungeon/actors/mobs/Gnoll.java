@@ -53,6 +53,6 @@ public class Gnoll extends Mob {
 	
 	@Override
 	public int drRoll() {
-		return 4;
+		return 3;
 	}
 }

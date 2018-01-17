@@ -307,13 +307,7 @@ public class Dungeon {
 		case 26:
 			level = new LastLevel();
 			break;
-        case 27:
-		case 28:
-		case 29:
-		case 30:
-        case 31:
-			level = new ModernSewerLevel();
-			break;
+			
 		default:
 			level = new DeadEndLevel();
 			Statistics.deepestFloor--;
@@ -348,7 +342,7 @@ public class Dungeon {
 	}
 	
 	public static boolean shopOnLevel() {
-		return depth == 6 || depth == 11 || depth == 16 || depth == 27;
+		return depth == 6 || depth == 11 || depth == 16;
 	}
 	
 	public static boolean bossLevel() {
@@ -365,36 +359,6 @@ public class Dungeon {
         }
         else if (depth == 26){
             return 5;
-        }
-        else if (depth <= 51) {
-            return (depth - 1) / 5;
-        }
-        else if (depth >= 52 && depth <= 59) {
-            return 11;
-        }
-        else if (depth <= 85) {
-            return depth / 5;
-        }
-        else if (depth == 86) {
-            return 17;
-        }
-        else if (depth <= 91) {
-            return 18;
-        }
-        else if (depth <= 96) {
-           return 19;
-        }
-        else if (depth <= 101) {
-           return 20;
-        }
-        else if (depth <= 106) {
-            return 21;
-        }
-        else if (depth <= 112) {
-            return 22;
-        }
-        else if (depth > 200) {
-            return (depth - 199) / 5;
         }
         return 0;
     }

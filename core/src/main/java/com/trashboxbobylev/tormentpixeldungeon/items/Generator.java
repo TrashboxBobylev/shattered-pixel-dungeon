@@ -341,17 +341,7 @@ public class Generator {
 					CobaltScytle.class
 			};
 			WEP_T6.probs = new float[]{ 6, 4, 4, 4, 4, 5, 6 };
-			
-            WEP_T7.classes = new Class<?>[]{
-					GalacticSword.class,
-					Interhammer.class,
-					Electroglaive.class,
-					DoubleShortswords.class,
-					ChlorateEruption.class,
-					CobaltScytle.class
-			};
-			WEP_T7.probs = new float[]{ 6, 5, 5, 4, 3, 6 };
-
+		 
 			//see Generator.randomArmor
 			ARMOR.classes = new Class<?>[]{
 					ClothArmor.class,
@@ -359,9 +349,8 @@ public class Generator {
 					MailArmor.class,
 					ScaleArmor.class,
 					PlateArmor.class,
-                    CompositeArmor.class,
                     CompositeArmor.class };
-			ARMOR.probs = new float[]{ 0, 0, 0, 0, 0, 0, 0};
+			ARMOR.probs = new float[]{ 0, 0, 0, 0, 0, 0};
 			
 			FOOD.classes = new Class<?>[]{
 					Food.class,
@@ -422,12 +411,11 @@ public class Generator {
 	}
 
 	private static final float[][] floorSetTierProbs = new float[][] {
-			{0, 70, 20,  8,  2, 0, 0},
-			{0, 25, 50, 18,  5, 2, 0},
-			{0, 10, 35, 40, 10, 5, 0},
-			{0,  0, 10, 50, 25, 15, 0},
-			{0,  0,  8, 20, 42, 30, 0},
-            {0,  0,  0, 0, 10, 75, 15}
+			{0, 70, 20,  8,  2, 0},
+			{0, 25, 50, 18,  5, 2},
+			{0, 10, 35, 40, 10, 5},
+			{0,  0, 10, 50, 25, 15},
+			{0,  0,  8, 20, 42, 30}
 	};
 	
 	private static HashMap<Category,Float> categoryProbs = new LinkedHashMap<>();
@@ -509,8 +497,7 @@ public class Generator {
 			Category.WEP_T3,
 			Category.WEP_T4,
 			Category.WEP_T5,
-            Category.WEP_T6,
-            Category.WEP_T7
+            Category.WEP_T6
 	};
 
 	public static Weapon randomWeapon(){

@@ -132,7 +132,7 @@ public class Assets {
 	
 	public static final String THEME	= "theme.ogg";
 	public static final String TUNE		= "game.ogg";
-	public static final String MODERN_TUNE = "future_game.ogg";
+	public static final String BOSS_THEME = "bossbattle.ogg";
 	public static final String HAPPY	= "surface.ogg";
 	
 	public static final String SND_CLICK	= "snd_click.mp3";

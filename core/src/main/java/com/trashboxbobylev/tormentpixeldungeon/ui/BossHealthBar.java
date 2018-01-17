@@ -26,6 +26,7 @@ import com.trashboxbobylev.tormentpixeldungeon.Dungeon;
 import com.trashboxbobylev.tormentpixeldungeon.actors.mobs.Mob;
 import com.trashboxbobylev.tormentpixeldungeon.effects.particles.BloodParticle;
 import com.watabou.noosa.Image;
+import com.watabou.noosa.audio.Music;
 import com.watabou.noosa.particles.Emitter;
 import com.watabou.noosa.ui.Component;
 
@@ -91,8 +92,10 @@ public class BossHealthBar extends Component {
 			if (!boss.isAlive() || !Dungeon.level.mobs.contains(boss)){
 				boss = null;
 				visible = active = false;
+                Music.INSTANCE.play(Assets.TUNE, true);
 			} else {
 				hp.scale.x = (float)boss.HP/boss.HT;
+                Music.INSTANCE.play(Assets.BOSS_THEME, true);
 				if (hp.scale.x < 0.25f) bleed( true );
 
 				if (bleeding != blood.on){

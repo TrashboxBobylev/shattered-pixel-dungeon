@@ -225,7 +225,7 @@ public class Yog extends Mob {
 		
 		@Override
 		public int damageRoll() {
-			return Random.NormalIntRange( 20, 50 );
+			return Random.NormalIntRange( 15, 35 );
 		}
 		
 		@Override
@@ -283,7 +283,7 @@ public class Yog extends Mob {
 		{
 			spriteClass = BurningFistSprite.class;
 			
-			HP = HT = 200;
+			HP = HT = 150;
 			defenseSkill = 25;
 			
 			EXP = 0;
@@ -301,12 +301,12 @@ public class Yog extends Mob {
 		
 		@Override
 		public int damageRoll() {
-			return Random.NormalIntRange( 26, 32 );
+			return Random.NormalIntRange( 10, 25 );
 		}
 		
 		@Override
 		public int drRoll() {
-			return 31;
+			return 30;
 		}
 		
 		@Override
@@ -382,7 +382,7 @@ public class Yog extends Mob {
 		{
 			spriteClass = LarvaSprite.class;
 			
-			HP = HT = 25;
+			HP = HT = 20;
 			defenseSkill = 20;
 			
 			EXP = 0;
@@ -399,7 +399,7 @@ public class Yog extends Mob {
 		
 		@Override
 		public int damageRoll() {
-			return Random.NormalIntRange( 22, 30 );
+			return Random.NormalIntRange( 8, 18 );
 		}
 		
 		@Override
